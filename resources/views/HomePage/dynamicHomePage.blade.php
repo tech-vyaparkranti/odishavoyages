@@ -1700,41 +1700,29 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
      <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
-<!-- Testimonial Slider Container -->
+<!-- Testimonial Slider Section -->
 <div id="testimonialSlider" class="swiper" style="background:rgba(0,0,0,0.2);margin-bottom:50px;margin-top:60px;">
-  <h2 class="text-center">What Our Clients Say</h2>
-  <div id="testimonialWrapper" class="swiper-wrapper">
-    
-    <!-- Slide 1 -->
-    <div id="testimonialSlide1" class="swiper-slide">
-      <div class="testimonialCard">
-        <img src="./assets/images/image.png" alt="Client A" class="testimonialImg">
-        <p>"Nikita's persistence and technical precision are unmatched. A true problem-solver!Nikita's persistence and technical precision are unmatched. A true problem-solver!"</p>
-      
-      </div>
+    <h2 class="text-center">What Our Clients Say</h2>
+    <div id="testimonialWrapper" class="swiper-wrapper">
+        
+        <!-- Loop through testimonials and create a slide for each one -->
+        @foreach($testimonials as $testimonial)
+        <div class="swiper-slide">
+            <div class="testimonialCard">
+                <!-- Use the image from the testimonial data -->
+                <img src="{{ asset('storage/' . $testimonial->image) }}" alt="Client" class="testimonialImg">
+                <!-- Use the heading_middle and heading_bottom as the text -->
+                <p>"{{ $testimonial->heading_middle }}"</p>
+                <div class="testimonial-author">
+                    <h4>{{ $testimonial->heading_bottom }}</h4>
+                </div>
+            </div>
+        </div>
+        @endforeach
     </div>
-    
-    <!-- Slide 2 -->
-    <div id="testimonialSlide2" class="swiper-slide">
-      <div class="testimonialCard">
-        <img src="./assets/images/image.png" alt="Client B" class="testimonialImg">
-        <p>"Their ability to debug complex Node.js issues is seriously impressive."</p>
-    
-      </div>
-    </div>
-    
-    <!-- Slide 3 -->
-    <div id="testimonialSlide3" class="swiper-slide">
-      <div class="testimonialCard">
-        <img src="./assets/images/image.png" alt="Client C" class="testimonialImg">
-        <p>"Nikita brings clarity and calm to chaotic code. A joy to collaborate with."</p>
-    
-      </div>
-    </div>
-  </div>
 
-  <!-- Pagination -->
-  <div id="testimonialPagination" class="swiper-pagination"></div>
+    <!-- Pagination -->
+    <div id="testimonialPagination" class="swiper-pagination"></div>
 </div>
 
 <!-- Swiper JS -->

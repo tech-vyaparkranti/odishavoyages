@@ -7,6 +7,7 @@ use App\Models\TestimonialModel;
 use App\Traits\CommonFunctions;
 use Exception;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class TestimonialController extends Controller
@@ -67,7 +68,13 @@ class TestimonialController extends Controller
 
     public function insertSlide(TestimonialRequest $request){
         $TestimonialModel = new TestimonialModel();
-        // $TestimonialModel->{TestimonialModel::IMAGE} = $imageUpload["data"];
+
+        // Check for an image and store it
+        if ($request->hasFile(TestimonialModel::IMAGE)) {
+            $path = $request->file(TestimonialModel::IMAGE)->store('testimonial_images', 'public');
+            $TestimonialModel->{TestimonialModel::IMAGE} = $path;
+        }
+
         $TestimonialModel->{TestimonialModel::HEADING_MIDDLE} = $request->input(TestimonialModel::HEADING_MIDDLE);
         $TestimonialModel->{TestimonialModel::HEADING_BOTTOM} = $request->input(TestimonialModel::HEADING_BOTTOM);
         $TestimonialModel->{TestimonialModel::SLIDE_STATUS} = $request->input(TestimonialModel::SLIDE_STATUS);
@@ -84,6 +91,16 @@ class TestimonialController extends Controller
     public function updateSlide(TestimonialRequest $request){
         $check = TestimonialModel::where([TestimonialModel::ID=>$request->input(TestimonialModel::ID),TestimonialModel::STATUS=>1])->first();
         if($check){
+            // Handle image update
+            if ($request->hasFile(TestimonialModel::IMAGE)) {
+                // Delete old image if it exists
+                if ($check->{TestimonialModel::IMAGE}) {
+                    Storage::disk('public')->delete($check->{TestimonialModel::IMAGE});
+                }
+                $path = $request->file(TestimonialModel::IMAGE)->store('testimonial_images', 'public');
+                $check->{TestimonialModel::IMAGE} = $path;
+            }
+
             $check->{TestimonialModel::SLIDE_SORTING} = $request->input(TestimonialModel::SLIDE_SORTING);
             $check->{TestimonialModel::HEADING_MIDDLE} = $request->input(TestimonialModel::HEADING_MIDDLE);
             $check->{TestimonialModel::HEADING_BOTTOM} = $request->input(TestimonialModel::HEADING_BOTTOM);
@@ -120,5 +137,4 @@ class TestimonialController extends Controller
         
         return $return;
     }
-    
 }
