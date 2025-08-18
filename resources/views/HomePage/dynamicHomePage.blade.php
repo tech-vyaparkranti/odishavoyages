@@ -1686,7 +1686,6 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
   transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   cursor: pointer;
-  
 }
 
 </style>
@@ -1701,55 +1700,52 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
 <!-- Testimonial Slider Container -->
-<div id="testimonialSlider" class="swiper" style="background:rgba(0,0,0,0.2);margin-bottom:50px;margin-top:60px;">
-  <h2 class="text-center">What Our Clients Say</h2>
-  <div id="testimonialWrapper" class="swiper-wrapper">
+<div id="testimonialSlider" class="swiper" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/image.png'); background-size: cover; background-position: center; margin-bottom: 50px; margin-top: 60px;">
+  
+  <h1 class="text-center text-light p-30" style="font-size:50px;">What Our Clients Say</h1>
+  <div id="testimonialWrapper" class="swiper-wrapper" style="padding:30px;">
     
     <!-- Slide 1 -->
     <div id="testimonialSlide1" class="swiper-slide">
       <div class="testimonialCard">
         <img src="./assets/images/image.png" alt="Client A" class="testimonialImg">
-        <p>"Nikita's persistence and technical precision are unmatched. A true problem-solver!Nikita's persistence and technical precision are unmatched. A true problem-solver!"</p>
-      
+        <div class="testimonialText">
+          <p>"Nikita's persistence and technical precision are unmatched. A true problem-solver! Nikita's persistence and technical precision are unmatched. A true problem-solver! Nikita's persistence and technical precision are unmatched. A true problem-solver!"</p>
+        </div>
       </div>
     </div>
-    
+
     <!-- Slide 2 -->
     <div id="testimonialSlide2" class="swiper-slide">
       <div class="testimonialCard">
         <img src="./assets/images/image.png" alt="Client B" class="testimonialImg">
-        <p>"Their ability to debug complex Node.js issues is seriously impressive."</p>
-    
+        <div class="testimonialText">
+          <p>"Their ability to debug complex Node.js issues is seriously impressive."</p>
+        </div>
       </div>
     </div>
-    
+
     <!-- Slide 3 -->
     <div id="testimonialSlide3" class="swiper-slide">
       <div class="testimonialCard">
         <img src="./assets/images/image.png" alt="Client C" class="testimonialImg">
-        <p>"Nikita brings clarity and calm to chaotic code. A joy to collaborate with."</p>
-    
+        <div class="testimonialText">
+          <p>"Nikita brings clarity and calm to chaotic code. A joy to collaborate with."</p>
+        </div>
       </div>
     </div>
+
   </div>
 
   <!-- Pagination -->
   <div id="testimonialPagination" class="swiper-pagination"></div>
 </div>
 
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
   const testimonialSwiper = new Swiper("#testimonialSlider", {
     loop: true,
-    autoplay: {
-      delay: 4000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: "#testimonialPagination",
-      clickable: true,
-    },
+    autoplay: { delay: 4000, disableOnInteraction: false },
+    pagination: { el: "#testimonialPagination", clickable: true },
     breakpoints: {
       320: { slidesPerView: 1, spaceBetween: 10 },
       640: { slidesPerView: 1, spaceBetween: 20 },
@@ -1760,65 +1756,58 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 
 <style>
   .testimonialCard {
-    padding: 30px;
+    padding: 20px;
     margin: auto;
-    text-align: center;
     max-width: 700px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+    text-align: center;
   }
 
-  .testimonialCard p {
-    font-size: 1.5rem;
+  /* ✅ Image first */
+  .testimonialImg {
+    width: 500px;
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius:20px;
+  }
+
+  .testimonialText p {
+    font-size: 1.2rem;
     color: #333;
     line-height: 1.6;
+    margin: 0;
   }
 
-  .testimonialCard h4 {
+  .testimonialText h4 {
     margin-top: 15px;
     font-weight: bold;
     color: #555;
     text-align: right;
   }
 
-  /* New image style */
-  .testimonialImg {
-    width: 100%;
-    height:100%;
-    margin-bottom: 15px;
-    object-fit: cover;
-    border-radius:20px;
-    border: 3px solid #fff;
-    box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
-  }
-
-  #testimonialSlider {
-    width: 100%;
-    padding: 40px 15px; /* added padding for mobile */
-  }
-
-  #testimonialPagination {
-    margin-top: 20px;
-    text-align: center;
-  }
-
-  /* ✅ Responsive adjustments */
+  /* ✅ Responsive */
   @media (max-width: 768px) {
     .testimonialCard {
       max-width: 90%;
       padding: 15px;
     }
-    .testimonialCard p {
-      font-size: 0.95rem;
+    .testimonialImg {
+      width: 140px;
+      height: 140px;
+    }
+    .testimonialText p {
+      font-size: 1rem;
     }
   }
 
   @media (max-width: 480px) {
-    .testimonialCard {
-      max-width: 100%;
-      padding: 12px;
+    .testimonialImg {
+      width: 100px;
+      height: 100px;
     }
-    .testimonialCard p {
+    .testimonialText p {
       font-size: 0.9rem;
     }
   }
