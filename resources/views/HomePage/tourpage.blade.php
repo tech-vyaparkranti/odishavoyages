@@ -432,104 +432,373 @@
        
        
         <div class="section-header">
-            <h2 class="section">Popular Tours</h2>
+            <h2 class="section">Popular Packages</h2>
             <p class="section-subtitle">Discover extraordinary destinations with our premium travel experiences</p>
         </div>
         
-        <div class="tours-grid">
-            <!-- Tour 1 -->
-            <div class="tour-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=350&fit=crop&crop=center" alt="Scenic boat trip in pristine waters">
-                    <div class="image-overlay"></div>
-                    <div class="featured-badge">Featured</div>
-                    <div class="stats-overlay">★ 4.9 Rating</div>
-                </div>
-                <div class="card-content">
-                    <div class="location">
-                        <svg class="location-icon" viewBox="0 0 24 24">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
-                        Rome, Italy
-                    </div>
-                    <h2 class="tour-title">Buenos Aires, Calafate & Ushuaia Adventure</h2>
-                    <div class="duration">
-                        <svg class="clock-icon" viewBox="0 0 24 24">
-                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.7L16.2,16.2Z"/>
-                        </svg>
-                        3 days 2 nights
-                    </div>
-                    <button class="view-more-btn" onclick="handleBooking(1)">
-                        View Details
-                        <svg class="arrow-icon" viewBox="0 0 24 24">
-                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
+        <hr class="mb-50">
+            <div class="row">
+                @if (isset($packages) && count($packages) > 0)
+                    @foreach ($packages as $item)
+                        @php
+                            // Ensure package_image is a valid JSON string before decoding
+                            $images = is_string($item->package_image)
+                                ? json_decode($item->package_image, true)
+                                : $item->package_image;
 
-            <!-- Tour 2 -->
-            <div class="tour-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=600&h=350&fit=crop&crop=center" alt="Ancient ruins and cultural heritage">
-                    <div class="image-overlay"></div>
-                    <div class="featured-badge">Featured</div>
-                    <div class="stats-overlay">★ 4.8 Rating</div>
-                </div>
-                <div class="card-content">
-                    <div class="location">
-                        <svg class="location-icon" viewBox="0 0 24 24">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
-                        Bali, Indonesia
-                    </div>
-                    <h2 class="tour-title">Bay Cruise & Cultural Lake Experience</h2>
-                    <div class="duration">
-                        <svg class="clock-icon" viewBox="0 0 24 24">
-                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.7L16.2,16.2Z"/>
-                        </svg>
-                        3 days 2 nights
-                    </div>
-                    <button class="view-more-btn" onclick="handleBooking(2)">
-                        View Details
-                        <svg class="arrow-icon" viewBox="0 0 24 24">
-                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
-                        </svg>
-                    </button>
-                </div>
-            </div>
+                            // Check if images is a valid array and get the first image
+                            $displayImage = is_array($images) && !empty($images) ? $images[0] : null;
+                        @endphp
+                        <div class="col-xl-4 col-md-6">
+                            <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
+                                data-aos-duration="1500" data-aos-offset="50">
+                                <div class="image">
+                                    @if ($displayImage)
+                                        {{-- <figure class="images"> --}}
+                                        <img src="{{ asset('storage/' . $displayImage) }}" alt="{{ $item->package_name }}"
+                                            class="gallery-image">
+                                        {{-- </figure> --}}
+                                    @else
+                                        {{-- <figure class="images"> --}}
+                                        <img src="{{ asset('path/to/default/image.jpg') }}" alt="Default Image">
+                                        {{-- </figure> --}}
+                                    @endif
 
-            <!-- Tour 3 -->
-            <div class="tour-card">
-                <div class="card-image">
-                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=350&fit=crop&crop=center" alt="Breathtaking coastal landscape">
-                    <div class="image-overlay"></div>
-                    <div class="featured-badge">Featured</div>
-                    <div class="stats-overlay">★ 4.9 Rating</div>
-                </div>
-                <div class="card-content">
-                    <div class="location">
-                        <svg class="location-icon" viewBox="0 0 24 24">
-                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
-                        </svg>
-                        Rome, Italy
+                                    <div class="ratting">{{ $item->package_type }}</div>
+                                </div>
+                                <div class="content">
+                                    <div class="destination-header">
+                                        <span class="location"><i class="fal fa-map-marker-alt"></i>
+                                            {{ $item->package_country }}</span>
+                                        {{-- <div class="ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div> --}}
+                                    </div>
+                                    <h5 class="card-heading">{!! $item->package_name !!}</h5>
+                                    {{-- <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p> --}}
+                                    <ul class="blog-meta">
+                                        <li><i class="far fa-clock"></i> {!! $item->package_duration_days !!} Days /
+                                            {!! $item->package_duration_nights !!} Nights</li>
+                                        {{-- <li><i class="far fa-user"></i> 5-8 guest</li> --}}
+                                    </ul>
+                                    <div class="destination-footers">
+                                        <!-- <span class="price"><span>$58.00</span>/person</span> -->
+                                        <a href="{{ route('tourDetailpage', ['slug' => $item->slug]) }}" class="theme-btn style-two style-three">
+                                            <span data-hover="Book Now text-center">View More</span>
+                                            <i class="fal fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                @else
+                    <div class="col-xl-4 col-md-6">
+                        <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
+                            data-aos-duration="1500" data-aos-delay="50" data-aos-offset="50">
+                            <div class="image">
+                                <span class="badge bgc">Featured</span>
+                                <!-- <a href="#" class="heart"><i class="fas fa-heart"></i></a> -->
+                                <img src="./assets/images/gallery2.jpg" alt="Tour List">
+                            </div>
+                            <div class="content">
+                                <div class="destination-header">
+                                    <span class="location"><i class="fal fa-map-marker-alt"></i> Rome, Italy</span>
+                                    {{-- <div class="ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div> --}}
+                                </div>
+                                <h5><a href="{{ route('tourpage') }}">Buenos Aires, Calafate & Ushuaia, Rome,
+                                        Italy</a></h5>
+                                {{-- <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p> --}}
+                                <ul class="blog-meta">
+                                    <li><i class="far fa-clock"></i> 3 days 2 nights</li>
+                                    {{-- <li><i class="far fa-user"></i> 5-8 guest</li> --}}
+                                </ul>
+                                <div class="destination-footers">
+                                    <!-- <span class="price"><span>$58.00</span>/person</span> -->
+                                    <a href="{{ route('tourpage') }}" class="theme-btn style-two style-three">
+                                        <span data-hover="Book Now">View More</span>
+                                        <i class="fal fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <h2 class="tour-title">Coastal Paradise & Mountain Escapes</h2>
-                    <div class="duration">
-                        <svg class="clock-icon" viewBox="0 0 24 24">
-                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.7L16.2,16.2Z"/>
-                        </svg>
-                        3 days 2 nights
+                    <div class="col-xl-4 col-md-6">
+                        <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
+                            data-aos-duration="1500" data-aos-delay="100" data-aos-offset="50">
+                            <div class="image">
+                                <span class="badge bgc">Featured</span>
+                                <!-- <a href="#" class="heart"><i class="fas fa-heart"></i></a> -->
+                                <img src="./assets/images/gallery3.jpg" alt="Tour List">
+                            </div>
+                            <div class="content">
+                                <div class="destination-header">
+                                    <span class="location"><i class="fal fa-map-marker-alt"></i> Bali, Indonesia</span>
+                                    {{-- <div class="ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div> --}}
+                                </div>
+                                <h5><a href="{{ route('tourpage') }}">Bay Cruise lake trip by Boat in Bali,
+                                        Indonesia</a></h5>
+                                {{-- <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p> --}}
+                                <ul class="blog-meta">
+                                    <li><i class="far fa-clock"></i> 3 days 2 nights</li>
+                                    {{-- <li><i class="far fa-user"></i> 5-8 guest</li> --}}
+                                </ul>
+                                <div class="destination-footers">
+                                    <!-- <span class="price"><span>$58.00</span>/person</span> -->
+                                    <a href="{{ route('tourpage') }}" class="theme-btn style-two style-three">
+                                        <span data-hover="Book Now">View More</span>
+                                        <i class="fal fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <button class="view-more-btn" onclick="handleBooking(3)">
-                        View Details
-                        <svg class="arrow-icon" viewBox="0 0 24 24">
-                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
-                        </svg>
-                    </button>
-                </div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
+                            data-aos-duration="1500" data-aos-offset="50">
+                            <div class="image">
+                                <span class="badge bgc">Featured</span>
+                                <!-- <a href="#" class="heart"><i class="fas fa-heart"></i></a> -->
+                                <img src="./assets/images/gallery4.jpg" alt="Tour List">
+                            </div>
+                            <div class="content">
+                                <div class="destination-header">
+                                    <span class="location"><i class="fal fa-map-marker-alt"></i> Rome, Italy</span>
+                                    {{-- <div class="ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div> --}}
+                                </div>
+                                <h5><a href="{{ route('tourpage') }}">Buenos Aires, Calafate & Ushuaia, Rome,
+                                        Italy</a></h5>
+                                {{-- <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p> --}}
+                                <ul class="blog-meta">
+                                    <li><i class="far fa-clock"></i> 3 days 2 nights</li>
+                                    {{-- <li><i class="far fa-user"></i> 5-8 guest</li> --}}
+                                </ul>
+                                <div class="destination-footers">
+                                    <!-- <span class="price"><span>$58.00</span>/person</span> -->
+                                    <a href="{{ route('tourpage') }}" class="theme-btn style-two style-three">
+                                        <span data-hover="Book Now">View More</span>
+                                        <i class="fal fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
+                            data-aos-duration="1500" data-aos-delay="50" data-aos-offset="50">
+                            <div class="image">
+                                <span class="badge bgc-pink">Featured</span>
+                                <!-- <a href="#" class="heart"><i class="fas fa-heart"></i></a> -->
+                                <img src="./assets/images/gallery5.jpg" alt="Tour List">
+                            </div>
+                            <div class="content">
+                                <div class="destination-header">
+                                    <span class="location"><i class="fal fa-map-marker-alt"></i> Rome, Italy</span>
+                                    {{-- <div class="ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div> --}}
+                                </div>
+                                <h5><a href="{{ route('tourpage') }}">Buenos Aires, Calafate & Ushuaia, Rome,
+                                        Italy</a></h5>
+                                {{-- <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p> --}}
+                                <ul class="blog-meta">
+                                    <li><i class="far fa-clock"></i> 3 days 2 nights</li>
+                                    {{-- <li><i class="far fa-user"></i> 5-8 guest</li> --}}
+                                </ul>
+                                <div class="destination-footers">
+                                    <!-- <span class="price"><span>$58.00</span>/person</span> -->
+                                    <a href="{{ route('tourpage') }}" class="theme-btn style-two style-three">
+                                        <span data-hover="Book Now">View More</span>
+                                        <i class="fal fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4 col-md-6">
+                        <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
+                            data-aos-duration="1500" data-aos-delay="100" data-aos-offset="50">
+                            <div class="image">
+                                <span class="badge bgc">Featured</span>
+                                <!-- <a href="#" class="heart"><i class="fas fa-heart"></i></a> -->
+                                <img src="./assets/images/gallery6.jpg" alt="Tour List">
+                            </div>
+                            <div class="content">
+                                <div class="destination-header">
+                                    <span class="location"><i class="fal fa-map-marker-alt"></i> Bali, Indonesia</span>
+                                    {{-- <div class="ratting">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                    </div> --}}
+                                </div>
+                                <h5><a href="{{ route('tourpage') }}">Bay Cruise lake trip by Boat in Bali,
+                                        Indonesia</a></h5>
+                                {{-- <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p> --}}
+                                <ul class="blog-meta">
+                                    <li><i class="far fa-clock"></i> 3 days 2 nights</li>
+                                    {{-- <li><i class="far fa-user"></i> 5-8 guest</li> --}}
+                                </ul>
+                                <div class="destination-footers">
+                                    <!-- <span class="price"><span>$58.00</span>/person</span> -->
+                                    <a href="{{ route('tourpage') }}" class="theme-btn style-two style-three">
+                                        <span data-hover="Book Now">View More</span>
+                                        <i class="fal fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+                <!-- <div class="col-xl-4 col-md-6">
+                            <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                                <div class="image">
+                                    <span class="badge">10% Off</span>
+                                    <a href="#" class="heart"><i class="fas fa-heart"></i></a>
+                                    <img src="assets/images/destinations/tour-list7.jpg" alt="Tour List">
+                                </div>
+                                <div class="content">
+                                    <div class="destination-header">
+                                        <span class="location"><i class="fal fa-map-marker-alt"></i> Rome, Italy</span>
+                                        <div class="ratting">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <h5><a href="tour-details.php">Buenos Aires, Calafate & Ushuaia, Rome, Italy</a></h5>
+                                    <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p>
+                                    <ul class="blog-meta">
+                                        <li><i class="far fa-clock"></i> 3 days 2 nights</li>
+                                        <li><i class="far fa-user"></i> 5-8 guest</li>
+                                    </ul>
+                                    <div class="destination-footer">
+                                        <span class="price"><span>$58.00</span>/person</span>
+                                        <a href="tour-details.php" class="theme-btn style-two style-three">
+                                            <span data-hover="Book Now">Book Now</span>
+                                            <i class="fal fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="50" data-aos-offset="50">
+                                <div class="image">
+                                    <a href="#" class="heart"><i class="fas fa-heart"></i></a>
+                                    <img src="assets/images/destinations/tour-list8.jpg" alt="Tour List">
+                                </div>
+                                <div class="content">
+                                    <div class="destination-header">
+                                        <span class="location"><i class="fal fa-map-marker-alt"></i> Rome, Italy</span>
+                                        <div class="ratting">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <h5><a href="tour-details.php">Buenos Aires, Calafate & Ushuaia, Rome, Italy</a></h5>
+                                    <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p>
+                                    <ul class="blog-meta">
+                                        <li><i class="far fa-clock"></i> 3 days 2 nights</li>
+                                        <li><i class="far fa-user"></i> 5-8 guest</li>
+                                    </ul>
+                                    <div class="destination-footer">
+                                        <span class="price"><span>$58.00</span>/person</span>
+                                        <a href="tour-details.php" class="theme-btn style-two style-three">
+                                            <span data-hover="Book Now">Book Now</span>
+                                            <i class="fal fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-4 col-md-6">
+                            <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100" data-aos-offset="50">
+                                <div class="image">
+                                    <span class="badge bgc-primary">Popular</span>
+                                    <a href="#" class="heart"><i class="fas fa-heart"></i></a>
+                                    <img src="assets/images/destinations/tour-list9.jpg" alt="Tour List">
+                                </div>
+                                <div class="content">
+                                    <div class="destination-header">
+                                        <span class="location"><i class="fal fa-map-marker-alt"></i> Bali, Indonesia</span>
+                                        <div class="ratting">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <h5><a href="tour-details.php">Bay Cruise lake trip by Boat in Bali, Indonesia</a></h5>
+                                    <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p>
+                                    <ul class="blog-meta">
+                                        <li><i class="far fa-clock"></i> 3 days 2 nights</li>
+                                        <li><i class="far fa-user"></i> 5-8 guest</li>
+                                    </ul>
+                                    <div class="destination-footer">
+                                        <span class="price"><span>$58.00</span>/person</span>
+                                        <a href="tour-details.php" class="theme-btn style-two style-three">
+                                            <span data-hover="Book Now">Book Now</span>
+                                            <i class="fal fa-arrow-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12">
+                            <ul class="pagination justify-content-center pt-15 flex-wrap" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                                <li class="page-item disabled">
+                                    <span class="page-link"><i class="far fa-chevron-left"></i></span>
+                                </li>
+                                <li class="page-item active">
+                                    <span class="page-link">
+                                        1
+                                        <span class="sr-only">(current)</span>
+                                    </span>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item"><a class="page-link" href="#">...</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#"><i class="far fa-chevron-right"></i></a>
+                                </li>
+                            </ul>
+                        </div> -->
             </div>
-        </div>
     </div>
     </section>
     <script>

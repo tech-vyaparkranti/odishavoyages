@@ -8,11 +8,7 @@
                 <x-input type="hidden" name="id" id="id" value=""></x-input>
                 <x-input type="hidden" name="action" id="action" value="insert"></x-input>
 
-                {{-- <x-input-with-label-element id="image" label="Upload Testimonial Image" name="image" type="file" accept="image"
-                    ></x-input-with-label-element> --}}
-
-                <x-input-with-label-element id="heading_top" label="Testimonial Heading"
-                    name="heading_top"></x-input-with-label-element>
+                <x-input-with-label-element id="image" label="Upload Testimonial Image" name="image" type="file" accept="image/*"></x-input-with-label-element>
 
                 <x-text-area-with-label id="heading_middle" label="Testimonial Text"
                     name="heading_middle"></x-text-area-with-label>
@@ -70,11 +66,6 @@
                         visible: false
                     },
                     {
-                        data: '{{ \App\Models\TestimonialModel::HEADING_TOP }}',
-                        name: '{{ \App\Models\TestimonialModel::HEADING_TOP }}',
-                        title: 'Testimonial Heading'
-                    },
-                    {
                         data: '{{ \App\Models\TestimonialModel::HEADING_MIDDLE }}',
                         name: '{{ \App\Models\TestimonialModel::HEADING_MIDDLE }}',
                         title: 'Testimonial Text'
@@ -87,7 +78,7 @@
                     {
                         data: '{{ \App\Models\TestimonialModel::SLIDE_STATUS }}',
                         name: '{{ \App\Models\TestimonialModel::SLIDE_STATUS }}',
-                        title: 'Testimonial  Status'
+                        title: 'Testimonial  Status'
                     },
                     {
                         data: '{{ \App\Models\TestimonialModel::SLIDE_SORTING }}',
@@ -113,9 +104,8 @@
             if (row['id']) {
                 $("#id").val(row['id']);
                 // $("#image").attr("required",false);
-                $("#heading_top").val(row['heading_top']);
                 $("#heading_middle").val(row['heading_middle']);
-                $("#heading_bottom").val(row['heading_bottom']);                              
+                $("#heading_bottom").val(row['heading_bottom']);                                     
                 $("#slide_status").val(row['slide_status']);
                 $("#slide_sorting").val(row['slide_sorting']);
                 $("#action").val("update");

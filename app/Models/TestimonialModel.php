@@ -12,8 +12,7 @@ class TestimonialModel extends Model
     protected $table = "testimonials";
 
     const ID = "id";
-    // const IMAGE = "image";
-    const HEADING_TOP = "heading_top";
+    const IMAGE = "image";
     const HEADING_MIDDLE = "heading_middle";
     const HEADING_BOTTOM = "heading_bottom";
     const SLIDE_STATUS = "slide_status";
