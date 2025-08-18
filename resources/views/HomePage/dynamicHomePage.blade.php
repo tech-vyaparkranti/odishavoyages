@@ -832,7 +832,7 @@
 
         .destination-item .image {
             position: relative;
-            height: 250px;
+            height: 100%;
             overflow: hidden;
         }
 
@@ -902,7 +902,7 @@
 
         .content .time {
             color: #4ecdc4;
-            font-size: 0.9rem;
+            font-size: 1.2rem;
             font-weight: 500;
             transform: translateX(-20px);
             opacity: 0;
@@ -1274,7 +1274,7 @@
 }
 
 #travel-gallery .main-wrapper {
-    max-width: 1400px;
+    max-width: 1300px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -1559,7 +1559,7 @@
                                                 </span>
                                             </div>
                                             <div class="destination-footer price">
-                                                <span class="offer-price">
+                                                <span class="offer-price" style="font-size:1.2rem">
                                                     <i class="fa-solid fa-indian-rupee-sign"></i>
                                                     {!! IND_money_format($item->package_offer_price) !!}
                                                 </span>
@@ -1567,8 +1567,8 @@
                                                     <i class="fa-solid fa-indian-rupee-sign"></i>
                                                     {!! IND_money_format($item->package_price) !!}
                                                 </span>
-                                                <span class="offer-amount">
-                                                    Save <i class="fa-solid fa-indian-rupee-sign"></i>
+                                                <span class="offer-amount" style="font-size:1rem">
+                                                    Save  <i class="fa-solid fa-indian-rupee-sign"></i>
                                                     {{ IND_money_format($item->package_price - $item->package_offer_price) }}
                                                 </span>
 
@@ -1676,6 +1676,19 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
     animation: floatUpDown 2.5s ease-in-out infinite;
     transition: transform 0.3s;
   }
+  .card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  border: none;
+  border-radius: 12px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  
+}
+
 </style>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
@@ -1689,27 +1702,33 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 
 <!-- Testimonial Slider Container -->
 <div id="testimonialSlider" class="swiper" style="background:rgba(0,0,0,0.2);margin-bottom:50px;margin-top:60px;">
-  <h2 class="text-center">Testimonial Section</h2>
+  <h2 class="text-center">What Our Clients Say</h2>
   <div id="testimonialWrapper" class="swiper-wrapper">
+    
     <!-- Slide 1 -->
     <div id="testimonialSlide1" class="swiper-slide">
       <div class="testimonialCard">
-        <p>"Nikita's persistence and technical precision are unmatched. A true problem-solver! "Nikita's persistence and technical precision are unmatched. A true problem-solver! "Nikita's persistence and technical precision are unmatched. A true problem-solver!"</p>
-        <h4>- Client A</h4>
+        <img src="./assets/images/image.png" alt="Client A" class="testimonialImg">
+        <p>"Nikita's persistence and technical precision are unmatched. A true problem-solver!Nikita's persistence and technical precision are unmatched. A true problem-solver!"</p>
+      
       </div>
     </div>
+    
     <!-- Slide 2 -->
     <div id="testimonialSlide2" class="swiper-slide">
       <div class="testimonialCard">
+        <img src="./assets/images/image.png" alt="Client B" class="testimonialImg">
         <p>"Their ability to debug complex Node.js issues is seriously impressive."</p>
-        <h4>- Client B</h4>
+    
       </div>
     </div>
+    
     <!-- Slide 3 -->
     <div id="testimonialSlide3" class="swiper-slide">
       <div class="testimonialCard">
+        <img src="./assets/images/image.png" alt="Client C" class="testimonialImg">
         <p>"Nikita brings clarity and calm to chaotic code. A joy to collaborate with."</p>
-        <h4>- Client C</h4>
+    
       </div>
     </div>
   </div>
@@ -1732,32 +1751,25 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
       clickable: true,
     },
     breakpoints: {
-      320: { // small phones
-        slidesPerView: 1,
-        spaceBetween: 10,
-      },
-      640: { // tablets
-        slidesPerView: 1,
-        spaceBetween: 20,
-      },
-      1024: { // desktop
-        slidesPerView: 1,
-        spaceBetween: 30,
-      },
+      320: { slidesPerView: 1, spaceBetween: 10 },
+      640: { slidesPerView: 1, spaceBetween: 20 },
+      1024: { slidesPerView: 1, spaceBetween: 30 },
     },
   });
 </script>
 
 <style>
   .testimonialCard {
-    padding: 20px;
+    padding: 30px;
     margin: auto;
     text-align: center;
-    max-width: 600px;
+    max-width: 700px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
   }
 
   .testimonialCard p {
-    font-size: 1rem;
+    font-size: 1.5rem;
     color: #333;
     line-height: 1.6;
   }
@@ -1767,6 +1779,17 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
     font-weight: bold;
     color: #555;
     text-align: right;
+  }
+
+  /* New image style */
+  .testimonialImg {
+    width: 100%;
+    height:100%;
+    margin-bottom: 15px;
+    object-fit: cover;
+    border-radius:20px;
+    border: 3px solid #fff;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
   }
 
   #testimonialSlider {
@@ -1831,6 +1854,7 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 
         h5.card-heading {
             color: #fff;
+            font-size:25px;
         }
 
         /* .fade {

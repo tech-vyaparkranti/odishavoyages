@@ -3,7 +3,7 @@
     <hr/>
     <div class="footer-top">
         <div class="footer-section logo-section">
-            <img src="./assets/images/logo1.png" style="height:150px;width:150px;" alt="Logo">
+            <img src="/assets/images/logo1.png" style="height:150px;width:150px;" alt="Logo">
             <h4>Travel </h4>
          
             <a href="#" class="btn-enquire">ENQUIRE NOW</a>

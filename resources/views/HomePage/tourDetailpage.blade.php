@@ -354,89 +354,6 @@
                     </div> --}}
                 </div>
 
-                <h3>Frequently Asked Questions</h3>
-                <div class="accordion-one mt-25 mb-60" id="faq-accordion-current">
-                    @if ($getHomeAllFaq->isNotEmpty())
-                        @foreach ($getHomeAllFaq as $index => $FaqRow)
-                            <div class="accordion-item">
-                                <h5 class="accordion-header">
-                                    <button class="accordion-button collapsed" data-bs-toggle="collapse"
-                                        data-bs-target="#collapseCurrent{{ $index }}" aria-expanded="false"
-                                        aria-controls="collapseCurrent{{ $index }}">
-                                        {!! $FaqRow['faq_question'] !!}
-                                    </button>
-                                </h5>
-                                <div id="collapseCurrent{{ $index }}" class="accordion-collapse collapse"
-                                    data-bs-parent="#faq-accordion-current">
-                                    <div class="accordion-body">
-                                        <p>{!! $FaqRow['faq_answer'] !!}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    @else
-
-                        <div class="accordion-item">
-                            <h5 class="accordion-header">
-                                <button class="accordion-button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                    02_What is included in the travel package?
-                                </button>
-                            </h5>
-                            <div id="collapseTwo" class="accordion-collapse collapse show" data-bs-parent="#faq-accordion">
-                                <div class="accordion-body">
-                                    <p>The early start ensures you can fully immerse yourself in the tranquility of
-                                        nature
-                                        before the world fully awakens. As the morning light filters through the trees,
-                                        you'll experience the crisp, fresh air and the peaceful sounds of the forest.
-                                        The
-                                        trail ahead offers both a physical challenge promise of breathtaking.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h5 class="accordion-header">
-                                <button class="accordion-button collapsed" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree">
-                                    03_What is your cancellation and refund policy?
-                                </button>
-                            </h5>
-                            <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-                                <div class="accordion-body">
-                                    <p>To take a trivial example which undertakes laborious physical exercise except to
-                                        obtain some advantage pleasure annoying consequences</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h5 class="accordion-header">
-                                <button class="accordion-button collapsed" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFour">
-                                    04_Can I customize my tour or travel package?
-                                </button>
-                            </h5>
-                            <div id="collapseFour" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-                                <div class="accordion-body">
-                                    <p>To take a trivial example which undertakes laborious physical exercise except to
-                                        obtain some advantage pleasure annoying consequences</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="accordion-item">
-                            <h5 class="accordion-header">
-                                <button class="accordion-button collapsed" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseFive">
-                                    05_What documents do I need to travel?
-                                </button>
-                            </h5>
-                            <div id="collapseFive" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
-                                <div class="accordion-body">
-                                    <p>To take a trivial example which undertakes laborious physical exercise except to
-                                        obtain some advantage pleasure annoying consequences</p>
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-                </div>
 
                 <!-- <h3>Maps</h3>
                             <div class="tour-map mt-30 mb-50">
@@ -833,27 +750,14 @@
                     <div class="widget widget-contact" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
                         <h5 class="widget-title">Need Help?</h5>
                         <ul class="list-style-one">
-                            <li><i class="far fa-envelope"></i> <a
+                            <li><i class="far fa-envelope" style="color:#F1C40F"></i> <a
                                     href="emilto:info@aisholidays.com">info@aisholidays.com</a></li>
-                            <li><i class="fas fa-phone-volume"></i> <a href="callto:+91 783 860 2000">+91 783 860
+                            <li><i class="fas fa-phone-volume" style="color:#F1C40F"></i> <a href="callto:+91 783 860 2000">+91 783 860
                                     2000</a></li>
                         </ul>
                     </div>
 
-                    <div class="widget widget-cta" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                        <div class="content text-white">
-                            <span class="h6">Explore The World</span>
-                            <h3>Best Tourist Place</h3>
-                            <a href="{{ route('tourpage') }}" class="theme-btn style-two bgc-secondary">
-                                <span data-hover="Explore Now">Explore Now</span>
-                                <i class="fal fa-arrow-right"></i>
-                            </a>
-                        </div>
-                        <div class="image">
-                            <img src="{{ asset('./assets/images//cta-widget.png') }}" alt="CTA">
-                        </div>
-                        <!-- <div class="cta-shape"><img src="./assets/images/cta-shape3.png" alt="Shape"></div> -->
-                    </div>
+                    
 
                 </div>
             </div>
@@ -966,7 +870,7 @@
     .form-container button {
         width: 100%;
         padding: 10px;
-        background-color: #4a974a;
+        background-color: #;
         color: #fff;
         border: none;
         border-radius: 5px;
@@ -1090,7 +994,7 @@
 </style>
 <style>
     .button-form-book button {
-        background-color: #56a356;
+        background-color: #F1C40F;
         color: white;
         padding: 10px 30px;
         border: none;
@@ -1104,7 +1008,7 @@
     }
 
     .button-form-book button:disabled {
-        background-color:green;
+        background-color:#F1C40F;
         /* cursor: not-allowed; */
     }
 
@@ -1211,7 +1115,8 @@
 
     .button-book button {
         width: 100%;
-        background-color: #4a974a;
+        background-color
+        :#F1C40F;
         color: white;
         display: block;
         margin: auto;
@@ -1223,7 +1128,7 @@
 
     .button-form-book button {
         width: 100%;
-        background-color: #4a974a;
+        background-color: #F1C40F;
         color: white;
         display: block;
         margin: auto;
@@ -1233,7 +1138,7 @@
     }
 
     .form-submit button {
-        background-color: #208420 !important;
+        background-color: #F1C40F !important;
     }
 
     button#bookNowBtn :active{

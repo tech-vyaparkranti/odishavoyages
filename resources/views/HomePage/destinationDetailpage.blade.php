@@ -3,10 +3,48 @@
 @section('meta_description', $homedestination->meta_description)
 @section('meta_keywords', $homedestination->meta_keyword)
 @section('content')
+<style>
+     
+       h2 {
+            font-size: 3.5rem;
+            font-weight: 700;
+         background: linear-gradient(45deg, #ff9933, #b22222, #1e3c72, #228b22);
+   background-size: 300% 300%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease-in-out infinite;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+         h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ff6b8a, transparent);
+            border-radius: 2px;
+            animation: underlineGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes underlineGlow {
+            from { box-shadow: 0 0 5px #ff6b6b; }
+            to { box-shadow: 0 0 20px #ff6b6b, 0 0 30px #ff6b6b; }
+        }
+</style>
 
 
     <!-- Destination Gallery start -->
-    <div class="destination-gallery pt-100 py-120">
+    <div class="destination-gallery pt-100  pt-120">
         <div class="blog-banner" style="margin-bottom:50px; ">
             <img src="{{ asset('./assets/images/bannerblog.jpg') }}" alt=""
                 style="max-height:200px;width:100%; object-fit:cover;">

@@ -6421,6 +6421,8 @@ blockquote {
   display: block;
   color: black;
   margin-bottom: 3px;
+  font-size: 20px;
+  ;
 }
 
 .destination-item .content .location i {
@@ -12071,7 +12073,7 @@ a.footer-call {
 
 span.sale-price,
 .tours-block-one .inner-box .lower-content h5 span.offer-amount {
-  font-size: 12px;
+  font-size: 17px;
   margin-left: 5px;
   font-weight: 700;
   text-decoration: line-through;

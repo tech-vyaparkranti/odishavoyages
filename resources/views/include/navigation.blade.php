@@ -16,7 +16,7 @@
                         <div class="navbar-header">
                             <div class="mobile-logo">
                                 <a href="{{ url('/') }}">
-                                    <img src="{{asset($Logo ?? 'assets/images/logo.png')}}" alt="Logo" title="Logo">
+                                    <img src="{{asset($Logo ?? 'assets/images/logo1.png')}}" alt="Logo" title="Logo">
                                 </a>
                             </div>
 
@@ -28,38 +28,28 @@
                                 <span class="icon-bar"></span>
                             </button>
                         </div>
-                        <div class="navbar-collapse collapse clearfix">
-                            <ul class="navigation clearfix">
-                                <li class="current"><a href="{{ url('/') }}">Home</a></li>
-                                <li><a href="{{ route('aboutUs') }}">About</a></li>
-                                {{-- <li class="dropdown"><a href="{{ route('tourpage') }}">Tours</a>
-                                    <ul>
-                                        <li><a href="{{ route('tourpage') }}">Tour</a></li>
-                                        <li><a href="{{ route('tourDetailpage') }}">Tour Details</a></li>
-                                    </ul>
-                                </li> --}}
-                                <li><a href="{{ route('tourpage') }}">Tours</a>
-                                    <ul>
-                                        <li><a href="{{ route('tourpage') }}">Tour</a></li>
-                                        <li><a href="">Tour Details</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="{{ route('destinationpage') }}">Destinations</a>
-                                    {{-- <ul>
-                                         <li><a href="{{ route('destinationpage') }}">Destination</a></li>
-                                        <li><a href="{{ route('destinationDetailpage') }}">Destination Details</a></li>
-                                    </ul> --}}
-                                </li>
-                                <li><a href="{{ route('servicePages') }}">Services</a></li>
-                                <li><a href="{{ route('galleryPages') }}">Gallery</a></li>
-                                {{-- <li class="dropdown"><a href="{{ route('blogpage') }}">Blog</a>
-                                    <ul>
-                                        <li><a href="{{ route('blogDetailpage') }}">Blog Details</a></li>
-                                    </ul>
-                                </li> --}}
-                                <li><a href="{{ route(name: 'contactUs') }}">Contact Us</a></li>
-                            </ul>
-                        </div>
+ <!-- Toggle Button -->
+
+
+<!-- Collapsible Menu -->
+<div class="collapse navbar-collapse" id="mobileMenu">
+    <!-- Close Button -->
+  
+    <ul class="navigation clearfix">
+          <button id="closeMenu" style="position: absolute;
+    right: 20px" type="button" class="btn-close d-lg-none ms-auto" aria-label="Close" position></button>
+
+        <li><a href="{{ url('/') }}">Home</a></li>
+        <li><a href="{{ route('aboutUs') }}">About</a></li>
+        <li><a href="{{ route('tourpage') }}">Tours</a></li>
+        <li><a href="{{ route('destinationpage') }}">Destinations</a></li>
+        <li><a href="{{ route('servicePages') }}">Services</a></li>
+        <li><a href="{{ route('galleryPages') }}">Gallery</a></li>
+        <li><a href="{{ route('contactUs') }}">Contact Us</a></li>
+    </ul>
+</div>
+
+
                     </nav>
                     <!-- Main Menu End-->
                 </div>
@@ -120,3 +110,29 @@
     <li><a href="{{ route('contactUs') }}">Contact Us</a></li>
 
 </ul> --}}
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const closeBtn = document.getElementById("closeMenu");
+    const navLinks = document.querySelectorAll("#mobileMenu .navigation a");
+    const menu = document.getElementById("mobileMenu");
+
+    // Close when clicking the close button
+    closeBtn.addEventListener("click", () => {
+        new bootstrap.Collapse(menu, {
+            toggle: true
+        }).hide();
+    });
+
+    // Auto close when clicking any nav link (mobile only)
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            if (window.innerWidth < 992) { // only on mobile
+                new bootstrap.Collapse(menu, {
+                    toggle: true
+                }).hide();
+            }
+        });
+    });
+});
+</script>
+
