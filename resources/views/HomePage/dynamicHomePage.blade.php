@@ -1686,7 +1686,6 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
   transform: scale(1.05);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
   cursor: pointer;
-  
 }
 
 </style>
@@ -1725,19 +1724,11 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
     <div id="testimonialPagination" class="swiper-pagination"></div>
 </div>
 
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
   const testimonialSwiper = new Swiper("#testimonialSlider", {
     loop: true,
-    autoplay: {
-      delay: 4000,
-      disableOnInteraction: false,
-    },
-    pagination: {
-      el: "#testimonialPagination",
-      clickable: true,
-    },
+    autoplay: { delay: 4000, disableOnInteraction: false },
+    pagination: { el: "#testimonialPagination", clickable: true },
     breakpoints: {
       320: { slidesPerView: 1, spaceBetween: 10 },
       640: { slidesPerView: 1, spaceBetween: 20 },
@@ -1748,65 +1739,58 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 
 <style>
   .testimonialCard {
-    padding: 30px;
+    padding: 20px;
     margin: auto;
-    text-align: center;
     max-width: 700px;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
+    box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+    text-align: center;
   }
 
-  .testimonialCard p {
-    font-size: 1.5rem;
+  /* ✅ Image first */
+  .testimonialImg {
+    width: 500px;
+    height: 300px;
+    margin-bottom: 20px;
+    border-radius:20px;
+  }
+
+  .testimonialText p {
+    font-size: 1.2rem;
     color: #333;
     line-height: 1.6;
+    margin: 0;
   }
 
-  .testimonialCard h4 {
+  .testimonialText h4 {
     margin-top: 15px;
     font-weight: bold;
     color: #555;
     text-align: right;
   }
 
-  /* New image style */
-  .testimonialImg {
-    width: 100%;
-    height:100%;
-    margin-bottom: 15px;
-    object-fit: cover;
-    border-radius:20px;
-    border: 3px solid #fff;
-    box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
-  }
-
-  #testimonialSlider {
-    width: 100%;
-    padding: 40px 15px; /* added padding for mobile */
-  }
-
-  #testimonialPagination {
-    margin-top: 20px;
-    text-align: center;
-  }
-
-  /* ✅ Responsive adjustments */
+  /* ✅ Responsive */
   @media (max-width: 768px) {
     .testimonialCard {
       max-width: 90%;
       padding: 15px;
     }
-    .testimonialCard p {
-      font-size: 0.95rem;
+    .testimonialImg {
+      width: 140px;
+      height: 140px;
+    }
+    .testimonialText p {
+      font-size: 1rem;
     }
   }
 
   @media (max-width: 480px) {
-    .testimonialCard {
-      max-width: 100%;
-      padding: 12px;
+    .testimonialImg {
+      width: 100px;
+      height: 100px;
     }
-    .testimonialCard p {
+    .testimonialText p {
       font-size: 0.9rem;
     }
   }
