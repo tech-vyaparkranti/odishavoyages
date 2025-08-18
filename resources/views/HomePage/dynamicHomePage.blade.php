@@ -510,53 +510,51 @@
     <div class="pulse-dot pulse-dot-2"></div>
     <div class="pulse-dot pulse-dot-3"></div>
 
-        <div class="container">
-            <div class="row align-items-center" style="  display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 40px;">
-                <h2 class="text-center mb-4 popular-destination" data-aos="fade-up">About Us</h2>
-                
-                <!-- Text Content -->
-                <div class="col-xl-6 col-lg-6">
-                    <div class="about-us-content rmb-55" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
-                        <!-- Travel Icons around content -->
-                        <div class="travel-icons travel-icon-1">
-                            <i class="fas fa-plane"></i>
-                        </div>
-                       
-                        <p style="color: black !important;">
-                            Travel with confidence with AIS Holidays, where we go above and beyond to make your travel dreams a reality. Discover hidden gems and must-see attractions across India with our expert guidance. With over 15 years of experience, we have helped countless travelers explore popular destinations and create unforgettable memories. Join our satisfied clients and embark on a journey that combines comfort, adventure, and cultural discovery.
-                        </p>
+    <div class="container">
+        <div class="row align-items-center">
+            <h2 class="text-center mb-4 popular-destination" data-aos="fade-up">About Us</h2>
+            
+            <!-- Text Content -->
+            <div class="col-xl-6 col-lg-6">
+                <div class="about-us-content rmb-55" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
+                    
+                    <!-- Dynamic OR Static Content -->
+                    <p style="color: black !important;">
+                        {!! $home_aboutus_content ?? 
+                        'Odisha, often called the "Soul of India," is a land of rich history, vibrant culture, and breathtaking natural beauty. From ancient temples to pristine beaches and lush national parks, this eastern state offers a unique and unforgettable travel experience.' 
+                        !!}
+                    </p>
 
-                        <!-- Feature highlights with icons -->
-                        
-
-                        <div class="menu-btns py-10">
-                    <a href="#" class="theme-btn style-two bgc-secondary">
-                        <span data-hover="Read More">Read More</span>
-                        <i class="fal fa-arrow-right"></i>
-                    </a>
-    </div>
+                    <div class="menu-btns py-10">
+                        <a href="#" class="theme-btn style-two bgc-secondary">
+                            <span data-hover="Book Now">Read More</span>
+                            <i class="fal fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                
-                <!-- Image with 2D & 3D Animations -->
-                <div class="col-xl-6 col-lg-6" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                    <div class="animated-image relative w-full h-0 pb-[66.66%]">
-                        <img src="https://odishavoyages.com/wp-content/uploads/2021/10/jagannath-temple-pti-1616946876.jpg"
-                             alt="Jagannath Temple - AIS Holidays"
-                             class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg">
-                        
-                        <!-- Floating mini travel icons on image -->
-                        <div style="position: absolute; top: 10%; right: 10%; width: 40px; height: 40px; background: rgba(255, 107, 107, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; animation: iconFloat 3s ease-in-out infinite;">
-                            <i class="fas fa-om"></i>
-                        </div>
-                     </div>
+            </div>
+            
+            <!-- Image with 2D & 3D Animations -->
+            <div class="col-xl-6 col-lg-6" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
+                <div class="animated-image relative w-full h-0 pb-[66.66%]">
+                    
+                    <!-- Dynamic OR Static Image -->
+                    <img src="{{ $home_aboutus_content_image 
+              ? url($home_aboutus_content_image) 
+              : 'https://odishavoyages.com/wp-content/uploads/2021/10/jagannath-temple-pti-1616946876.jpg' }}"
+     alt="About Us Image"
+     class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg">
+
+                    
+                    <!-- Floating mini travel icon -->
+                    <div style="position: absolute; top: 10%; right: 10%; width: 40px; height: 40px; background: rgba(255, 107, 107, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; animation: iconFloat 3s ease-in-out infinite;">
+                        <i class="fas fa-om"></i>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
@@ -1086,32 +1084,75 @@
     </style>
 
     <section class="destinations-area">
-        <!-- Floating background elements -->
-        <div class="floating-elements">
-            <i class="fas fa-plane floating-element" style="font-size: 2rem;"></i>
-            <i class="fas fa-map-marker-alt floating-element" style="font-size: 1.5rem;"></i>
-            <i class="fas fa-compass floating-element" style="font-size: 1.8rem;"></i>
-        </div>
+    <!-- Floating background elements -->
+    <div class="floating-elements">
+        <i class="fas fa-plane floating-element" style="font-size: 2rem;"></i>
+        <i class="fas fa-map-marker-alt floating-element" style="font-size: 1.5rem;"></i>
+        <i class="fas fa-compass floating-element" style="font-size: 1.8rem;"></i>
+    </div>
 
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-12">
-                    <div class="section-title text-white text-center counter-text-wrap mb-40">
-                        <h2 class="popular-destination">Popular Destinations</h2>
-                        <p style="color:black;">One site many popular experience you'll remember</p>
-                    </div>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-12">
+                <div class="section-title text-white text-center counter-text-wrap mb-40">
+                    <h2 class="popular-destination">Popular Destinations</h2>
+                    <p style="color:black;">One site many popular experience you'll remember</p>
                 </div>
             </div>
-            
-            <div class="row justify-content-center">
-                <div class="swiper packages mt-4">
-                    <div class="swiper-wrapper">
-                        <!-- Sample destination cards with enhanced styling -->
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="swiper packages mt-4">
+                <div class="swiper-wrapper">
+
+                    {{-- ✅ If Dynamic Data Available --}}
+                    @if($homedestinations->count() > 0)
+                    
+                       @foreach($homedestinations as $destination)
+   
+    <div class="swiper-slide">
+        <a href="{{ url('destination/'.$destination->destination_slug) }}" class="destination-link">
+            <div class="destination-item">
+                <div class="image">
+ @php
+                                        // Ensure package_image is a valid JSON string before decoding
+                                        $images = is_string($destination->destination_image)
+                                            ? json_decode($destination->destination_image, true)
+                                            : $destination->destination_image;
+        
+                                        // Check if images is a valid array and get the first image
+                                        $displayImage = is_array($images) && !empty($images) ? $images[0] : null;
+                                    @endphp
+        
+                                    @if ($displayImage)
+                                        <img src="{{ asset('storage/' . $displayImage) }}" alt="{{ $destination->destination_name }}"
+                                            class="hotel-image" style="margin-right: 10px;">
+                                    @else
+                                        <img src="{{ asset('path/to/default/image.jpg') }}" alt="Default Image" class="hotel-image">
+                                    @endif
+
+                    </div>
+                <div class="content">
+                    <span class="location">
+                        <i class="fas fa-map-marker-alt"></i> {{ $destination->destination_name }}
+                    </span>
+                    <h5 class="card-heading">{{ Str::limit($destination->destination_details, 50) }}</h5>
+                    <span class="time">Explore Now</span>
+                </div>
+            </div>
+        </a>
+    </div>
+@endforeach
+
+
+                    {{-- ❌ If No Dynamic Data → Show Static Fallback --}}
+                    @else
                         <div class="swiper-slide">
                             <a href="#" class="destination-link">
                                 <div class="destination-item">
                                     <div class="image">
-                                        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Paris" class="hotel-image">
+                                        <img src="https://images.unsplash.com/photo-1499856871958-5b9627545d1a?auto=format&fit=crop&w=800&q=80" 
+                                             alt="Paris" class="hotel-image">
                                     </div>
                                     <div class="content">
                                         <span class="location"><i class="fas fa-map-marker-alt"></i> Paris, France</span>
@@ -1126,7 +1167,8 @@
                             <a href="#" class="destination-link">
                                 <div class="destination-item">
                                     <div class="image">
-                                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Santorini" class="hotel-image">
+                                        <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=800&q=80" 
+                                             alt="Santorini" class="hotel-image">
                                     </div>
                                     <div class="content">
                                         <span class="location"><i class="fas fa-map-marker-alt"></i> Santorini, Greece</span>
@@ -1141,7 +1183,8 @@
                             <a href="#" class="destination-link">
                                 <div class="destination-item">
                                     <div class="image">
-                                        <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Dubai" class="hotel-image">
+                                        <img src="https://images.unsplash.com/photo-1518684079-3c830dcef090?auto=format&fit=crop&w=800&q=80" 
+                                             alt="Dubai" class="hotel-image">
                                     </div>
                                     <div class="content">
                                         <span class="location"><i class="fas fa-map-marker-alt"></i> Dubai, UAE</span>
@@ -1151,54 +1194,26 @@
                                 </div>
                             </a>
                         </div>
-
-                        <div class="swiper-slide">
-                            <a href="#" class="destination-link">
-                                <div class="destination-item">
-                                    <div class="image">
-                                        <img src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Maldives" class="hotel-image">
-                                    </div>
-                                    <div class="content">
-                                        <span class="location"><i class="fas fa-map-marker-alt"></i> Maldives</span>
-                                        <h5 class="card-heading">Crystal Waters & Overwater Villas</h5>
-                                        <span class="time">7 days 6 nights</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-
-                        <div class="swiper-slide">
-                            <a href="#" class="destination-link">
-                                <div class="destination-item">
-                                    <div class="image">
-                                        <img src="https://images.unsplash.com/photo-1480714378408-67cf0d13bc1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tokyo" class="hotel-image">
-                                    </div>
-                                    <div class="content">
-                                        <span class="location"><i class="fas fa-map-marker-alt"></i> Tokyo, Japan</span>
-                                        <h5 class="card-heading">Neon Lights & Cherry Blossoms</h5>
-                                        <span class="time">8 days 7 nights</span>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    
-                    <div class="swiper-pagination"></div>
+                    @endif
                 </div>
-            </div>
-            
-            <div class="view-more-buttons">
-                <a class="service-view-buttons" href="#" style="text-decoration: none;">
-                    <button type="button" class="theme-btn">
-                        <span data-hover="Explore More">
-                            Explore More
-                            <i class="fas fa-arrow-right"></i>
-                        </span>
-                    </button>
-                </a>
+                
+                <div class="swiper-pagination"></div>
             </div>
         </div>
-    </section>
+        
+        <div class="view-more-buttons">
+            <a class="service-view-buttons" href="{{ url('/destinations') }}" style="text-decoration: none;">
+                <button type="button" class="theme-btn">
+                    <span data-hover="Explore More">
+                        Explore More
+                        <i class="fas fa-arrow-right"></i>
+                    </span>
+                </button>
+            </a>
+        </div>
+    </div>
+</section>
+
 
     
 
