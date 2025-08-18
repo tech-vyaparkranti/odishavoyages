@@ -2,114 +2,77 @@
 @section('content')
     <!-- about-section -->
     <!-- Hero Area Start -->
-    <section class="hero-area bgc-black ">
-        <!-- <img src="./assets/images/aisbanner1.jpg" alt="banner-image"> -->
-    <!-- Your Swiper Slider with Overlay -->
-<div class="swiper main-slider">
-    <div class="swiper-wrapper">
-        @if (isset($sliders) && count($sliders) > 0)
-            @foreach ($sliders as $slide)
-                <div class="swiper-slide" style="position: relative;">
-                    {{-- Dynamically load the image from the database. Assuming your model has an 'image' attribute. --}}
-                    <img class="img-fluid" alt="{{ $slide->heading_top }}" src="{{ asset($slide->image) }}" style="width:100%; height:100vh; object-fit:cover;">
+    <style>
+     
+        /* Hero Section with Background Video */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-                    <!-- Transparent overlay -->
-                    <div style="position:absolute; inset:0; background:rgba(0,0,0,0.4); z-index:1;"></div>
+        .video-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+        }
 
-                    <!-- Dynamic Text -->
-                    <div style="position:absolute; top:50%; left:10%; transform:translateY(-50%); color:white; max-width:500px; z-index:2;">
-                        {{-- Dynamically display the heading from the database. --}}
-                        <h3>{{ $slide->heading_top }}</h3>
-                        {{-- Dynamically display the long description. --}}
-                        <p>{{ $slide->heading_middle }}</p>
-                    </div>
-                </div>
-            @endforeach
-        @else
-            {{-- Fallback: This section will render if the $sliders variable is not set or is empty. --}}
-            <div class="swiper-slide">
-                <img class="img-fluid" alt="Image" src="https://s7ap1.scene7.com/is/image/incredibleindia/sri-jagannath-temple-puri-odisha-2-attr-hero?qlt=82&ts=1726663717081" style="width:100%; height:100vh; object-fit:cover;">
-                <div style="position:absolute; inset:0; background:rgba(0,0,0,0.4); z-index:1;"></div>
-                <div style="position:absolute; top:50%; left:10%; transform:translateY(-50%); color:white; max-width:500px; z-index:2;">
-                    <h3>Handcrafted Journeys<br>in <span style="color:#ff6600;">Odisha</span> & East India</h3>
-                    <p>Trusted local DMC since 2004. Private guides, festival access, wildlife, heritage & coastal escapes.</p>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <img class="img-fluid" alt="Image" src="https://www.intermiles.com/iwov-resources/images/blog/10-best-places-to-visit-in-odisha/odisha-mobile-414x233.jpg" style="width:100%; height:100vh; object-fit:cover;">
-                <div style="position:absolute; inset:0; background:rgba(0,0,0,0.4); z-index:1;"></div>
-                <div style="position:absolute; top:50%; left:10%; transform:translateY(-50%); color:white; max-width:500px; z-index:2;">
-                    <h3>Handcrafted Journeys<br>in <span style="color:#ff6600;">Odisha</span> & East India</h3>
-                    <p>Trusted local DMC since 2004. Private guides, festival access, wildlife, heritage & coastal escapes.</p>
-                </div>
-            </div>
-            <div class="swiper-slide">
-                <img class="img-fluid" alt="Image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ_N6rjmRyVWhxlWxklpKe-ra5y0zwRD1_NA&s" style="width:100%; height:100vh; object-fit:cover;">
-                <div style="position:absolute; inset:0; background:rgba(0,0,0,0.4); z-index:1;"></div>
-                <div style="position:absolute; top:50%; left:10%; transform:translateY(-50%); color:white; max-width:500px; z-index:2;">
-                    <h3>Handcrafted Journeys<br>in <span style="color:#ff6600;">Odisha</span> & East India</h3>
-                    <p>Trusted local DMC since 2004. Private guides, festival access, wildlife, heritage & coastal escapes.</p>
-                </div>
-            </div>
-        @endif
-    </div>
-</div>
+        .video-background iframe {
+            width: 100vw;
+            height: 56.25vw; /* 16:9 aspect ratio */
+            min-height: 100vh;
+            min-width: 177.77vh; /* 16:9 aspect ratio */
+            border: none;
+            pointer-events: none; /* Prevents interaction */
+        }
 
+        /* Remove unused styles */
 
+        /* Demo content below */
+        .demo-content {
+            padding: 80px 20px;
+            text-align: center;
+            background: #f8f9fa;
+        }
 
-<style>
-   
+        .demo-content h2 {
+            font-size: 2.5rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
 
-.slider-text {
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    transform: translateY(-50%);
-    color: white;
-    max-width: 500px;
-}
+        .demo-content p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+    <!-- Hero Section with Full Background Video -->
+    <section class="hero-section">
+        <div class="video-background">
+            <!-- AUTO-PLAY, LOOP, MUTED, ALL CONTROLS HIDDEN -->
+            <iframe 
+                src="https://www.youtube.com/embed/hi5d8VbAeVc?autoplay=1&mute=1&loop=1&playlist=hi5d8VbAeVc&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&fs=0&cc_load_policy=0&playsinline=1&enablejsapi=0" 
+                title="Background Video"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+                style="pointer-events: none;">
+            </iframe>
+        </div>
+        
 
-.slider-text h2 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    line-height: 1.2;
-}
-
-.slider-text h2 span {
-    color: #f46a0b; /* orange highlight for Odisha */
-}
-
-.slider-text p {
-    margin-top: 10px;
-    font-size: 1rem;
-}
-
-.slider-buttons {
-    margin-top: 20px;
-}
-
-.btn-orange {
-    background-color: #f46a0b;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-}
-
-.btn-white {
-    background-color: white;
-    color: black;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-left: 10px;
-}
-
-/* Alternative method - overlay on the entire slider */
-
-</style>   
     </section>
-    <!-- Hero Area End -->
+
+    <!-- Demo content below hero -->
+  
 
     <!-- About Us Area start -->
     <style>
@@ -140,10 +103,7 @@
 
        
         .row {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 40px;
+          
         }
 
         .col-xl-6 {
@@ -550,53 +510,53 @@
     <div class="pulse-dot pulse-dot-2"></div>
     <div class="pulse-dot pulse-dot-3"></div>
 
-    <div class="container">
-        <div class="row align-items-center">
-            <h2 class="text-center mb-4 popular-destination" data-aos="fade-up">About Us</h2>
-            
-            <!-- Text Content -->
-            <div class="col-xl-6 col-lg-6">
-                <div class="about-us-content rmb-55" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
-                    
-                    <!-- Dynamic OR Static Content -->
-                    <p style="color: black !important;">
-                        {!! $home_aboutus_content ?? 
-                        'Odisha, often called the "Soul of India," is a land of rich history, vibrant culture, and breathtaking natural beauty. From ancient temples to pristine beaches and lush national parks, this eastern state offers a unique and unforgettable travel experience.' 
-                        !!}
-                    </p>
+        <div class="container">
+            <div class="row align-items-center" style="  display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;">
+                <h2 class="text-center mb-4 popular-destination" data-aos="fade-up">About Us</h2>
+                
+                <!-- Text Content -->
+                <div class="col-xl-6 col-lg-6">
+                    <div class="about-us-content rmb-55" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
+                        <!-- Travel Icons around content -->
+                        <div class="travel-icons travel-icon-1">
+                            <i class="fas fa-plane"></i>
+                        </div>
+                       
+                        <p style="color: black !important;">
+                            Travel with confidence with AIS Holidays, where we go above and beyond to make your travel dreams a reality. Discover hidden gems and must-see attractions across India with our expert guidance. With over 15 years of experience, we have helped countless travelers explore popular destinations and create unforgettable memories. Join our satisfied clients and embark on a journey that combines comfort, adventure, and cultural discovery.
+                        </p>
 
-                    <div class="menu-btns py-10">
-                        <a href="#" class="theme-btn style-two bgc-secondary">
-                            <span data-hover="Book Now">Read More</span>
-                            <i class="fal fa-arrow-right"></i>
-                        </a>
+                        <!-- Feature highlights with icons -->
+                        
+
+                        <div class="menu-btns py-10">
+                    <a href="#" class="theme-btn style-two bgc-secondary">
+                        <span data-hover="Read More">Read More</span>
+                        <i class="fal fa-arrow-right"></i>
+                    </a>
+    </div>
                     </div>
                 </div>
-            </div>
-            
-            <!-- Image with 2D & 3D Animations -->
-            <div class="col-xl-6 col-lg-6" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                <div class="animated-image relative w-full h-0 pb-[66.66%]">
-                    
-                    <!-- Dynamic OR Static Image -->
-                    <img src="{{ $home_aboutus_content_image 
-              ? url($home_aboutus_content_image) 
-              : 'https://odishavoyages.com/wp-content/uploads/2021/10/jagannath-temple-pti-1616946876.jpg' }}"
-     alt="About Us Image"
-     class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg">
-
-                    
-                    <!-- Floating mini travel icon -->
-                    <div style="position: absolute; top: 10%; right: 10%; width: 40px; height: 40px; background: rgba(255, 107, 107, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; animation: iconFloat 3s ease-in-out infinite;">
-                        <i class="fas fa-om"></i>
-                    </div>
+                
+                <!-- Image with 2D & 3D Animations -->
+                <div class="col-xl-6 col-lg-6" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
+                    <div class="animated-image relative w-full h-0 pb-[66.66%]">
+                        <img src="https://odishavoyages.com/wp-content/uploads/2021/10/jagannath-temple-pti-1616946876.jpg"
+                             alt="Jagannath Temple - AIS Holidays"
+                             class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg">
+                        
+                        <!-- Floating mini travel icons on image -->
+                        <div style="position: absolute; top: 10%; right: 10%; width: 40px; height: 40px; background: rgba(255, 107, 107, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; animation: iconFloat 3s ease-in-out infinite;">
+                            <i class="fas fa-om"></i>
+                        </div>
+                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
-
+    </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
@@ -1230,7 +1190,7 @@
             <div class="view-more-buttons">
                 <a class="service-view-buttons" href="#" style="text-decoration: none;">
                     <button type="button" class="theme-btn">
-                        <span>
+                        <span data-hover="Explore More">
                             Explore More
                             <i class="fas fa-arrow-right"></i>
                         </span>
@@ -1633,39 +1593,51 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 
     <!-- Popular Destinations Area end -->
      <!-- Bootstrap CSS -->
- <div class="container py-4">
-  <h2 class=" text-center" style="margin-bottom:70px;">Why Choose Us ?</h2>
+<div class="container py-4">
+  <h2 class="text-center mb-5">Why Choose Us ?</h2>
 
-  <div class="d-flex flex-wrap flex-lg-nowrap justify-content-center gap-2">
+  <div class="row g-3">
     <!-- Card 1 -->
-    <div class="card text-center p-3 shadow-sm bg-warning flex-shrink-0" style="min-width:180px;">
-      <i class="bi bi-person-badge fs-2 text-primary animate-icon"></i>
-      <p class="mt-2 text-light">5+ Years of Travel Experience</p>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-center p-3 shadow-sm bg-warning h-100">
+        <i class="bi bi-person-badge fs-2 text-primary animate-icon"></i>
+        <p class="mt-2 text-light">5+ Years of Travel Experience</p>
+      </div>
     </div>
     <!-- Card 2 -->
-    <div class="card text-center p-3 shadow-sm bg-warning flex-shrink-0" style="min-width:180px;">
-      <i class="bi bi-people fs-2 text-success animate-icon"></i>
-      <p class="mt-2 text-light">1000+ Counting Happy Customers</p>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-center p-3 shadow-sm bg-warning h-100">
+        <i class="bi bi-people fs-2 text-success animate-icon"></i>
+        <p class="mt-2 text-light">1000+ Counting Happy Customers</p>
+      </div>
     </div>
     <!-- Card 3 -->
-    <div class="card text-center p-3 shadow-sm bg-warning flex-shrink-0" style="min-width:180px;">
-      <i class="bi bi-graph-up fs-2 text-white animate-icon"></i>
-      <p class="mt-2 text-light">35+ Team Staff & Ground Experts</p>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-center p-3 shadow-sm bg-warning h-100">
+        <i class="bi bi-graph-up fs-2 text-white animate-icon"></i>
+        <p class="mt-2 text-light">35+ Team Staff & Ground Experts</p>
+      </div>
     </div>
     <!-- Card 4 -->
-    <div class="card text-center p-3 shadow-sm bg-warning flex-shrink-0" style="min-width:180px;">
-      <i class="bi bi-headset fs-2 text-danger animate-icon"></i>
-      <p class="mt-2 text-light">24x7 Online Support</p>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-center p-3 shadow-sm bg-warning h-100">
+        <i class="bi bi-headset fs-2 text-danger animate-icon"></i>
+        <p class="mt-2 text-light">24x7 Online Support</p>
+      </div>
     </div>
     <!-- Card 5 -->
-    <div class="card text-center p-3 shadow-sm bg-warning flex-shrink-0" style="min-width:180px;">
-      <i class="bi bi-patch-check fs-2 text-info animate-icon"></i>
-      <p class="mt-2 text-light">Odisha Tourism</p>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-center p-3 shadow-sm bg-warning h-100">
+        <i class="bi bi-patch-check fs-2 text-info animate-icon"></i>
+        <p class="mt-2 text-light">Odisha Tourism</p>
+      </div>
     </div>
     <!-- Card 6 -->
-    <div class="card text-center p-3 shadow-sm bg-warning flex-shrink-0" style="min-width:180px;">
-      <i class="bi bi-signpost fs-2 text-secondary animate-icon"></i>
-      <p class="mt-2 text-light">Special Discounts for Groups</p>
+    <div class="col-12 col-md-6 col-lg-4">
+      <div class="card text-center p-3 shadow-sm bg-warning h-100">
+        <i class="bi bi-signpost fs-2 text-secondary animate-icon"></i>
+        <p class="mt-2 text-light">Special Discounts for Groups</p>
+      </div>
     </div>
   </div>
 </div>
@@ -1791,8 +1763,9 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
         .main-slider .swiper-wrapper img {
             /* transition: 3s ease-in-out; */
             transform: scale(1.1);
-            max-height: 650px !important;
+            height: 650px !important;
             width: 100%;
+            object-fit:cover;
             /* opacity: 1; */
         }
 
@@ -1949,7 +1922,7 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
 <!-- Blog Slider -->
-<div id="blogSlider" class="swiper">
+<div id="blogSlider" class="swiper" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50" down to up>
     <h2 style="margin-bottom:60px;">Our Blog</h2>
   <div id="blogWrapper" class="swiper-wrapper">
     <!-- Blog Post 1 -->
@@ -2086,6 +2059,11 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 
   #blogNext, #blogPrev {
     color: #000;
+  }
+  .swiper-slide:hover{
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+
   }
 </style>
 
