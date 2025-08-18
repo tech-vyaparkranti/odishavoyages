@@ -36,8 +36,14 @@
     <!-- Close Button -->
   
     <ul class="navigation clearfix">
-          <button id="closeMenu" style="position: absolute;
-    right: 20px" type="button" class="btn-close d-lg-none ms-auto" aria-label="Close" position></button>
+         <button 
+    id="closeMenu" 
+    type="button" 
+    class="btn-close d-lg-none ms-auto" 
+    aria-label="Close"
+    style="position: absolute; right: 20px;top:0px;">
+</button>
+
 
         <li><a href="{{ url('/') }}">Home</a></li>
         <li><a href="{{ route('aboutUs') }}">About</a></li>
