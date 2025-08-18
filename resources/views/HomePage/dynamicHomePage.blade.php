@@ -10,73 +10,51 @@
         @if (isset($sliders) && count($sliders) > 0)
             @foreach ($sliders as $slide)
                 <div class="swiper-slide" style="position: relative;">
-    <img class="img-fluid" alt="Image" src="your-image.jpg" style="width:100%; height:100vh; object-fit:cover;">
-    
-    <!-- Transparent overlay -->
-    <div style="position:absolute; inset:0; background:rgba(0,0,0,0.4); z-index:1;"></div>
+                    {{-- Dynamically load the image from the database. Assuming your model has an 'image' attribute. --}}
+                    <img class="img-fluid" alt="{{ $slide->heading_top }}" src="{{ asset($slide->image) }}" style="width:100%; height:100vh; object-fit:cover;">
 
-    <!-- Text -->
-    <div style="position:absolute; top:50%; left:10%; transform:translateY(-50%); color:white; max-width:500px; z-index:2;">
-        <h3>Handcrafted Journeys<br>in <span style="color:#ff6600;">Odisha</span> & East India</h3>
-        <p>Trusted local DMC since 2004. Private guides, festival access, wildlife, heritage & coastal escapes.</p>
-    </div>
-</div>
-@endforeach
+                    <!-- Transparent overlay -->
+                    <div style="position:absolute; inset:0; background:rgba(0,0,0,0.4); z-index:1;"></div>
+
+                    <!-- Dynamic Text -->
+                    <div style="position:absolute; top:50%; left:10%; transform:translateY(-50%); color:white; max-width:500px; z-index:2;">
+                        {{-- Dynamically display the heading from the database. --}}
+                        <h3>{{ $slide->heading_top }}</h3>
+                        {{-- Dynamically display the long description. --}}
+                        <p>{{ $slide->heading_middle }}</p>
+                    </div>
+                </div>
+            @endforeach
         @else
-            <div class="swiper-slide swiper-slide-next">
-                <img class="img-fluid" alt="Image"
-                     src="https://s7ap1.scene7.com/is/image/incredibleindia/sri-jagannath-temple-puri-odisha-2-attr-hero?qlt=82&ts=1726663717081" />
-                <div class="slider-text">
-                    <h3 >Handcrafted Journeys<br>in <span>Odisha</span> & East India</h3>
+            {{-- Fallback: This section will render if the $sliders variable is not set or is empty. --}}
+            <div class="swiper-slide">
+                <img class="img-fluid" alt="Image" src="https://s7ap1.scene7.com/is/image/incredibleindia/sri-jagannath-temple-puri-odisha-2-attr-hero?qlt=82&ts=1726663717081" style="width:100%; height:100vh; object-fit:cover;">
+                <div style="position:absolute; inset:0; background:rgba(0,0,0,0.4); z-index:1;"></div>
+                <div style="position:absolute; top:50%; left:10%; transform:translateY(-50%); color:white; max-width:500px; z-index:2;">
+                    <h3>Handcrafted Journeys<br>in <span style="color:#ff6600;">Odisha</span> & East India</h3>
                     <p>Trusted local DMC since 2004. Private guides, festival access, wildlife, heritage & coastal escapes.</p>
-                    <div class="slider-buttons">
-                        <a href="#" class="btn btn-orange">Plan My Trip</a>
-                        <a href="#" class="btn btn-white">Explore Tours</a>
-                    </div>
                 </div>
             </div>
-            <div class="swiper-slide swiper-slide-next">
-                <img class="img-fluid" alt="Image"
-                     src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBxISEhUQEhMWFRUXFxoYFhgXFRYVFRcYGB4aGBgaGhUbHSggGBolHhoXITEiJSkrLi4uFx8zODMtNygtLisBCgoKDg0OGhAQGy0mICUwMCsvLS8tLS0rLy8tLy0tLS0rLy0tLS0uLS0tLy0tLS0tLSstLS0tLS0tLS0tLS0tK//AABEIALcBEwMBIgACEQEDEQH/xAAcAAABBQEBAQAAAAAAAAAAAAAEAAEDBQYCBwj/xAA+EAABAgQEBAQDBgUDBAMAAAABAhEAAxIhBAUxQRMiUWEGcYGRMkKhFCNSsdHwYoKSweEVQ/EHFjNyU6LC/8QAGgEAAgMBAQAAAAAAAAAAAAAAAQQAAgMFBv/EADQRAAICAQIDBgQGAAcAAAAAAAABAhEDEiEEEzEiQXGRocFRYdHwBTJCgbHhFBVSU2Jy4v/aAAwDAQACEQMRAD8A9MhokphqYcs5lHEM0SUw9EGwURNDERNTCpiWSiCmE0TUQqINg0kNMc0wRRCoiWDSD0w1ME0QqIOoGkGohUQTRCoiaiaAUohuHBdELhxNQOWBUR1RE84MCroCfa8ScOJrJy9rA+HC4cGcOGoiagcsD4cLhQZw4XDiaiaALhQxlQdw4bhxNROWAmVDGVB/DhuHE1k5ZX8GOTJix4UNwomsHLK7gw3Bix4UNwomsnLK7gwjJiw4UNwomsPLAODD8GDuFC4UBzDoAeFCg/hQoGstoDqIeiJqYVMZWNaSGmFTE1MPTE1A0kFMNTBFMKmDYNIPRD0RPTCpiWTSQUQqInph6YmoGkgohURPTD0xNQdAPRCogiiFTEsmkgohqIIphUxLJpBJqAxfRn9rx3REGdzeHJWoM9JDl2DsHLA6O/pEmU4jiyZc1viQD29DuO8V1q6LPG9N9xJRC4cT0wqYOoroIKIVEEUQqImomgHohUQRRCogag6AaiFRBFEKiJqJoBqIaiCaYaiJqBpBqIaiCSiGpiaiaQaiFRBNENREsmkGohUQTRDURLDpB6IUEUQomomkIph6YkaHpjOzeiKiHpiWmE0SyURUwqYmphqYlgoiphUxNTCpg2SiGmHpiWmHaJZKIqYVMStCaBZKIqYVMStCMSw0RUxm/G/iUYGWlTOpbhPo36xocwxIlS1TDekaOA52DmwjDT8WrFUqxCZa0g1IRw0mmzfEpy9/8wvnzxgqfoM8Nw8pvV3Ixy/FOYTi6ZZvpyqPkz2MHYLxhjsOSqdJUENd0KAGwvoItM2xRRikIqISpI0JDkVhnDHcHXaAkqMyUsFanBUnmmLUNSAKSF2KQLadi8KRzxpS0r3HpYW1Vnovh3OEYyVxpYYPSfMAE/nFpTGG8A55LShOHKEywaSmkMCqYS5OjAqZIAFmG0b1o6MJ2jlZMbi9yOmGpiVoTRaylEVMKmJGhNEslEdMNTEjQmiWSiKmGpiVoZolkojaGaOpqwkFSiwFyYo8w8USJaSoGogpDXuVaAHfaKSyRj1ZKLloTQJleZInpqT6h3vvfeDYMZKStE0nDQmjsiGg2SjhoUdQolkoKaHaHaHaK2aUctCaOmhNEslHLQ7Q5LXOkU2ZZxJMuYhM0hTEVS2KknqCbWispqPUKi26RY47EJloUtWgD2ufaJ2jxTFzJtJnHFTC5AFYB1Y3vsCnaLXwz4hxkhctM2dLXJVMKVVOyEJspQUBYvoNDv1AjOy08ek9WaE0Z3MvGeHkzOGQpWjlLWcAixudR9Ysk57hysSwt1lNQSA5bXbftB5kTOiwaMl41z1cn7qWsJdBKlAVLT5Aa+l9NHgjG+IU0zUKcKSLApUhT6gi3no8YqbjVTHApdgq6Ss9XOx8nG/SFeIztKl+5eMbDMD4vmS0cMzayfhJBCuoaxJ9m79ZJPiacE1BSSp6tamd3HMoMdTbrFViZ0pIo5A7FLuhLiyili4VfTz1gbG4hxUmYkPTSChRCqUkgVFwdj0e8JLJKTVX9+Aaa6mqzTP14pCZaQkJKhUalBVy1gLCz3J1ZtjA0yW4Ys2hJZvX9IqsqCihAIo+JRQFMSoWNQ7vpB+JlEy1gMCSNVKADFnKqSNP3eKZZyct2djho6YIr/EM9p+GAUD8Q2fVPU7/ANobDAFU1KupNlLSQ6UX5B3Oum0A5tPScThwClRDuAU7FPfe8WEljNmGk3YMCtKrpGhQKiLeUXrTjS+XuXrdr5+xT5fMIUpAf4ZgSbkgpU6S5v8AlHtGT4vjSJU7daEqPmRce7x4lgzTOZyGWpLlRe4a5Xc+rGPU/wDpxOqwKBbkWtOrtepj0+LSOnifaZz+Kj2EzSwxLR3FXnqjSEBrm5Ow7d3i+TJoi5CKjbOZ+eyULoUpt3OlOhL9iGbqRB+HnpmJqQXHWPOJ6gZonB1BKjUlieYJ5U2Fnt7RrcpxoSkzFzqgEn7sIpSlhVawOj+bQvi4jV+YLhRfQogwuNlzAClQNQcBw7dWgiG076FaOYaOoaICiixmOxHEITLQJabFSywV5ORf3jz/ADnDqVMKk1U1KKUJWkkHYbnVNj5RpfE0pEsGZNUpcwErUS9DEkpQkdg1h26xnMTiVrnS5ISeKsOpP4SQSkX6EAHv5QhknKU6S6GqjGty38Py5EtKFLnLRMBqUFJKtRqVJ0DDrtpG6kTkrFSFBQ6guIyGUTyqWuYpBmJNloUHPQgH5bE20jWYHColoCZaaU6t5+cbcPNyQJRonhiIcwoYspRzCh2h4lhop8h8UyZqUoXMHFOtqQCdAx27940YMeByselj97S5dqSk9bEczabnpG28N+PpYSnDTkqAAYzKr+ZAu+mnWMouS2YFNPqehYibSkqtbrp6nYd4oJPi2UrEcBmFIclwoLe4I6Abxzis4QkKMucFIAFSZrmoKu6VHm3ZjpHnwxyVYgrkrFSXAX8RINuzJYs99YpLLvsaOLRrM48RzkrUnkUkFSVS2BSQN6iNSNorJgAkTJiEsVpJa1izbdGIirRjU1kKBSoJAuoqYXUHOl2fyAgqsiRLOtgFbgvSbgBv8Whabk6sZ4eKuytzopEu1/vSxAAJCWAtsIjlyRMcKPKkzlKKRqBToGsXIHqTtCzicDJl9alE6t8RGmjN0itx01Zl2cOpXwkpsWd770ix6RtjTcV4s1yKm/A6wuOXMmSkJCHNMsqVqlrOQCCQAB7dxE4xU2VNEwEqWgFIqUyhSQBzJupJGzfQOSfCuS0rTMWsOWUKFDlCXYFV3ctYD5bliRAyaJUxcue01BKimtSCrU/ECQ7h3840c421ESXCyktUnW5cLzFa2Y/euDSDWCCL8wDFn+K+kdycMtaZtaCPwhSg7PcplAFyHOpjheYrVLSJSAAqhqJc2wJq+RVrAjXrBJx0508g0V/tYjt0ttvCLTroORwRT3dmZx2BlpKpnGIsAlNLr3BZOgt06NGfx0pYLqWEAAhNR5rW+EEka+QfyfR4vEzJc1RUgABVYstIY6h5oDi+gfeBZuIExYTKlpNZQp+HVZ3LqSkEsf7HcmHIOca7/L6CuTh76M0+SEslBIZEpIArJVdgagRym3feI5mESoOSpPOV2CeY1KWATS7AFIPl2MEISoKmFYayWAJL/EXeoi77dIHxWJUJIpRd0AXHzLSm58o52+rY7cYpAGYIBngFZKgmoXKqRUxDgC1jt7QXhSpUxYGjIemgMwI+e24794qsdMIxcpJQJdmDtca6EFjc6dYskGmaopUlJpQHI01e1SS+1j0jaa7K8PcEWnJpfH2M6s/fKCv/AJBeyToN0MPaPS/+nM5aZk3CgJCEgTFXUVVLCQnXsm9+m7t5diF/eLJ/GHoHUD+JX5neNl4JzYIxilAElaEg1BiEhIFtyHSk2D9ocb0pSfSvoKTjqg4rrf1PWnEVOf4gIQVhNUxKSUkhwkalV7RF/rClKVLQgEJCSSFXIVZgCkMR3ij8Q5tQoJUa1AXDMAd3SCbxhlz6o1HqJctwfaKeXOAmtMBKSlK5gdiCS7uPmH5piwznFqMtUoLqAUkgn4iksGN7G5Gv1ijwGZAzPvJaZiZxKVE8qmQENST3VpuekWua5FUXTMSlLinmuJZIUQ3ynUanQaQt+RJSdEk0+hdeDsOJSGBStZH4g5T/AAkhyPX2jVxlcsmmSggpF2WkOCxLPSNv7tFpg81RoSdHvt1/5hnh+Ki1TZnKNFrHC1gXJbziqOdgrIQlSkgagHU9meM/ic0mLUVTGFrcwpSL/Luf1jefEJLYMcXxL7NsmTiZkiYo8kpRWUvZRDFL+RAMUOJyGZJxaZ0t1k00vewLrB6XJP8ANAkvMJiFpUgquWu97bJ6n97RdYLOVmaEqAKmIszhyCxbfljLmalumiyik9nZdYPAiWqaoH/yLqbYFgD7wVHMtRIchuzv9Y6hpVWxlQ0cvHUCSZgMxY3AG21wPyPtEcqCohUKGeFBsFHzf9rQC1D7X+jtF74dw0ueVzFJYSwgBlKS6lqZzS1gAo+0B5jkc0EAcND/AC8QPyglRL7AXi8yDCowstKSalTVIqHRSQqwDD8XeMs+WPL7D3f2yvC8PJ5kprYHxeGlitSUqYLU7KmEAA7ipmu0cYYSZdKFGqoKrLpSBUxABLUsQDY7xXZhjUBKQpRAWVLDoSXuU2+8B2O28TIRQErSqyhUWdwKSzg6F3LCAotxpsczKDlsHZZhVomTFYkBB0dR2BUAoIF0i47v7RFjc/W6fvFU2Kwlg4cukm5GjbM+kRy8EZ1agspKUCrmQsOHcqF2f03ioly5VwtZUtRUGYAUuC4ATq7+4gpRk22WhB44pR/sPw+OM40l7m1KCSkfFttb/mL2dNTolKjypAqE1JFNOjo2LXjKZHIXx5KWlqBX8K5ZUCCC9SSrofJ2MbyZl0pglAMo1KDyqZYDOQAAli9rkE6xlxOSOOSRvig5psrFSlqJHMbEElSVODfVWx6RQ51JWZAmrK0hLEcyCOYJ2e+ovB2BynHTJYmDGLFTsCBbU3JDfCH9RBM3BzpUmaZuLmk1AIKGTysCSdC7xVZVGWzXqWeNzVUQSKSUACwpDkAuySos6FA6i9tD5xbiYh02S3M/KhPTcSgB52jF5HgTiMUhGJKpqQ7VkKV2DkGzmNSvBYVEoLGGk1FdL8OXygLKCwKeazawM2mMq7yY4NoEz4LSETWA+UgUsRqx+J3BUNN448PY5SJlCwpqnSSmbopr87Wuk2Rv3v34vwcsSEESpYLguiXLTYgu9KQXdvrGPw0gycRKWglJrRYFQBdTKBY6M4bvF8VZcQMkHCWo9TkLmpUsCUkWAczUJFn0KUXN9x+kC4+spDGSAFSykrmhRLKSbkrtoO5vaJcMgVLFIUOIwdjolOmw2O0U/wBklrUCtKbKTwwrhO5mKJpcm5U0KRSbv7/kZdqxswlL+2SCOESU8xSoJRcsTYnQdRdtelgiTM46wOELJYhcwOLbJYjXr6RUY0JGLwgIJJS6qqC5pJuxZ37eUWUgDjzCEgMS1gEjkl7ONzF5bwXh7lYPtvx9jN5kmamatKkpLTEgkTCvYMXU6iD3jVeDRTjQFpauQSHAZTAdUgt30tGTz1AEyZypcBADBLaD6kwaFkYnDmW6ViWn5QkXTY6kHTdoZm7xrwf8GE9tV/H6m+y+cpM0hSiCoAAJ1FSkocAhgHJdjt5RT+KcOv7QiWDVWlQcpVrLpNyyvxJ5i41eIMFiVJxMtSSQsli4WVKqNyZZKU0WBe2haNihMme3EQFLRVzUEMXKSU3PTrHKxSeGNswUXkg18zHZZhJwDzEVMosHQehBBT3BHoLRaTZwGhIIYqJZVNWgKXeo+WsWycskgckspCmJYAB/JrRS58eChIQpVKrlIQ6r8zPs9hVfvFZ5Hknt9/yZzwShGywk5wjllKTUpgkVAlT2bUC5d7xLicQJb0FLJFJI2JDWSS5MZGViSEoUupSiEroPMoDspgx1sP1jWZJjkFCVT5aUqYsFOXCru1ylukO4orT2nW/UUTlq2TZXnOJgJMsAgqqU4KRUHtrcvTpYRUTcSVrJKXLtZqUkBy2oB9N42CsLhjLo4qQVB7DcdNEjppvGWz6UEyaZZ5UitwFjVRdLWNRe77G2pIYUVJ05LzRdZHFflYstxJTWV1lJpuCPra2gHoIJw2ZmVMCwmokkhVThtuXyJ9esVWW5eyUVpWKi4+8lhgxJ+KYwNxqzgmJ0KWiYUyyhQSpQSCA24fobF/rBeLI13V4oD4jDF27vwf0NvP8AEry3lsTy6EBRcioBJBbo77xDjfEs6VMAmyVIT5oU/TmSo6MYoMFgsQblaEqJSAC3xOACQ7s/5RocTkk+aBxMTKShILBMsCkEc27RnHhZNO5b/wDYv/icWzUXT/4/WgJeZTApU5F6yzLJAS1tdDqA3nEX/cC5ZJUtzyj5bM9hclXnfzEUnivCrCJfBnpWKluzhLUosdWtsAddNSKfCSsQUpQoEM5qSlKpZD6kglaibGwszbwpPFONSU9vUs526ijf4nxkmWooUkqI3SLFw4Z/OFGQzTCTDMJc6J+VOlIA1v7woEuImpNX9+QKyf6fQzeZIM2aVqpLMEqSlwEjQEqDvYa+kGZbj7yZMuSpcxKyRzS2JZi1hQHD3jKYSdMVUCp0nYk+e+kek5DIkIwiJ8iWoTDQiYtlETD84S5IAqF9NIdyS0Yrmrrp5G+KcpK316lRgshSVS1YixlJUKQUqCnUomo3DczMPeD2ShFMtKQGpHK5NvmI1Zyb+8R43GBBDEG5dn6hzY+Zv0iqGNUVLUSAkAl1ikOkhrByd+7D0jkt5s71yf0MHG9+8usNjFJBdKAFDmsKlO6lO1tST/MelwpuGw5ImGUkEAgELI3qNtPXz8op1Zn8LqYKLJYhMvsbeX0bd4HxuZkKpNz0FmOz/T6xpHBkUrTa/dgtpdS6GFSJspcplAKSGIuGID1HUN1vvFzJEwcMzEqrHMu1nWKTs1mJtGFVmamHMp9VOqoW/trYxvcr8WTOElRRekOr7vmF+bmUD/YPDD5rpS3+Y7wnEt3Forsj4tMsOpNKbuCD5Pq7FoJzOXMVJImcyi/w8oADPdRvrqwEG43Mk/ZpoMtQtoAmxFO4JDMH9D0MY3Kc8mCcgrrZC6mSQHItuofsnrGkISyXLpQ25qL8SbwupCp5UuwShLWZlFSUjfW7esW8+UeBKLF+MSzJqp47VfE5s2x1Eaj/AFhawapSwk6A8N+ZgHFdtSPMaxSeJ8afs8wJTNS29TfCbkAFz/eBzdeRfsTdRAvE5H2YakpSjyJITr6K7RiOKk4qSl2HFlguz/GO57x6bl+YBYRacxFlUm/LQ51tY3632idObBSg8pRBCiCZS2FIap6bDS8TFleGLjV/uDKnkKrBY5JBmGkPNIHMWFIJNwWJ5VddOkVcrHTVz8OmXM4aDzzgwNSUvMI66OI2M3N5BKbGpwq8mYNTY3Q+ln6KMQnNcG6VASnblNKQdS4BKXbmb26xRZnv2GGmZTG4pKsRhJqgoJpUACQH+6CrKe1yBfzg7BYgicpZAYpJZyW5ZB+LTUkekH53j8KMKZqOAFpCQFBMtR1CSBbveJJGb4OYlE3iSQtdyk0EqUaQQyk7EAbmwi6ncPyvvXuVt6/X0ox/icJStd3dKD3uGt7D3iXEJeZhyCUqMtMsWFiGu52NTN2jUr/0+YoEokqUbEujmOgJGmje0D57OlSlS1JTISkoYHhSSQUF/i1AINvIxvDMnphT6Pr4GU4SkpX3lbi8inIKOGUqYAEpXLF77FWocxeZcnFS5RWEit2YlJcedTb9Y7ynHSJuEUpKwFJSUqWECpK03JqpZyGPqIxmJ8UT1W4kwg9VUix9Ox0jKUMvEJw2VfJ/UXjjhghpTZ6Bg82mKABKAty6eUnR7UqPeK7C4wzH4gZmKecFJa2yixjnwThjiAqcuaRSoopDqcUpJLnzO0H+Ic3w8hBQpfFVpZkAfw1J0PZLnyhV8PKM6ju/kmvc2c3SlfQDm4e9dQqSXYUFLdA5fS0CYrHrS7y5jUu7BQBbQlOu42ibCow0xKZlE4EpB/3zqkHv5PvrvE32fC9ZyPSZ+Zlloo9d9qPT7+LKqeV7qvMqJGZFaK6FpAsWlOdHGpBLmzh/qYjwmdElQpXZgkqSoBzcPv6RbqRhlFuNNB3uU28zKDbaRJ9hw7P9qKXP4kP3+JH72aJXXsFLy/LzRVyM0SsCtRWdTyOkKBY2Lk+h22gvL58tRHOJIVd6Sof0C4G3ZxCn4OSXAxRAAJ5VST3JF9e94JwuRyQyjPmE9VgAK/mAIPvFqSV0/D7RTJLOoS5cU5d1vvHxEpCGWnFJmMS4AWkjormA0vu94MOeIK2UpIsL9XAV6R2rIyXUlYU7bvtdz3vHGKyYqBBD6MH/AAgD+0VWfA1U9n9/E14SWdwTzJKW/wDXoBZ1iJK0IUghuItxYBTCW/ltFZMnKFVCwmw0ULaOAH84tMzwZKES+GXClWpdnCGL6HQxXTMoSk88ru9Nrj/P0hqHKaW/8MZ0y3BM/mK46nX8qPmH4E94UGZzhJRmkmWCaUfKfwJhRu5Y/gykccqW6M0nwfiH/wDGn+pLfWNtl32hMmVIUiVTLSlKQ/4QADZUYWRmmHT8QSo7sqa/6Rf5DmuDnTUyeCUvVzFfLygm5sdoV4mPFKNySaXy/wDQrCbvb+f6Os8wC0K4yvh1AcqAX3AO5LxmcXJHDNVySSscyS5NhSCHBAA9fMR6mnK8OzUWOtyQQexdxGBzvIZi5qjKdISssl+93PQm411hf8PzrK3G+n7e9gyY2tzLLnlnCRcvyu4UC+487CApyyo2LHvqNrfW0E5vg6JqZQepQe5e7q0ADh2/LrFllHhmbMPOtCCGJrNwH22B7H2jqSlHErkxVqTYLkGTTMTOEpAU2qi16Rq9mHQW3EemK8O8tASUMlQFj8zMddgABBPh5OGwcrhImpJclSqkuo+V9m9otE59L/Gn2f8ALeOXk/EHKXZi6XyHsChjW/UyOdYBSMOoklnZiVakUddXLs+xjG4XKlTFJSlKlEXUEoUojzAj2CZm8ldiQoatQCH21ESy80lC1J9gB7C0bYvxBwTTi78H9DWc4S7yhwOUnho5SHSAQUKSQxJJIqDkvv2it8XYOnDqSkLJWpIBrU1hezlzyfWN5JxiJg+HtcddonTOSGDM2lvyaFY8dGM7ZrrTjsYXBZGZaEJVU6QH5l6soW6Hm1/hEWC8AClklQFRI5i6UkrsHBvf6CNVx0+XoY65TBfFLI7T9SymuhjxliwSa1BtA6Da9g9t3uflTDSMFNSXdQIKgATLUyHXS7G4akNpaNYtCX+F/wCn+8cUSwCSkAByXYN7Qec31RbUee+LVrGHUFEMokJdJ2JOtxrA3hGXNMhLqISCRZKVWZTuxuHpt+xqM+zfLimmYeKAdJZJF+qgQG9Yt8FhJCEhKJdKWszmxvqCXhp5tGFRcWm2UW89SKFODWpJfhlIOqpLqVYEWfSonYgB4pPHOXIQlKgUFVVyEUkhjZ3/APX2EegLlyNz+Z/t
-                     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" />
-                <div class="slider-text">
-                    <h3>Handcrafted Journeys<br>in <span>Odisha</span> & East India</h3>
+            <div class="swiper-slide">
+                <img class="img-fluid" alt="Image" src="https://www.intermiles.com/iwov-resources/images/blog/10-best-places-to-visit-in-odisha/odisha-mobile-414x233.jpg" style="width:100%; height:100vh; object-fit:cover;">
+                <div style="position:absolute; inset:0; background:rgba(0,0,0,0.4); z-index:1;"></div>
+                <div style="position:absolute; top:50%; left:10%; transform:translateY(-50%); color:white; max-width:500px; z-index:2;">
+                    <h3>Handcrafted Journeys<br>in <span style="color:#ff6600;">Odisha</span> & East India</h3>
                     <p>Trusted local DMC since 2004. Private guides, festival access, wildlife, heritage & coastal escapes.</p>
-                    <div class="slider-buttons">
-                        <a href="#" class="btn btn-orange">Plan My Trip</a>
-                        <a href="#" class="btn btn-white">Explore Tours</a>
-                    </div>
                 </div>
             </div>
-      <div class="swiper-slide swiper-slide-next">
-                <img class="img-fluid" alt="Image"
-                     src="https://www.intermiles.com/iwov-resources/images/blog/10-best-places-to-visit-in-odisha/odisha-mobile-414x233.jpg" />
-                <div class="slider-text">
-                    <h3>Handcrafted Journeys<br>in <span>Odisha</span> & East India</h3>
+            <div class="swiper-slide">
+                <img class="img-fluid" alt="Image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ_N6rjmRyVWhxlWxklpKe-ra5y0zwRD1_NA&s" style="width:100%; height:100vh; object-fit:cover;">
+                <div style="position:absolute; inset:0; background:rgba(0,0,0,0.4); z-index:1;"></div>
+                <div style="position:absolute; top:50%; left:10%; transform:translateY(-50%); color:white; max-width:500px; z-index:2;">
+                    <h3>Handcrafted Journeys<br>in <span style="color:#ff6600;">Odisha</span> & East India</h3>
                     <p>Trusted local DMC since 2004. Private guides, festival access, wildlife, heritage & coastal escapes.</p>
-                    <div class="slider-buttons">
-                        <a href="#" class="btn btn-orange">Plan My Trip</a>
-                        <a href="#" class="btn btn-white">Explore Tours</a>
-                    </div>
                 </div>
             </div>
-      <div class="swiper-slide swiper-slide-next">
-                <img class="img-fluid" alt="Image"
-                     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQJ_N6rjmRyVWhxlWxklpKe-ra5y0zwRD1_NA&s" />
-                <div class="slider-text">
-                    <h3>Handcrafted Journeys<br>in <span>Odisha</span> & East India</h3>
-                    <p>Trusted local DMC since 2004. Private guides, festival access, wildlife, heritage & coastal escapes.</p>
-                    <div class="slider-buttons">
-                        <a href="#" class="btn btn-orange">Plan My Trip</a>
-                        <a href="#" class="btn btn-white">Explore Tours</a>
-                    </div>
-                </div>
-            </div>
-      
-            <!-- Other default slides... -->
         @endif
     </div>
 </div>
+
 
 
 <style>
@@ -557,65 +535,68 @@
         }
     </style>
     <section class="about-us-area py-100 rpb-90 rel z-1">
-        <!-- Floating Travel Icons Background -->
-        <div class="floating-icons">
-            <i class="fas fa-plane floating-icon"></i>
-            <i class="fas fa-map-marker-alt floating-icon"></i>
-            <i class="fas fa-compass floating-icon"></i>
-            <i class="fas fa-camera floating-icon"></i>
-            <i class="fas fa-suitcase floating-icon"></i>
-            <i class="fas fa-globe-asia floating-icon"></i>
-        </div>
-
-        <!-- Pulsing decorative dots -->
-        <div class="pulse-dot pulse-dot-1"></div>
-        <div class="pulse-dot pulse-dot-2"></div>
-        <div class="pulse-dot pulse-dot-3"></div>
-
-        <div class="container">
-            <div class="row align-items-center">
-                <h2 class="text-center mb-4 popular-destination" data-aos="fade-up">About Us</h2>
-                
-                <!-- Text Content -->
-                <div class="col-xl-6 col-lg-6">
-                    <div class="about-us-content rmb-55" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
-                        <!-- Travel Icons around content -->
-                        <div class="travel-icons travel-icon-1">
-                            <i class="fas fa-plane"></i>
-                        </div>
-                       
-                        <p style="color: black !important;">
-                            Travel with confidence with AIS Holidays, where we go above and beyond to make your travel dreams a reality. Discover hidden gems and must-see attractions across India with our expert guidance. With over 15 years of experience, we have helped countless travelers explore popular destinations and create unforgettable memories. Join our satisfied clients and embark on a journey that combines comfort, adventure, and cultural discovery.
-                        </p>
-
-                        <!-- Feature highlights with icons -->
-                        
-
-                        <div class="menu-btns py-10">
-                    <a href="#" class="theme-btn style-two bgc-secondary">
-                        <span data-hover="Book Now">Read More</span>
-                        <i class="fal fa-arrow-right"></i>
-                    </a>
+    <!-- Floating Travel Icons Background -->
+    <div class="floating-icons">
+        <i class="fas fa-plane floating-icon"></i>
+        <i class="fas fa-map-marker-alt floating-icon"></i>
+        <i class="fas fa-compass floating-icon"></i>
+        <i class="fas fa-camera floating-icon"></i>
+        <i class="fas fa-suitcase floating-icon"></i>
+        <i class="fas fa-globe-asia floating-icon"></i>
     </div>
+
+    <!-- Pulsing decorative dots -->
+    <div class="pulse-dot pulse-dot-1"></div>
+    <div class="pulse-dot pulse-dot-2"></div>
+    <div class="pulse-dot pulse-dot-3"></div>
+
+    <div class="container">
+        <div class="row align-items-center">
+            <h2 class="text-center mb-4 popular-destination" data-aos="fade-up">About Us</h2>
+            
+            <!-- Text Content -->
+            <div class="col-xl-6 col-lg-6">
+                <div class="about-us-content rmb-55" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
+                    
+                    <!-- Dynamic OR Static Content -->
+                    <p style="color: black !important;">
+                        {!! $home_aboutus_content ?? 
+                        'Odisha, often called the "Soul of India," is a land of rich history, vibrant culture, and breathtaking natural beauty. From ancient temples to pristine beaches and lush national parks, this eastern state offers a unique and unforgettable travel experience.' 
+                        !!}
+                    </p>
+
+                    <div class="menu-btns py-10">
+                        <a href="#" class="theme-btn style-two bgc-secondary">
+                            <span data-hover="Book Now">Read More</span>
+                            <i class="fal fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                
-                <!-- Image with 2D & 3D Animations -->
-                <div class="col-xl-6 col-lg-6" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
-                    <div class="animated-image relative w-full h-0 pb-[66.66%]">
-                        <img src="https://odishavoyages.com/wp-content/uploads/2021/10/jagannath-temple-pti-1616946876.jpg"
-                             alt="Jagannath Temple - AIS Holidays"
-                             class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg">
-                        
-                        <!-- Floating mini travel icons on image -->
-                        <div style="position: absolute; top: 10%; right: 10%; width: 40px; height: 40px; background: rgba(255, 107, 107, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; animation: iconFloat 3s ease-in-out infinite;">
-                            <i class="fas fa-om"></i>
-                        </div>
-                     </div>
+            </div>
+            
+            <!-- Image with 2D & 3D Animations -->
+            <div class="col-xl-6 col-lg-6" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
+                <div class="animated-image relative w-full h-0 pb-[66.66%]">
+                    
+                    <!-- Dynamic OR Static Image -->
+                    <img src="{{ $home_aboutus_content_image 
+              ? url($home_aboutus_content_image) 
+              : 'https://odishavoyages.com/wp-content/uploads/2021/10/jagannath-temple-pti-1616946876.jpg' }}"
+     alt="About Us Image"
+     class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg">
+
+                    
+                    <!-- Floating mini travel icon -->
+                    <div style="position: absolute; top: 10%; right: 10%; width: 40px; height: 40px; background: rgba(255, 107, 107, 0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; animation: iconFloat 3s ease-in-out infinite;">
+                        <i class="fas fa-om"></i>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
