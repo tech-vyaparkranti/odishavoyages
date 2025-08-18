@@ -2,18 +2,14 @@
 @section('content')
     <!-- about-section -->
     <!-- Hero Area Start -->
-      <style>
-     
-      /* Hero Section with a responsive aspect ratio */
+<style>
+/* Hero Section with a responsive aspect ratio */
 .hero-section {
     position: relative;
     width: 100%;
-    /* Set the desired aspect ratio */
-    aspect-ratio: 16 / 9; 
-    /* Optional: prevent it from being taller than the screen */
-    max-height: 100vh; 
+    aspect-ratio: 16 / 9;
+    max-height: 100vh;
     overflow: hidden;
-
 }
 
 /* This container will center the video */
@@ -30,51 +26,88 @@
 }
 
 .video-background iframe {
-    /* These styles ensure the video covers the container without black bars */
     width: 100vw;
     height: 56.25vw; /* 100 * 9 / 16 = 56.25 */
     min-height: 100vh;
     min-width: 177.77vh; /* 100 * 16 / 9 = 177.77 */
     border: none;
-    pointer-events: none; /* Prevents user interaction with the video */
+    pointer-events: none;
 }
 
-/* Demo content for context */
-.demo-content {
-    padding: 80px 20px;
-    text-align: center;
-    background: #f8f9fa;
+/* Bottom-left content */
+.hero-content {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    padding: 20px 25px;
+    border-radius: 10px;
+    max-width: 700px;
 }
 
-.demo-content h2 {
-    font-size: 2.5rem;
-    color: #333;
-    margin-bottom: 20px;
-}
-
-.demo-content p {
-    font-size: 1.2rem;
-    color: #666;
-    max-width: 600px;
-    margin: 0 auto;
-}
-    </style>
-    <!-- Hero Section with Full Background Video -->
-    <section class="hero-section">
-        <div class="video-background">
-            <!-- AUTO-PLAY, LOOP, MUTED, ALL CONTROLS HIDDEN -->
-            <iframe 
-                src="https://www.youtube.com/embed/hi5d8VbAeVc?autoplay=1&mute=1&loop=1&playlist=hi5d8VbAeVc&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&fs=0&cc_load_policy=0&playsinline=1&enablejsapi=0" 
-                title="Background Video"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-                style="pointer-events: none;">
-            </iframe>
-        </div>
+.hero-content h1 {
+    font-size: 2rem;
+    margin: 0 0 10px;
+        color:yellow;
         
+}
+@media (max-width: 500px) {
+.hero-content h1 {
+    font-size: 1rem;
+        color:yellow;
+      margin: 0 0 10px;
+}
+.hero-content p {
+    display:none;
+}
 
-    </section>
 
+}
+
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin: 0;
+    color:white;
+}
+.cursor {
+  overflow: hidden;
+  white-space: nowrap;
+}
+.typewriter-animation {
+  animation: 
+    typewriter 2s steps(50) 1s 1 normal both, 
+    blinkingCursor 300ms steps(50) infinite normal;
+}
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+@keyframes blinkingCursor{
+  from { border-right-color: rgba(255,255,255,.75); }
+  to { border-right-color: transparent; }
+}
+
+</style>
+
+<!-- Hero Section with Full Background Video -->
+<section class="hero-section">
+    <div class="video-background">
+        <!-- AUTO-PLAY, LOOP, MUTED, ALL CONTROLS HIDDEN -->
+        <iframe 
+            src="https://www.youtube.com/embed/hi5d8VbAeVc?autoplay=1&mute=1&loop=1&playlist=hi5d8VbAeVc&controls=0&showinfo=0&rel=0&iv_load_policy=3&modestbranding=1&disablekb=1&fs=0&cc_load_policy=0&playsinline=1&enablejsapi=0" 
+            title="Background Video"
+            allow="autoplay; encrypted-media"
+            allowfullscreen
+            style="pointer-events: none;">
+        </iframe>
+    </div>
+
+    <!-- Content in Bottom Left -->
+    <div class="hero-content">
+        <h1 class="cursor typewriter-animation bottomclass">Handcrafted Journeys in Odisha</h1>
+        <p >Trusted local DMC since 2004. Private guides, festival access, wildlife, heritage & coastal escapes.</p>
+    </div>
+</section>
     <!-- Hero Section with Full Background Video -->
     
     <!-- Demo content below hero -->
@@ -1110,8 +1143,8 @@
         </div>
         
         <div class="row justify-content-center">
-            <div class="swiper packages mt-4">
-                <div class="swiper-wrapper">
+            <div class="swiper packages mt-4 ">
+                <div class="swiper-wrapper ">
 
                     {{-- ✅ If Dynamic Data Available --}}
                     @if($homedestinations->count() > 0)
@@ -1700,8 +1733,8 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
 <!-- Testimonial Slider Section -->
-<div id="testimonialSlider" class="swiper" style="background:rgba(0,0,0,0.2);margin-bottom:50px;margin-top:60px;">
-    <h2 class="text-center">What Our Clients Say</h2>
+<div id="testimonialSlider" class="swiper" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/image.png'); background-size: cover; background-position: center; margin-bottom: 50px; margin-top: 60px;">
+    <h1 class="text-center text-light" style="font-size:45px;margin:40px;">What Our Clients Say</h1>
     <div id="testimonialWrapper" class="swiper-wrapper">
         
         <!-- Loop through testimonials and create a slide for each one -->
@@ -1738,10 +1771,15 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 </script>
 
 <style>
+    #testimonialSlider{
+        max-height:1000px;
+        padding-bottom:20px;
+        margin-top:50px
+    }
   .testimonialCard {
     padding: 20px;
     margin: auto;
-    max-width: 700px;
+    max-width: 600px;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
     box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
@@ -1777,8 +1815,8 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
       padding: 15px;
     }
     .testimonialImg {
-      width: 140px;
-      height: 140px;
+      width: 400px;
+      height: 300px;
     }
     .testimonialText p {
       font-size: 1rem;
@@ -1787,8 +1825,8 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 
   @media (max-width: 480px) {
     .testimonialImg {
-      width: 100px;
-      height: 100px;
+      width: 400px;
+      height: 200px;
     }
     .testimonialText p {
       font-size: 0.9rem;
@@ -2041,6 +2079,12 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     font-family: 'Segoe UI', sans-serif;
+  }
+  @media (max-width: 480px) {
+   .blog-card{
+    margin:10px;
+
+   }
   }
 
   .blog-card img {

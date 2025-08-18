@@ -11824,6 +11824,7 @@ section.hero-area.bgc-black.pt-200.rpt-120.rel.z-2 {
 .mobile-logo img {
   max-width: 135px;
   /* padding:10px; */
+  height: 100px;
 }
 
 .price {
