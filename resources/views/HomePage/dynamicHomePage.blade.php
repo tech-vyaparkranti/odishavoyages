@@ -1110,8 +1110,8 @@
         </div>
         
         <div class="row justify-content-center">
-            <div class="swiper packages mt-4">
-                <div class="swiper-wrapper">
+            <div class="swiper packages mt-4 ">
+                <div class="swiper-wrapper ">
 
                     {{-- ✅ If Dynamic Data Available --}}
                     @if($homedestinations->count() > 0)
@@ -1700,10 +1700,10 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
 <!-- Testimonial Slider Container -->
-<div id="testimonialSlider" class="swiper" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/image.png'); background-size: cover; background-position: center; margin-bottom: 50px; margin-top: 60px;">
+<div id="testimonialSlider" class="swiper" style="background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('/assets/images/image.png'); background-size: cover; background-position: center; ">
   
   <h1 class="text-center text-light p-30" style="font-size:50px;">What Our Clients Say</h1>
-  <div id="testimonialWrapper" class="swiper-wrapper" style="padding:30px;">
+  <div id="testimonialWrapper" class="swiper-wrapper" style="">
     
     <!-- Slide 1 -->
     <div id="testimonialSlide1" class="swiper-slide">
@@ -1755,10 +1755,15 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 </script>
 
 <style>
+    #testimonialSlider{
+        max-height:700px;
+        padding-bottom:20px;
+        margin-top:50px
+    }
   .testimonialCard {
     padding: 20px;
     margin: auto;
-    max-width: 700px;
+    max-width: 800px;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 20px;
     box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
@@ -1794,8 +1799,8 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
       padding: 15px;
     }
     .testimonialImg {
-      width: 140px;
-      height: 140px;
+      width: 400px;
+      height: 300px;
     }
     .testimonialText p {
       font-size: 1rem;
@@ -1804,8 +1809,8 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 
   @media (max-width: 480px) {
     .testimonialImg {
-      width: 100px;
-      height: 100px;
+      width: 400px;
+      height: 200px;
     }
     .testimonialText p {
       font-size: 0.9rem;
@@ -2092,6 +2097,12 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     font-family: 'Segoe UI', sans-serif;
+  }
+  @media (max-width: 480px) {
+   .blog-card{
+    margin:10px;
+
+   }
   }
 
   .blog-card img {

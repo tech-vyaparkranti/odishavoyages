@@ -111,28 +111,27 @@
 
 </ul> --}}
 <script>
-document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("DOMContentLoaded", function () {
     const closeBtn = document.getElementById("closeMenu");
     const navLinks = document.querySelectorAll("#mobileMenu .navigation a");
     const menu = document.getElementById("mobileMenu");
 
+    const bsCollapse = new bootstrap.Collapse(menu, { toggle: false });
+
     // Close when clicking the close button
-    closeBtn.addEventListener("click", () => {
-        new bootstrap.Collapse(menu, {
-            toggle: true
-        }).hide();
+    closeBtn.addEventListener("click", (e) => {
+        e.preventDefault(); // 🔥 prevent refresh/reload
+        bsCollapse.hide();
     });
 
     // Auto close when clicking any nav link (mobile only)
     navLinks.forEach(link => {
         link.addEventListener("click", () => {
-            if (window.innerWidth < 992) { // only on mobile
-                new bootstrap.Collapse(menu, {
-                    toggle: true
-                }).hide();
+            if (window.innerWidth < 992) {
+                bsCollapse.hide();
             }
         });
     });
 });
-</script>
 
+</script>
