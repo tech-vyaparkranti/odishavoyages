@@ -1492,6 +1492,7 @@
 }
 </style>
 
+@if(!empty($getPackages))
 <section id="travel-gallery">
     <!-- Floating Emoji Background -->
     <div class="bg-emoji-wrapper">
@@ -1515,73 +1516,71 @@
             </div>
 
             <!-- Swiper -->
-            <div class="swiper destination-slider">
-                <div class="swiper-wrapper">
-                    <!-- Repeat your slides here -->
-                    <div class="swiper-slide">
-                        <div class="destination-card">
-                            <div class="hero-image-wrap">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEiRKedFkO28EaRZNiEQiY89vy0Mk-qR6cAg&s" alt="Baku & Tbilisi">
-                                <div class="badge-container">
-                                    <span class="location-badge">🇦🇿 BAKU</span>
-                                    <span class="location-badge">🇬🇪 TBILISI</span>
+           <div class="swiper destination-slider">
+               <div class="swiper-wrapper">
+                        @if (isset($packages) && count($packages) > 0)
+                            @foreach ($packages as $item)
+                                @php
+                                    // Ensure package_image is a valid JSON string before decoding
+                                    $images = is_string($item->package_image)
+                                        ? json_decode($item->package_image, true)
+                                        : $item->package_image;
+
+                                    // Check if images is a valid array and get the first image
+                                    $displayImage = is_array($images) && !empty($images) ? $images[0] : null;
+                                @endphp
+                                <div class="col-xxl-3 col-xl-4 col-md-6 swiper-slide">
+                                    <a href="{{ route('tourDetailpage', ['slug' => $item->slug]) }}">
+                                        <div class="destination-item" data-aos="fade-up" data-aos-duration="1500"
+                                            data-aos-offset="50">
+                                            <div class="image">
+                                                @if ($displayImage)
+                                                    {{-- <figure class="images"> --}}
+                                                    <img src="{{ asset('storage/' . $displayImage) }}"
+                                                        alt="{{ $item->package_name }}" class="gallery-image">
+                                                    {{-- </figure> --}}
+                                                @else
+                                                    {{-- <figure class="images"> --}}
+                                                    <img src="{{ asset('path/to/default/image.jpg') }}" alt="Default Image">
+                                                    {{-- </figure> --}}
+                                                @endif
+
+                                                <div class="ratting">{{ $item->package_type }}</div>
+                                            </div>
+                                            <div class="content tourpackage">
+                                                <span class="location">
+                                                    <i class="fal fa-map-marker-alt"></i> {{ $item->package_country }}
+                                                </span>
+                                                <h5 class="card-heading">
+                                                    {!! $item->package_name !!}
+                                                </h5>
+                                                <span class="time">
+                                                    {!! $item->package_duration_days !!} Days / {!! $item->package_duration_nights !!} Nights
+                                                </span>
+                                            </div>
+                                            <div class="destination-footer price">
+                                                <span class="offer-price">
+                                                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                                                    {!! IND_money_format($item->package_offer_price) !!}
+                                                </span>
+                                                <span class="sale-price">
+                                                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                                                    {!! IND_money_format($item->package_price) !!}
+                                                </span>
+                                                <span class="offer-amount">
+                                                    Save <i class="fa-solid fa-indian-rupee-sign"></i>
+                                                    {{ IND_money_format($item->package_price - $item->package_offer_price) }}
+                                                </span>
+
+                                            </div>
+                                        </div>
+                                    </a>
                                 </div>
-                                <div class="name-overlay"><h3>🏛️ Baku & Tbilisi Adventure</h3></div>
-                            </div>
-                            <div class="info-section">
-                                <div>
-                                    <span class="price-current">₹ 94,999</span>
-                                    <span class="price-original">₹ 1,04,999</span>
-                                    <span class="discount-amount">Save ₹ 10,000</span>
-                                </div>
-                                <div class="trip-duration">8 Days / 7 Nights</div>
-                                <button class="action-button">Explore more</button>
-                            </div>
-                        </div>
+                            @endforeach
+                        @else
+                        <p>NO Data Available</p>
+                    @endif
                     </div>
-                    <div class="swiper-slide">
-                        <div class="destination-card">
-                            <div class="hero-image-wrap">
-                                <img src="" alt="Baku & Tbilisi">
-                                <div class="badge-container">
-                                    <span class="location-badge">🇦🇿 BAKU</span>
-                                    <span class="location-badge">🇬🇪 TBILISI</span>
-                                </div>
-                                <div class="name-overlay"><h3>🏛️ Baku & Tbilisi Adventure</h3></div>
-                            </div>
-                            <div class="info-section">
-                                <div>
-                                    <span class="price-current">₹ 94,999</span>
-                                    <span class="price-original">₹ 1,04,999</span>
-                                    <span class="discount-amount">Save ₹ 10,000</span>
-                                </div>
-                                <div class="trip-duration">8 Days / 7 Nights</div>
-                                <button class="action-button">Explore more</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="destination-card">
-                            <div class="hero-image-wrap">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEiRKedFkO28EaRZNiEQiY89vy0Mk-qR6cAg&s" alt="Baku & Tbilisi">
-                                <div class="badge-container">
-                                    <span class="location-badge">🇦🇿 BAKU</span>
-                                    <span class="location-badge">🇬🇪 TBILISI</span>
-                                </div>
-                                <div class="name-overlay"><h3>🏛️ Baku & Tbilisi Adventure</h3></div>
-                            </div>
-                            <div class="info-section">
-                                <div>
-                                    <span class="price-current">₹ 94,999</span>
-                                    <span class="price-original">₹ 1,04,999</span>
-                                    <span class="discount-amount">Save ₹ 10,000</span>
-                                </div>
-                                <div class="trip-duration">8 Days / 7 Nights</div>
-                                <button class="action-button">Explore more</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
                 <!-- Navigation -->
                 <!-- Pagination -->
@@ -1590,6 +1589,7 @@
         </div>
     </div>
 </section>
+@endif
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.7/swiper-bundle.min.js"></script>
 <script>
