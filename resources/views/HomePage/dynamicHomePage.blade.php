@@ -934,7 +934,7 @@
         }
 
         .content .time {
-            color: #4ecdc4;
+            color: black;
             font-size: 1.2rem;
             font-weight: 500;
             transform: translateX(-20px);
@@ -1178,7 +1178,7 @@
                         <i class="fas fa-map-marker-alt"></i> {{ $destination->destination_name }}
                     </span>
                     <h5 class="card-heading">{{ Str::limit($destination->destination_details, 50) }}</h5>
-                    <span class="time">Explore Now</span>
+                    <span class="time" style="padding:10px;background :maroon;border-radius:20px;color:white;font-size:15px">Explore Now</span>
                 </div>
             </div>
         </a>
@@ -1544,7 +1544,7 @@
         <div class="main-wrapper">
             <!-- Section Title -->
             <div class="hero-heading">
-                <h2>✨ Explore Popular Packages ✨</h2>
+                <h2 class="text-center">✨ Explore Popular Packages ✨</h2>
                 <p style="text-align:center">🌟 Discover incredible journeys and unforgettable experiences 🌟</p>
             </div>
 
@@ -1587,7 +1587,7 @@
                                                 <h5 class="card-heading">
                                                     {!! $item->package_name !!}
                                                 </h5>
-                                                <span class="time">
+                                                <span class="time" >
                                                     {!! $item->package_duration_days !!} Days / {!! $item->package_duration_nights !!} Nights
                                                 </span>
                                             </div>
