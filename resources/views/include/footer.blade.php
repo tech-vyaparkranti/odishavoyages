@@ -4,7 +4,7 @@
     <div class="footer-top">
         <div class="footer-section logo-section">
             <img src="logo.png" alt="Logo">
-            <h4>Design Park Architects</h4>
+            <h4>Travel </h4>
             <p>Beyond the Blueprint</p>
             <p>SIMPLE . STRONG . MEMORABLE</p>
             <a href="#" class="btn-enquire">ENQUIRE NOW</a>
@@ -26,14 +26,14 @@
 
         <div class="footer-section">
             <h4>Contact Information</h4>
-            <p><strong>Company E-mail:</strong> info@dparch.co.in</p>
+            <p><strong>Company E-mail:</strong> info@odishavoyages.co.in</p>
             <p><strong>Contact No:</strong> 9958298515</p>
             <p><strong>Address:</strong> Block K, Birbal Road, Jangpura Ext., New Delhi - 110014</p>
         </div>
     </div>
 
     <div class="footer-bottom">
-        <p>© 2025 All Rights Reserved by Design Park Architects & Developed by <a href="#">Vyapar kranti</a></p>
+        <p>© 2025 All Rights Reserved by odisha voyages  & Developed by <a href="#">Vyapar kranti</a></p>
     </div>
 </footer>
 
