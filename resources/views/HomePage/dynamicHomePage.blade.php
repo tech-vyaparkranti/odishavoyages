@@ -2,58 +2,62 @@
 @section('content')
     <!-- about-section -->
     <!-- Hero Area Start -->
-    <style>
+      <style>
      
-        /* Hero Section with Background Video */
-        .hero-section {
-            position: relative;
-            width: 100%;
-            height: 100vh;
-            overflow: hidden;
-        }
+      /* Hero Section with a responsive aspect ratio */
+.hero-section {
+    position: relative;
+    width: 100%;
+    /* Set the desired aspect ratio */
+    aspect-ratio: 16 / 9; 
+    /* Optional: prevent it from being taller than the screen */
+    max-height: 100vh; 
+    overflow: hidden;
 
-        .video-background {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            min-width: 100%;
-            min-height: 100%;
-            width: auto;
-            height: auto;
-            transform: translate(-50%, -50%);
-            z-index: -1;
-        }
+}
 
-        .video-background iframe {
-            width: 100vw;
-            height: 56.25vw; /* 16:9 aspect ratio */
-            min-height: 100vh;
-            min-width: 177.77vh; /* 16:9 aspect ratio */
-            border: none;
-            pointer-events: none; /* Prevents interaction */
-        }
+/* This container will center the video */
+.video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
 
-        /* Remove unused styles */
+.video-background iframe {
+    /* These styles ensure the video covers the container without black bars */
+    width: 100vw;
+    height: 56.25vw; /* 100 * 9 / 16 = 56.25 */
+    min-height: 100vh;
+    min-width: 177.77vh; /* 100 * 16 / 9 = 177.77 */
+    border: none;
+    pointer-events: none; /* Prevents user interaction with the video */
+}
 
-        /* Demo content below */
-        .demo-content {
-            padding: 80px 20px;
-            text-align: center;
-            background: #f8f9fa;
-        }
+/* Demo content for context */
+.demo-content {
+    padding: 80px 20px;
+    text-align: center;
+    background: #f8f9fa;
+}
 
-        .demo-content h2 {
-            font-size: 2.5rem;
-            color: #333;
-            margin-bottom: 20px;
-        }
+.demo-content h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
 
-        .demo-content p {
-            font-size: 1.2rem;
-            color: #666;
-            max-width: 600px;
-            margin: 0 auto;
-        }
+.demo-content p {
+    font-size: 1.2rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+}
     </style>
     <!-- Hero Section with Full Background Video -->
     <section class="hero-section">
@@ -71,6 +75,8 @@
 
     </section>
 
+    <!-- Hero Section with Full Background Video -->
+    
     <!-- Demo content below hero -->
   
 
@@ -532,19 +538,23 @@
                         <!-- Feature highlights with icons -->
                         
 
-                        <div class="menu-btns py-10">
-                    <a href="#" class="theme-btn style-two bgc-secondary">
-                        <span data-hover="Read More">Read More</span>
-                        <i class="fal fa-arrow-right"></i>
-                    </a>
-    </div>
+                       <div class="view-more-buttons" style="text-align:left">
+                <a class="service-view-buttons" href="#" style="text-decoration: none;">
+                    <button type="button" class="theme-btn">
+                        <span data-hover="Explore More">
+                            Explore More
+                            <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </button>
+                </a>
+            </div>
                     </div>
                 </div>
                 
                 <!-- Image with 2D & 3D Animations -->
                 <div class="col-xl-6 col-lg-6" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
                     <div class="animated-image relative w-full h-0 pb-[66.66%]">
-                        <img src="https://odishavoyages.com/wp-content/uploads/2021/10/jagannath-temple-pti-1616946876.jpg"
+                        <img src="https://www.financialexpress.com/wp-content/uploads/2024/07/Puri-Jagannath-temple.jpg"
                              alt="Jagannath Temple - AIS Holidays"
                              class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg">
                         
@@ -1666,31 +1676,35 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 
 <!-- Testimonial Slider Container -->
 <div id="testimonialSlider" class="swiper" style="background:rgba(0,0,0,0.2);margin-bottom:50px;margin-top:60px;">
-    <h2>Testimonial Section</h2>
+  <h2 class="text-center">Testimonial Section</h2>
   <div id="testimonialWrapper" class="swiper-wrapper">
     <!-- Slide 1 -->
     <div id="testimonialSlide1" class="swiper-slide">
-      <div id="testimonialCard1">
-        <p>"Nikita's persistence and technical precision are unmatched. A true problem-solver!Nikita's persistence and technical precision are unmatched. A true problem-solver!Nikita's persistence and technical precision are unmatched. A true problem-solver!"</p>
+      <div class="testimonialCard">
+        <p>"Nikita's persistence and technical precision are unmatched. A true problem-solver! "Nikita's persistence and technical precision are unmatched. A true problem-solver! "Nikita's persistence and technical precision are unmatched. A true problem-solver!"</p>
+        <h4>- Client A</h4>
       </div>
     </div>
     <!-- Slide 2 -->
     <div id="testimonialSlide2" class="swiper-slide">
-      <div id="testimonialCard2">
+      <div class="testimonialCard">
         <p>"Their ability to debug complex Node.js issues is seriously impressive."</p>
+        <h4>- Client B</h4>
       </div>
     </div>
     <!-- Slide 3 -->
     <div id="testimonialSlide3" class="swiper-slide">
-      <div id="testimonialCard3">
+      <div class="testimonialCard">
         <p>"Nikita brings clarity and calm to chaotic code. A joy to collaborate with."</p>
+        <h4>- Client C</h4>
       </div>
     </div>
   </div>
 
-  <!-- Navigation & Pagination -->
+  <!-- Pagination -->
   <div id="testimonialPagination" class="swiper-pagination"></div>
 </div>
+
 <!-- Swiper JS -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
 <script>
@@ -1704,27 +1718,38 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
       el: "#testimonialPagination",
       clickable: true,
     },
-    navigation: {
-      nextEl: "#testimonialNext",
-      prevEl: "#testimonialPrev",
+    breakpoints: {
+      320: { // small phones
+        slidesPerView: 1,
+        spaceBetween: 10,
+      },
+      640: { // tablets
+        slidesPerView: 1,
+        spaceBetween: 20,
+      },
+      1024: { // desktop
+        slidesPerView: 1,
+        spaceBetween: 30,
+      },
     },
   });
 </script>
+
 <style>
-  #testimonialCard1, #testimonialCard2, #testimonialCard3 {
+  .testimonialCard {
     padding: 20px;
     margin: auto;
-    text-align:center;
-    width:600px;
+    text-align: center;
+    max-width: 600px;
   }
 
-  #testimonialCard1 p, #testimonialCard2 p, #testimonialCard3 p {
+  .testimonialCard p {
     font-size: 1rem;
     color: #333;
     line-height: 1.6;
   }
 
-  #testimonialCard1 h4, #testimonialCard2 h4, #testimonialCard3 h4 {
+  .testimonialCard h4 {
     margin-top: 15px;
     font-weight: bold;
     color: #555;
@@ -1733,7 +1758,7 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 
   #testimonialSlider {
     width: 100%;
-    padding: 40px 0;
+    padding: 40px 15px; /* added padding for mobile */
   }
 
   #testimonialPagination {
@@ -1741,11 +1766,27 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
     text-align: center;
   }
 
-  #testimonialNext, #testimonialPrev {
-    color: #000;
+  /* ✅ Responsive adjustments */
+  @media (max-width: 768px) {
+    .testimonialCard {
+      max-width: 90%;
+      padding: 15px;
+    }
+    .testimonialCard p {
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .testimonialCard {
+      max-width: 100%;
+      padding: 12px;
+    }
+    .testimonialCard p {
+      font-size: 0.9rem;
+    }
   }
 </style>
-
     <!-- Blog Area end -->
     <style>
         .service-view-button button {
@@ -1922,8 +1963,8 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
 <!-- Blog Slider -->
-<div id="blogSlider" class="swiper" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50" down to up>
-    <h2 style="margin-bottom:60px;">Our Blog</h2>
+<div id="blogSlider" class="swiper container" data-aos="fade-up" >
+    <h2 style="margin-bottom:50px">Our Blog</h2>
   <div id="blogWrapper" class="swiper-wrapper">
     <!-- Blog Post 1 -->
     <div class="swiper-slide">
@@ -2016,7 +2057,7 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 </script>
 <style>
     #blogSlider{
-        width:1300px;
+        
         margin:0 auto;
     }
   .blog-card {

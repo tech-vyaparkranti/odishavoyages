@@ -3,10 +3,9 @@
     <hr/>
     <div class="footer-top">
         <div class="footer-section logo-section">
-            <img src="logo.png" alt="Logo">
+            <img src="./assets/images/logo1.png" style="height:150px;width:150px;" alt="Logo">
             <h4>Travel </h4>
-            <p>Beyond the Blueprint</p>
-            <p>SIMPLE . STRONG . MEMORABLE</p>
+         
             <a href="#" class="btn-enquire">ENQUIRE NOW</a>
         </div>
 
@@ -39,16 +38,23 @@
 
 <style>
 .footer {
-    background: black;
+    background: #B71C1C;
     color:white ;
     font-family: Arial, sans-serif;
 }
-
 .footer-top {
-    display: flex;
+   display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
+   
+}
+
+@media only screen and (min-width: 768px) {
+  .footer-top {
+   
     padding: 30px 100px;
+}
+
 }
 
 .footer-section {
