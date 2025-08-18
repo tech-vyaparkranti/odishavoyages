@@ -39,7 +39,10 @@ class HomePageController extends Controller
                 ->orderBy(Blog::BLOG_SORTING, 'desc')
                 ->get();
                 $homedestinations = DestinationsModel::where('status','1')->get();
-            return view("HomePage.dynamicHomePage", compact('getPackages', 'packageCategory', 'packages', 'destinations', 'travelCategories', 'sliders', 'blogs','home_recognitions','homedestinations'), $data);
+            $testimonials = TestimonialModel::where(TestimonialModel::SLIDE_STATUS, TestimonialModel::SLIDE_STATUS_LIVE)
+                ->orderBy(TestimonialModel::SLIDE_SORTING, 'asc')
+                ->get();
+            return view("HomePage.dynamicHomePage", compact('getPackages', 'packageCategory', 'packages', 'destinations', 'travelCategories', 'sliders', 'blogs','home_recognitions','homedestinations','testimonials'), $data);
         } catch (Exception $exception) {
             echo $exception->getMessage();
             return false;
