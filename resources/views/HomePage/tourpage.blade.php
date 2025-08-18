@@ -6,416 +6,606 @@
 
 
     <!-- Tour Grid Area start -->
-    <section class="tour-grid-page py-100 rel z-2">
-        <div class="blog-banner" style="margin-bottom:50px; ">
+    <style>
+       
+       
+        /* Floating background elements */
+        .bg-decoration {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            animation: float 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .bg-decoration:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: -5%;
+            animation-delay: 0s;
+        }
+
+        .bg-decoration:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            top: 60%;
+            right: -3%;
+            animation-delay: 2s;
+        }
+
+        .bg-decoration:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            top: 30%;
+            right: 15%;
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-20px) rotate(5deg); }
+            50% { transform: translateY(-10px) rotate(-5deg); }
+            75% { transform: translateY(-30px) rotate(3deg); }
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            position: relative;
+            animation: titleSlideIn 1s ease-out;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color:black;
+            font-weight: 300;
+            animation: subtitleSlideIn 1s ease-out 0.3s both;
+        }
+
+        @keyframes titleSlideIn {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes subtitleSlideIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tours-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .tour-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: cardSlideUp 0.8s ease-out;
+            animation-fill-mode: both;
+        }
+
+        .tour-card:nth-child(1) { animation-delay: 0.2s; }
+        .tour-card:nth-child(2) { animation-delay: 0.4s; }
+        .tour-card:nth-child(3) { animation-delay: 0.6s; }
+
+        @keyframes cardSlideUp {
+            from { opacity: 0; transform: translateY(60px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .tour-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b35, #f7931e, #ffc107);
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-20px) scale(1.02);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+        }
+
+        .tour-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+            filter: brightness(1) saturate(1.1);
+        }
+
+        .tour-card:hover .card-image img {
+            transform: scale(1.1) rotate(2deg);
+            filter: brightness(1.1) saturate(1.3);
+        }
+
+        .image-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .tour-card:hover .image-overlay {
+            opacity: 1;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: linear-gradient(135deg, #ff6b35 0%, #f7931e 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            z-index: 2;
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+            animation: badgePulse 2s infinite;
+        }
+
+        @keyframes badgePulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .card-content {
+            background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%);
+            padding: 35px;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-content::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.6s ease;
+        }
+
+        .tour-card:hover .card-content::before {
+            transform: scale(1);
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .location-icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-3px); }
+        }
+
+        .tour-title {
+            font-size: 1.9rem;
+            font-weight: 700;
+            line-height: 1.3;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .duration {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 500;
+        }
+
+        .clock-icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+        }
+
+        .view-more-btn {
+            background: white;
+            color: #333;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            justify-content: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .view-more-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .view-more-btn:hover::before {
+            left: 100%;
+        }
+
+        .view-more-btn:hover {
+            background: #f8f9fa;
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .arrow-icon {
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            transition: transform 0.4s ease;
+        }
+
+        .view-more-btn:hover .arrow-icon {
+            transform: translateX(8px);
+        }
+
+        .stats-overlay {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 10px 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #333;
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: all 0.4s ease;
+        }
+
+        .tour-card:hover .stats-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .tours-grid {
+                grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+                gap: 30px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            
+            .section-title {
+                font-size: 2.8rem;
+                margin-bottom: 15px;
+            }
+            
+            .section-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .tours-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+                margin-top: 30px;
+            }
+            
+            .card-content {
+                padding: 30px 25px;
+            }
+            
+            .tour-title {
+                font-size: 1.6rem;
+            }
+            
+            .view-more-btn {
+                padding: 12px 30px;
+                font-size: 1rem;
+            }
+        }
+
+        /* Loading Animation */
+        .loading-spinner {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+
+
+         .section   {
+            font-size: 3rem;
+            font-weight: 700;
+         background: linear-gradient(45deg, #ff9933, #b22222, #1e3c72, #228b22);
+   background-size: 300% 300%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease-in-out infinite;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .section ::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ff6b8a, transparent);
+            border-radius: 2px;
+            animation: underlineGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes underlineGlow {
+            from { box-shadow: 0 0 5px #ff6b6b; }
+            to { box-shadow: 0 0 20px #ff6b6b, 0 0 30px #ff6b6b; }
+        }
+    </style>
+<section class="pt-120 py-100">
+            <div class="blog-banner"  style="margin-bottom:50px; ">
             <img src="./assets/images/Banner_HD.png" alt="" style="max-height:200px;width:100%; object-fit:cover;">
+        </div> 
+    <div class="bg-decoration"></div>
+    <div class="bg-decoration"></div>
+    <div class="bg-decoration"></div>
+      
+
+    <div class="container ">
+       
+       
+        <div class="section-header">
+            <h2 class="section">Popular Tours</h2>
+            <p class="section-subtitle">Discover extraordinary destinations with our premium travel experiences</p>
         </div>
-        <div class="container">
-            <!-- <div class="shop-shorter rel z-3 mb-20">
-                        <select>
-                            <option value="default" selected="">Filter by Price</option>
-                            <option value="$10-$100">$10-$100</option>
-                            <option value="$101-$200">$101-$200</option>
-                            <option value="$201-$300">$201-$300</option>
-                            <option value="$301-$400">$301-$400</option>
-                            <option value="$401-$500">$401-$500</option>
-                        </select>
-                        <select>
-                            <option value="default" selected="">By Reviews</option>
-                            <option value="1-star">1 Star</option>
-                            <option value="2-star">2 Star</option>
-                            <option value="3-star">3 Star</option>
-                            <option value="4-star">4 Star</option>
-                            <option value="5-star">5 Star</option>
-                        </select>
-                        <select>
-                            <option value="default" selected="">By Language</option>
-                            <option value="english">English</option>
-                            <option value="bangla">Bangla</option>
-                        </select>
-                        <select class="me-xl-auto">
-                            <option value="default" selected="">By Durations</option>
-                            <option value="10-100hr">10-100hr</option>
-                            <option value="101-200hr">101-200hr</option>
-                            <option value="201-300hr">201-300hr</option>
-                            <option value="301-400hr">301-400hr</option>
-                            <option value="401-500hr">401-500hr</option>
-                        </select>
-                        <select>
-                            <option value="default" selected="">Short By</option>
-                            <option value="new">Newness</option>
-                            <option value="old">Oldest</option>
-                            <option value="hight-to-low">High To Low</option>
-                            <option value="low-to-high">Low To High</option>
-                        </select>
-                    </div> -->
-            <hr class="mb-50">
-            <div class="row">
-                <h2 class="text-center pb-20"> Popular Tours</h2>
-                @if (isset($packages) && count($packages) > 0)
-                    @foreach ($packages as $item)
-                        @php
-                            // Ensure package_image is a valid JSON string before decoding
-                            $images = is_string($item->package_image)
-                                ? json_decode($item->package_image, true)
-                                : $item->package_image;
+        
+        <div class="tours-grid">
+            <!-- Tour 1 -->
+            <div class="tour-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&h=350&fit=crop&crop=center" alt="Scenic boat trip in pristine waters">
+                    <div class="image-overlay"></div>
+                    <div class="featured-badge">Featured</div>
+                    <div class="stats-overlay">★ 4.9 Rating</div>
+                </div>
+                <div class="card-content">
+                    <div class="location">
+                        <svg class="location-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        Rome, Italy
+                    </div>
+                    <h2 class="tour-title">Buenos Aires, Calafate & Ushuaia Adventure</h2>
+                    <div class="duration">
+                        <svg class="clock-icon" viewBox="0 0 24 24">
+                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.7L16.2,16.2Z"/>
+                        </svg>
+                        3 days 2 nights
+                    </div>
+                    <button class="view-more-btn" onclick="handleBooking(1)">
+                        View Details
+                        <svg class="arrow-icon" viewBox="0 0 24 24">
+                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
 
-                            // Check if images is a valid array and get the first image
-                            $displayImage = is_array($images) && !empty($images) ? $images[0] : null;
-                        @endphp
-                        <div class="col-xl-4 col-md-6">
-                            <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
-                                data-aos-duration="1500" data-aos-offset="50">
-                                <div class="image">
-                                    @if ($displayImage)
-                                        {{-- <figure class="images"> --}}
-                                        <img src="{{ asset('storage/' . $displayImage) }}" alt="{{ $item->package_name }}"
-                                            class="gallery-image">
-                                        {{-- </figure> --}}
-                                    @else
-                                        {{-- <figure class="images"> --}}
-                                        <img src="{{ asset('path/to/default/image.jpg') }}" alt="Default Image">
-                                        {{-- </figure> --}}
-                                    @endif
+            <!-- Tour 2 -->
+            <div class="tour-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1537953773345-d172ccf13cf1?w=600&h=350&fit=crop&crop=center" alt="Ancient ruins and cultural heritage">
+                    <div class="image-overlay"></div>
+                    <div class="featured-badge">Featured</div>
+                    <div class="stats-overlay">★ 4.8 Rating</div>
+                </div>
+                <div class="card-content">
+                    <div class="location">
+                        <svg class="location-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        Bali, Indonesia
+                    </div>
+                    <h2 class="tour-title">Bay Cruise & Cultural Lake Experience</h2>
+                    <div class="duration">
+                        <svg class="clock-icon" viewBox="0 0 24 24">
+                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.7L16.2,16.2Z"/>
+                        </svg>
+                        3 days 2 nights
+                    </div>
+                    <button class="view-more-btn" onclick="handleBooking(2)">
+                        View Details
+                        <svg class="arrow-icon" viewBox="0 0 24 24">
+                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
 
-                                    <div class="ratting">{{ $item->package_type }}</div>
-                                </div>
-                                <div class="content">
-                                    <div class="destination-header">
-                                        <span class="location"><i class="fal fa-map-marker-alt"></i>
-                                            {{ $item->package_country }}</span>
-                                        {{-- <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div> --}}
-                                    </div>
-                                    <h5 class="card-heading">{!! $item->package_name !!}</h5>
-                                    {{-- <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p> --}}
-                                    <ul class="blog-meta">
-                                        <li><i class="far fa-clock"></i> {!! $item->package_duration_days !!} Days /
-                                            {!! $item->package_duration_nights !!} Nights</li>
-                                        {{-- <li><i class="far fa-user"></i> 5-8 guest</li> --}}
-                                    </ul>
-                                    <div class="destination-footers">
-                                        <!-- <span class="price"><span>$58.00</span>/person</span> -->
-                                        <a href="{{ route('tourDetailpage', ['slug' => $item->slug]) }}" class="theme-btn style-two style-three">
-                                            <span data-hover="Book Now text-center">View More</span>
-                                            <i class="fal fa-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
-                @else
-                    <div class="col-xl-4 col-md-6">
-                        <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
-                            data-aos-duration="1500" data-aos-delay="50" data-aos-offset="50">
-                            <div class="image">
-                                <span class="badge bgc">Featured</span>
-                                <!-- <a href="#" class="heart"><i class="fas fa-heart"></i></a> -->
-                                <img src="./assets/images/gallery2.jpg" alt="Tour List">
-                            </div>
-                            <div class="content">
-                                <div class="destination-header">
-                                    <span class="location"><i class="fal fa-map-marker-alt"></i> Rome, Italy</span>
-                                    {{-- <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div> --}}
-                                </div>
-                                <h5><a href="{{ route('tourpage') }}">Buenos Aires, Calafate & Ushuaia, Rome,
-                                        Italy</a></h5>
-                                {{-- <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p> --}}
-                                <ul class="blog-meta">
-                                    <li><i class="far fa-clock"></i> 3 days 2 nights</li>
-                                    {{-- <li><i class="far fa-user"></i> 5-8 guest</li> --}}
-                                </ul>
-                                <div class="destination-footers">
-                                    <!-- <span class="price"><span>$58.00</span>/person</span> -->
-                                    <a href="{{ route('tourpage') }}" class="theme-btn style-two style-three">
-                                        <span data-hover="Book Now">View More</span>
-                                        <i class="fal fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+            <!-- Tour 3 -->
+            <div class="tour-card">
+                <div class="card-image">
+                    <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&h=350&fit=crop&crop=center" alt="Breathtaking coastal landscape">
+                    <div class="image-overlay"></div>
+                    <div class="featured-badge">Featured</div>
+                    <div class="stats-overlay">★ 4.9 Rating</div>
+                </div>
+                <div class="card-content">
+                    <div class="location">
+                        <svg class="location-icon" viewBox="0 0 24 24">
+                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                        </svg>
+                        Rome, Italy
                     </div>
-                    <div class="col-xl-4 col-md-6">
-                        <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
-                            data-aos-duration="1500" data-aos-delay="100" data-aos-offset="50">
-                            <div class="image">
-                                <span class="badge bgc">Featured</span>
-                                <!-- <a href="#" class="heart"><i class="fas fa-heart"></i></a> -->
-                                <img src="./assets/images/gallery3.jpg" alt="Tour List">
-                            </div>
-                            <div class="content">
-                                <div class="destination-header">
-                                    <span class="location"><i class="fal fa-map-marker-alt"></i> Bali, Indonesia</span>
-                                    {{-- <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div> --}}
-                                </div>
-                                <h5><a href="{{ route('tourpage') }}">Bay Cruise lake trip by Boat in Bali,
-                                        Indonesia</a></h5>
-                                {{-- <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p> --}}
-                                <ul class="blog-meta">
-                                    <li><i class="far fa-clock"></i> 3 days 2 nights</li>
-                                    {{-- <li><i class="far fa-user"></i> 5-8 guest</li> --}}
-                                </ul>
-                                <div class="destination-footers">
-                                    <!-- <span class="price"><span>$58.00</span>/person</span> -->
-                                    <a href="{{ route('tourpage') }}" class="theme-btn style-two style-three">
-                                        <span data-hover="Book Now">View More</span>
-                                        <i class="fal fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                    <h2 class="tour-title">Coastal Paradise & Mountain Escapes</h2>
+                    <div class="duration">
+                        <svg class="clock-icon" viewBox="0 0 24 24">
+                            <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M16.2,16.2L11,13V7H12.5V12.2L17,14.7L16.2,16.2Z"/>
+                        </svg>
+                        3 days 2 nights
                     </div>
-                    <div class="col-xl-4 col-md-6">
-                        <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
-                            data-aos-duration="1500" data-aos-offset="50">
-                            <div class="image">
-                                <span class="badge bgc">Featured</span>
-                                <!-- <a href="#" class="heart"><i class="fas fa-heart"></i></a> -->
-                                <img src="./assets/images/gallery4.jpg" alt="Tour List">
-                            </div>
-                            <div class="content">
-                                <div class="destination-header">
-                                    <span class="location"><i class="fal fa-map-marker-alt"></i> Rome, Italy</span>
-                                    {{-- <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div> --}}
-                                </div>
-                                <h5><a href="{{ route('tourpage') }}">Buenos Aires, Calafate & Ushuaia, Rome,
-                                        Italy</a></h5>
-                                {{-- <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p> --}}
-                                <ul class="blog-meta">
-                                    <li><i class="far fa-clock"></i> 3 days 2 nights</li>
-                                    {{-- <li><i class="far fa-user"></i> 5-8 guest</li> --}}
-                                </ul>
-                                <div class="destination-footers">
-                                    <!-- <span class="price"><span>$58.00</span>/person</span> -->
-                                    <a href="{{ route('tourpage') }}" class="theme-btn style-two style-three">
-                                        <span data-hover="Book Now">View More</span>
-                                        <i class="fal fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6">
-                        <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
-                            data-aos-duration="1500" data-aos-delay="50" data-aos-offset="50">
-                            <div class="image">
-                                <span class="badge bgc-pink">Featured</span>
-                                <!-- <a href="#" class="heart"><i class="fas fa-heart"></i></a> -->
-                                <img src="./assets/images/gallery5.jpg" alt="Tour List">
-                            </div>
-                            <div class="content">
-                                <div class="destination-header">
-                                    <span class="location"><i class="fal fa-map-marker-alt"></i> Rome, Italy</span>
-                                    {{-- <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div> --}}
-                                </div>
-                                <h5><a href="{{ route('tourpage') }}">Buenos Aires, Calafate & Ushuaia, Rome,
-                                        Italy</a></h5>
-                                {{-- <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p> --}}
-                                <ul class="blog-meta">
-                                    <li><i class="far fa-clock"></i> 3 days 2 nights</li>
-                                    {{-- <li><i class="far fa-user"></i> 5-8 guest</li> --}}
-                                </ul>
-                                <div class="destination-footers">
-                                    <!-- <span class="price"><span>$58.00</span>/person</span> -->
-                                    <a href="{{ route('tourpage') }}" class="theme-btn style-two style-three">
-                                        <span data-hover="Book Now">View More</span>
-                                        <i class="fal fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-6">
-                        <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
-                            data-aos-duration="1500" data-aos-delay="100" data-aos-offset="50">
-                            <div class="image">
-                                <span class="badge bgc">Featured</span>
-                                <!-- <a href="#" class="heart"><i class="fas fa-heart"></i></a> -->
-                                <img src="./assets/images/gallery6.jpg" alt="Tour List">
-                            </div>
-                            <div class="content">
-                                <div class="destination-header">
-                                    <span class="location"><i class="fal fa-map-marker-alt"></i> Bali, Indonesia</span>
-                                    {{-- <div class="ratting">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div> --}}
-                                </div>
-                                <h5><a href="{{ route('tourpage') }}">Bay Cruise lake trip by Boat in Bali,
-                                        Indonesia</a></h5>
-                                {{-- <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p> --}}
-                                <ul class="blog-meta">
-                                    <li><i class="far fa-clock"></i> 3 days 2 nights</li>
-                                    {{-- <li><i class="far fa-user"></i> 5-8 guest</li> --}}
-                                </ul>
-                                <div class="destination-footers">
-                                    <!-- <span class="price"><span>$58.00</span>/person</span> -->
-                                    <a href="{{ route('tourpage') }}" class="theme-btn style-two style-three">
-                                        <span data-hover="Book Now">View More</span>
-                                        <i class="fal fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                @endif
-                <!-- <div class="col-xl-4 col-md-6">
-                            <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                                <div class="image">
-                                    <span class="badge">10% Off</span>
-                                    <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                    <img src="assets/images/destinations/tour-list7.jpg" alt="Tour List">
-                                </div>
-                                <div class="content">
-                                    <div class="destination-header">
-                                        <span class="location"><i class="fal fa-map-marker-alt"></i> Rome, Italy</span>
-                                        <div class="ratting">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                    </div>
-                                    <h5><a href="tour-details.php">Buenos Aires, Calafate & Ushuaia, Rome, Italy</a></h5>
-                                    <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p>
-                                    <ul class="blog-meta">
-                                        <li><i class="far fa-clock"></i> 3 days 2 nights</li>
-                                        <li><i class="far fa-user"></i> 5-8 guest</li>
-                                    </ul>
-                                    <div class="destination-footer">
-                                        <span class="price"><span>$58.00</span>/person</span>
-                                        <a href="tour-details.php" class="theme-btn style-two style-three">
-                                            <span data-hover="Book Now">Book Now</span>
-                                            <i class="fal fa-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="50" data-aos-offset="50">
-                                <div class="image">
-                                    <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                    <img src="assets/images/destinations/tour-list8.jpg" alt="Tour List">
-                                </div>
-                                <div class="content">
-                                    <div class="destination-header">
-                                        <span class="location"><i class="fal fa-map-marker-alt"></i> Rome, Italy</span>
-                                        <div class="ratting">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                    </div>
-                                    <h5><a href="tour-details.php">Buenos Aires, Calafate & Ushuaia, Rome, Italy</a></h5>
-                                    <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p>
-                                    <ul class="blog-meta">
-                                        <li><i class="far fa-clock"></i> 3 days 2 nights</li>
-                                        <li><i class="far fa-user"></i> 5-8 guest</li>
-                                    </ul>
-                                    <div class="destination-footer">
-                                        <span class="price"><span>$58.00</span>/person</span>
-                                        <a href="tour-details.php" class="theme-btn style-two style-three">
-                                            <span data-hover="Book Now">Book Now</span>
-                                            <i class="fal fa-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-xl-4 col-md-6">
-                            <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100" data-aos-offset="50">
-                                <div class="image">
-                                    <span class="badge bgc-primary">Popular</span>
-                                    <a href="#" class="heart"><i class="fas fa-heart"></i></a>
-                                    <img src="assets/images/destinations/tour-list9.jpg" alt="Tour List">
-                                </div>
-                                <div class="content">
-                                    <div class="destination-header">
-                                        <span class="location"><i class="fal fa-map-marker-alt"></i> Bali, Indonesia</span>
-                                        <div class="ratting">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                        </div>
-                                    </div>
-                                    <h5><a href="tour-details.php">Bay Cruise lake trip by Boat in Bali, Indonesia</a></h5>
-                                    <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p>
-                                    <ul class="blog-meta">
-                                        <li><i class="far fa-clock"></i> 3 days 2 nights</li>
-                                        <li><i class="far fa-user"></i> 5-8 guest</li>
-                                    </ul>
-                                    <div class="destination-footer">
-                                        <span class="price"><span>$58.00</span>/person</span>
-                                        <a href="tour-details.php" class="theme-btn style-two style-three">
-                                            <span data-hover="Book Now">Book Now</span>
-                                            <i class="fal fa-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <ul class="pagination justify-content-center pt-15 flex-wrap" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                                <li class="page-item disabled">
-                                    <span class="page-link"><i class="far fa-chevron-left"></i></span>
-                                </li>
-                                <li class="page-item active">
-                                    <span class="page-link">
-                                        1
-                                        <span class="sr-only">(current)</span>
-                                    </span>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link" href="#">...</a></li>
-                                <li class="page-item">
-                                    <a class="page-link" href="#"><i class="far fa-chevron-right"></i></a>
-                                </li>
-                            </ul>
-                        </div> -->
+                    <button class="view-more-btn" onclick="handleBooking(3)">
+                        View Details
+                        <svg class="arrow-icon" viewBox="0 0 24 24">
+                            <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
         </div>
+    </div>
     </section>
-    <!-- Tour Grid Area end -->
+    <script>
+        // Add interactive functionality
+        function handleBooking(tourId) {
+            const btn = event.target.closest('.view-more-btn');
+            const originalText = btn.innerHTML;
+            
+            // Show loading state
+            btn.innerHTML = `
+                <div class="loading-spinner"></div>
+                Processing...
+            `;
+            btn.style.pointerEvents = 'none';
+            
+            // Simulate booking process
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.style.pointerEvents = 'auto';
+                
+                // Show success message (in a real app, this would navigate to booking page)
+                showNotification(`Tour ${tourId} details loading...`);
+            }, 2000);
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 10px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+                z-index: 1000;
+                font-weight: 600;
+                animation: slideInRight 0.5s ease;
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.animation = 'slideOutRight 0.5s ease';
+                setTimeout(() => notification.remove(), 500);
+            }, 3000);
+        }
+
+        // Add scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        });
+
+        document.querySelectorAll('.tour-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Add dynamic styles for animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideInRight {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOutRight {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 
 
     <!-- Newsletter Area start -->

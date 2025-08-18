@@ -6,7 +6,7 @@
 
             <div class="header-inner rel d-flex align-items-center">
                 <div class="logo-outer">
-                    <div class="logo"><a href="{{ url('/') }}"><img src="{{asset($Logo ?? 'assets/images/ais_tm_logo.png')}}" alt="Logo"
+                    <div class="logo"><a href="{{ url('/') }}"><img src="{{asset($Logo ?? 'assets/images/logo1.png')}}" alt="Logo"
                                 title="Logo"></a></div>
                 </div>
 

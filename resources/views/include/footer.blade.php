@@ -1,183 +1,115 @@
-<!-- footer area start -->
-<!-- <footer class="main-footer bgs-cover overlay rel z-1 pb-25" style="background-image: url(assets/images/backgrounds/footer.jpg);"> -->
-    <div class="container">
-        <!-- <div class="footer-top pt-100 pb-30">
-            <div class="row justify-content-between">
-                
-                <div class="newsletter col-xl-5 col-lg-6" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500" data-aos-offset="50">
-                    <div class="section-title counter-text-wrap mb-35">
-                        <h2>Subscribe Newsletter</h2>
-                        <p>One site <span class="count-text plus" data-speed="3000" data-stop="34500">0</span> most popular experience you’ll remember</p>
-                    </div>
-                    <div class="subscribe">
-                      <form class="newsletter-form mb-50" action="#">
-                        <input id="news-email" type="email" placeholder="Email Address" required>
-                        <button type="submit" class="theme-btn bgc-secondary style-two">
-                            <span data-hover="Subscribe">Subscribe</span>
-                            <i class="fal fa-arrow-right"></i>
-                        </button>
-                      </form>
-                    </div>  
-                </div>
-            </div>
-        </div> -->
-    </div>
-    <div class="widget-area pt-95 pb-45">
-        <div class="container">
-            <div class="row cols-xl-5 cols-lg-4 cols-md-3">
-                <!-- <div class="col col-small" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                    <div class="footer-widget footer-links">
-                        <div class="footer-title">
-                            <h5>Services</h5>
-                        </div>
-                        <ul class="list-style-three">
-                            <li><a href="destination-details.php">Best Tour Guide</a></li>
-                            <li><a href="destination-details.php">Tour Booking</a></li>
-                            <li><a href="destination-details.php">Hotel Booking</a></li>
-                            <li><a href="destination-details.php">Ticket Booking</a></li>
-                            <li><a href="destination-details.php">Rental Services</a></li>
-                        </ul>
-                    </div>
-                </div> -->
-                <div class="col-lg-4" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
-                    <div class="footer-widget footer-text">
-                        <div class="footer-logo mb-25">
-                            <a href="{{ url('/') }}"><img src="{{asset($Logo ?? 'assets/images/logo.png')}}" alt="Logo"></a>
-                        </div>
-                        <p>{!! $footer_content ?? 'We make your dream more beautiful & enjoyful with lots of happiness.' !!}</p>
-                        
-                    </div>
-                </div>
-                <div class="col-lg-2 col-small" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500" data-aos-offset="50">
-                    <div class="footer-widget footer-links">
-                        <div class="footer-title">
-                            <h5>Company</h5>
-                        </div>
-                        <ul class="list-style-three">
-                        <li class="current"><a href="{{ url('/') }}">Home</a></li>
-                        <li><a href="{{ route('aboutUs') }}">About</a></li>
-                        <li><a href="{{ route('tourpage') }}">Tour</a></li>
-                        <li><a href="{{ route('destinationpage') }}">Destination</a></li>
-                        <li><a href="{{ route('servicePages') }}">Services</a></li>
-                        <li><a href="{{ route('blogpage') }}">Blog</a></li>
-                        <li><a href="{{ route(name: 'galleryPages') }}">Gallery</a></li>
-                        <li><a href="{{ route(name: 'privacyPolicy') }}">Privacy Policy</a></li>
-                        <li><a href="{{ route(name: 'CancellationRefundPolicy') }}">Cancellation Policy</a></li> 
-                        <li><a href="{{ route(name: 'contactUs') }}">Contact Us</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <!-- <div class="col col-small" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1500" data-aos-offset="50">
-                    <div class="footer-widget footer-links">
-                        <div class="footer-title">
-                            <h5>Destinations</h5>
-                        </div>
-                        <ul class="list-style-three">
-                            <li><a href="destination-details.php">African Safaris</a></li>
-                            <li><a href="destination-details.php">Alaska & Canada</a></li>
-                            <li><a href="destination-details.php">South America</a></li>
-                            <li><a href="destination-details.php">Middle East</a></li>
-                            <li><a href="destination-details.php">South America</a></li>
-                        </ul>
-                    </div>
-                </div> -->
-                <!-- <div class="col col-small" data-aos="fade-up" data-aos-delay="150" data-aos-duration="1500" data-aos-offset="50">
-                    <div class="footer-widget footer-links">
-                        <div class="footer-title">
-                            <h5>Categories</h5>
-                        </div>
-                        <ul class="list-style-three">
-                            <li><a href="contact.php">Adventure</a></li>
-                            <li><a href="contact.php">Hiking & Trekking</a></li>
-                            <li><a href="contact.php">Cycling Tours</a></li>
-                            <li><a href="contact.php">Family Tours</a></li>
-                            <li><a href="contact.php">Wildlife Tours</a></li>
-                        </ul>
-                    </div>
-                </div> -->
-                <div class="col-lg-3 col-sm-12 " data-aos="fade-up" data-aos-delay="200" data-aos-duration="1500" data-aos-offset="50">
-                    <div class="footer-widget footer-contact">
-                        <div class="footer-title">
-                            <h5>Get In Touch</h5>
-                        </div>
-                        <ul class="list-style-one">
-                            <li><i class="fal fa-map-marked-alt"></i>{!! $Address ?? 'AiS Tower, Metro Station, 11C/1, opp. Najafgarh, Naya Bazar, Najafgarh, New Delhi, Delhi, 110043' !!}</li>
-                            <li><i class="fal fa-envelope"></i> <a href="mailto:{!! $Email ?? 'info@aisholidays.com' !!}">{!! $Email ?? 'info@aisholidays.com' !!}</a></li>
-                            <!-- <li><i class="fal fa-clock"></i> Mon - Fri, 08am - 05pm</li> -->
-                            <li><i class="fal fa-phone-volume"></i>  <a href="tel:{!! $Phone_number1 ?? '+91 7838602000' !!}">{!! $Phone_number1 ?? '91 7838602000' !!}</a></li>
 
-                            <li><i class="fal fa-phone-volume"></i><a href="tel:{!! $Phone_number2 ?? '+91 7838502000' !!}">{!! $Phone_number2 ?? '+91 7838502000' !!}</a></li>
-                            <li><i class="fal fa-phone-volume"></i><a href="tel:{!! $Phone_number3 ?? '+91 7428280000' !!}">
-                                {!! $Phone_number3 ?? '+91 7428280000' !!}</a></li>
+<footer class="footer">
+    <hr/>
+    <div class="footer-top">
+        <div class="footer-section logo-section">
+            <img src="logo.png" alt="Logo">
+            <h4>Design Park Architects</h4>
+            <p>Beyond the Blueprint</p>
+            <p>SIMPLE . STRONG . MEMORABLE</p>
+            <a href="#" class="btn-enquire">ENQUIRE NOW</a>
+        </div>
 
-                            <li><i class="fal fa-phone-volume"></i> <a href="tel:{!! $Phone_number4 ?? '+91 7831003500' !!}">{!! $Phone_number4 ?? '+91 7831003500' !!}</a></li>
+        <div class="footer-section">
+            <h4>Quick Link</h4>
+            <ul>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Articles</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Sitemap</a></li>
+            </ul>
+        </div>
 
-                            <li><i class="fal fa-phone-volume"></i> <a href="tel:{!! $Phone_number5 ?? '+01 141004080' !!}">{!! $Phone_number5 ?? '+01 141004080' !!}</a></li>
-
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-small" data-aos="fade-up" data-aos-delay="50" data-aos-duration="1500" data-aos-offset="50">
-                    <div class="footer-widget footer-links">
-                        <div class="footer-title">
-                            <h5>Follow Us</h5>
-                        </div>
-                        <div class="social-style-one mt-15">
-                            <a href="{!! $facebook_link ?? 'https://www.facebook.com' !!}"><i class="fab fa-facebook-f"></i></a>
-                            <a href="{!! $youtube_link ?? 'https://www.youtube.com' !!}"><i class="fab fa-youtube"></i></a>
-                            {{-- <a href="{!! $pinterest_link ?? 'https://www.pinterest.com' !!}"><i class="fab fa-pinterest"></i></a> --}}
-                            {{-- <a href="{!! $x_link ?? 'https://www.x.com' !!}"><i class="fa-brands fa-x-twitter"></i></a> --}}
-                            <a href="{!! $insta_link ?? 'https://www.youtube.com' !!}"><i class="fab fa-instagram"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="footer-section">
+            <h4>Contact Information</h4>
+            <p><strong>Company E-mail:</strong> info@dparch.co.in</p>
+            <p><strong>Contact No:</strong> 9958298515</p>
+            <p><strong>Address:</strong> Block K, Birbal Road, Jangpura Ext., New Delhi - 110014</p>
         </div>
     </div>
-    <div class="footer-bottom pt-5 pb-20">
-        <div class="container">
-            <div class="row">
-               <div class="col-lg-5">
-                    <div class="copyright-text text-center text-lg-start mb -5">
-                        <p>© 2024 Ais Holidays Pvt. Ltd. Design by <a href="https://www.vyaparkranti.com/">VyaparKranti.</a></p>
-                    </div>
-               </div>
-               <div class="col-lg-7 text-center text-lg-end">
-                   <ul class="footer-bottom-nav">
-                       <li><a href="{{ route('termsConditions') }}">Terms of services</a></li>
-                       <li><a href="{{ route('privacyPolicy') }}">Privacy Policy</a></li>
-                       <li><a href="#">Refund Policies</a></li>
-                       <li><a href="#">Cookies</a></li>
-                   </ul>
-               </div>
-            </div>
-            <!-- Scroll Top Button -->
-            <button class="scroll-top scroll-to-target" data-target="html"><img src="{{asset('./assets/images/icons/scroll-up.png')}}" alt="Scroll  Up"></button>
-        </div>
+
+    <div class="footer-bottom">
+        <p>© 2025 All Rights Reserved by Design Park Architects & Developed by <a href="#">Vyapar kranti</a></p>
     </div>
 </footer>
+
 <style>
-    .footer-logo img {
-        max-width:200px;
-    }
-    @media (min-width: 1200px) {
-    .col-xl-5 {
-        flex: 0 0 auto;
-        width: 32.666667%;
-    }
+.footer {
+    background: black;
+    color:white ;
+    font-family: Arial, sans-serif;
 }
-.newsletter {
-    display:flex;
+
+.footer-top {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 30px 100px;
 }
+
+.footer-section {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+.footer-section h4 {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color:white;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+}
+
+.footer-section ul li a {
+    text-decoration: none;
+    color: white;
+}
+
+.btn-enquire {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #F1C40F;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.footer-bottom {
+    background: black;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.footer-bottom a {
+    color: white;
+    font-weight: bold;
+}
+
+/* Responsive - Center li items on small screens */
 @media (max-width: 768px) {
-    .row-cols-md-3>* {
-        flex: 0 0 auto;
-        width: 48.333333%;
+    .footer-top {
+        flex-direction: column;
+        text-align: center;
     }
-}
-@media(max-width:450px){
-    .copyright-text p{
-        margin-top: 20px;
+
+    .footer-section ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 }
 </style>
