@@ -539,11 +539,13 @@
                 <div class="animated-image relative w-full h-0 pb-[66.66%]">
                     
                     <!-- Dynamic OR Static Image -->
-                    <img src="{{ $home_aboutus_content_image 
-              ? url($home_aboutus_content_image) 
-              : 'https://odishavoyages.com/wp-content/uploads/2021/10/jagannath-temple-pti-1616946876.jpg' }}"
-     alt="About Us Image"
-     class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg">
+                    <img src="{{ 
+                isset($home_aboutus_content_image) && !empty($home_aboutus_content_image)
+                ? url($home_aboutus_content_image) 
+                : 'https://odishavoyages.com/wp-content/uploads/2021/10/jagannath-temple-pti-1616946876.jpg' 
+            }}"
+             alt="About Us Image"
+             class="absolute top-0 left-0 w-full h-full object-cover rounded-lg shadow-lg">
 
                     
                     <!-- Floating mini travel icon -->
