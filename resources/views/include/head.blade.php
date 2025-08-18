@@ -5,10 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <!-- Title -->
-<title>@yield('title','AIS Holidays')</title>
+<title>@yield('title','odishavoyages')</title>
 <!-- Favicon Icon -->
-<link rel="shortcut icon" href="{{ asset('./assets/images/logo-ais.png') }}" type="image/x-icon">
-<!-- Google Fonts -->
+<link rel="icon" href="assets/images/logo1.png" type="image/png" /><!-- Google Fonts -->
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
 
 <!-- Icons. Uncomment required icon fonts -->

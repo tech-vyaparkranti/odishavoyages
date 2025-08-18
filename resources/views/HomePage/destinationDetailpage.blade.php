@@ -6,7 +6,7 @@
 
 
     <!-- Destination Gallery start -->
-    <div class="destination-gallery pt-100">
+    <div class="destination-gallery pt-100 py-120">
         <div class="blog-banner" style="margin-bottom:50px; ">
             <img src="{{ asset('./assets/images/bannerblog.jpg') }}" alt=""
                 style="max-height:200px;width:100%; object-fit:cover;">
@@ -374,7 +374,7 @@
 <!-- Destinations Area end -->
 
     <!-- Destinations Area start -->
-    <section class="destinations-area bgc-lighter pt-85 pb-100 rel z-1">
+    <!-- <section class="destinations-area bgc-lighter pt-85 pb-100 rel z-1">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-12">
@@ -476,7 +476,7 @@
             
             
         </div>
-    </section>
+    </section> -->
     <!-- Destinations Area end -->
 
 

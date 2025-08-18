@@ -94,7 +94,7 @@
 }
 
 .footer-bottom {
-    background: black;
+    background: #7d2424;
     padding: 10px 20px;
     text-align: center;
     font-size: 14px;

@@ -1622,42 +1622,42 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
   <div class="row g-3">
     <!-- Card 1 -->
     <div class="col-12 col-md-6 col-lg-4">
-      <div class="card text-center p-3 shadow-sm bg-warning h-100">
+      <div class="card text-center p-3 shadow-sm  h-100" style="background:#B71C1C">
         <i class="bi bi-person-badge fs-2 text-primary animate-icon"></i>
         <p class="mt-2 text-light">5+ Years of Travel Experience</p>
       </div>
     </div>
     <!-- Card 2 -->
     <div class="col-12 col-md-6 col-lg-4">
-      <div class="card text-center p-3 shadow-sm bg-warning h-100">
+      <div class="card text-center p-3 shadow-sm  h-100" style="background:#B71C1C">
         <i class="bi bi-people fs-2 text-success animate-icon"></i>
         <p class="mt-2 text-light">1000+ Counting Happy Customers</p>
       </div>
     </div>
     <!-- Card 3 -->
     <div class="col-12 col-md-6 col-lg-4">
-      <div class="card text-center p-3 shadow-sm bg-warning h-100">
+      <div class="card text-center p-3 shadow-sm  h-100" style="background:#B71C1C">
         <i class="bi bi-graph-up fs-2 text-white animate-icon"></i>
         <p class="mt-2 text-light">35+ Team Staff & Ground Experts</p>
       </div>
     </div>
     <!-- Card 4 -->
     <div class="col-12 col-md-6 col-lg-4">
-      <div class="card text-center p-3 shadow-sm bg-warning h-100">
+      <div class="card text-center p-3 shadow-sm h-100" style="background:#B71C1C">
         <i class="bi bi-headset fs-2 text-danger animate-icon"></i>
         <p class="mt-2 text-light">24x7 Online Support</p>
       </div>
     </div>
     <!-- Card 5 -->
     <div class="col-12 col-md-6 col-lg-4">
-      <div class="card text-center p-3 shadow-sm bg-warning h-100">
+      <div class="card text-center p-3 shadow-sm  h-100" style="background:#B71C1C">
         <i class="bi bi-patch-check fs-2 text-info animate-icon"></i>
         <p class="mt-2 text-light">Odisha Tourism</p>
       </div>
     </div>
     <!-- Card 6 -->
     <div class="col-12 col-md-6 col-lg-4">
-      <div class="card text-center p-3 shadow-sm bg-warning h-100">
+      <div class="card text-center p-3 shadow-sm  h-100" style="background:#B71C1C">
         <i class="bi bi-signpost fs-2 text-secondary animate-icon"></i>
         <p class="mt-2 text-light">Special Discounts for Groups</p>
       </div>
@@ -2074,7 +2074,7 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
         margin:0 auto;
     }
   .blog-card {
-    background: #fff;
+    background: #F1C40F;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -2093,13 +2093,13 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 
   .blog-content span {
     font-size: 0.9rem;
-    color: #888;
+    color: white;
   }
 
   .blog-content h3 {
     font-size: 1.1rem;
     margin-top: 8px;
-    color: #333;
+    color: white;
   }
 
   #blogSlider {
