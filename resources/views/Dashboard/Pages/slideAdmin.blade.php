@@ -11,13 +11,13 @@
                 <x-input-with-label-element id="image" label="Upload Slider Image" name="image" type="file" accept="image/*"
                     required></x-input-with-label-element>
 
-                {{-- <x-input-with-label-element id="heading_top" label="Top Heading Text"
+                <x-input-with-label-element id="heading_top" label="Top Heading Text"
                     name="heading_top"></x-input-with-label-element>
 
                 <x-input-with-label-element id="heading_middle" label="Middle Heading Text"
                     name="heading_middle"></x-input-with-label-element>
 
-                <x-input-with-label-element id="heading_bottom" label="Bootom Heading Text"
+                {{-- <x-input-with-label-element id="heading_bottom" label="Bootom Heading Text"
                     name="heading_bottom"></x-input-with-label-element> --}}
 
                 <x-select-with-label id="slide_status" name="slide_status" label="Select Slide Status" required="true">
@@ -83,17 +83,17 @@
                         searchable: false,
                         title: "Slide Image"
                     },
-                    // {
-                    //     data: '{{ \App\Models\SliderModel::HEADING_TOP }}',
-                    //     name: '{{ \App\Models\SliderModel::HEADING_TOP }}',
-                    //     title: 'Top Heading'
-                    // },
-                    // {
-                    //     data: '{{ \App\Models\SliderModel::HEADING_MIDDLE }}',
-                    //     name: '{{ \App\Models\SliderModel::HEADING_MIDDLE }}',
-                    //     title: 'Middle Heading'
-                    // },
-                    // {
+                     {
+                        data: '{{ \App\Models\SliderModel::HEADING_TOP }}',
+                        name: '{{ \App\Models\SliderModel::HEADING_TOP }}',
+                        title: 'Top Heading'
+                     },
+                    {
+                        data: '{{ \App\Models\SliderModel::HEADING_MIDDLE }}',
+                        name: '{{ \App\Models\SliderModel::HEADING_MIDDLE }}',
+                        title: 'Middle Heading'
+                    },
+                    //  {
                     //     data: '{{ \App\Models\SliderModel::HEADING_BOTTOM }}',
                     //     name: '{{ \App\Models\SliderModel::HEADING_BOTTOM }}',
                     //     title: 'Bottom Heading'
