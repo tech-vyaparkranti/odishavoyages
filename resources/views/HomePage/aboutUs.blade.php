@@ -43,7 +43,7 @@
 
         
         <!-- About Area start -->
-        <section class="about-area-two py-50 pt-120 rel z-1">
+        <section class="about-area-two py-50 pt-140 rel z-1">
        <div class="contact-banner">
        <img src="./assets/images/bg-contact.jpg" alt=""> 
        </div>   

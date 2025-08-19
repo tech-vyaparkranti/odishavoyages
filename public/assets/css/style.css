@@ -6766,10 +6766,13 @@ blockquote {
 
 .destination-item.style-three.bgc-lighter .content h5 {
   max-width: none;
+  text-align: center;
+  ;
 }
 
 .destination-item.style-three.bgc-lighter .content h5 a {
-  color: white;
+  color: black;
+  text-align: center;
 }
 
 .destination-item.style-three.bgc-lighter .content p {

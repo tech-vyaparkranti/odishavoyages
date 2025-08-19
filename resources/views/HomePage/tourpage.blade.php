@@ -418,8 +418,12 @@
             from { box-shadow: 0 0 5px #ff6b6b; }
             to { box-shadow: 0 0 20px #ff6b6b, 0 0 30px #ff6b6b; }
         }
+        .hovering:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
     </style>
-<section class="pt-120 py-100">
+<section class="pt-140 py-100">
             <div class="blog-banner"  style="margin-bottom:50px; ">
             <img src="./assets/images/Banner_HD.png" alt="" style="max-height:200px;width:100%; object-fit:cover;">
         </div> 
@@ -449,7 +453,7 @@
                             // Check if images is a valid array and get the first image
                             $displayImage = is_array($images) && !empty($images) ? $images[0] : null;
                         @endphp
-                        <div class="col-xl-4 col-md-6">
+                        <div class="col-xl-4 col-md-6 hovering">
                             <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
                                 data-aos-duration="1500" data-aos-offset="50">
                                 <div class="image">

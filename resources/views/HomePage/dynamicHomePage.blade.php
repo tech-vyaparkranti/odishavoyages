@@ -1649,80 +1649,389 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 
     <!-- Popular Destinations Area end -->
      <!-- Bootstrap CSS -->
-<div class="container py-4">
-  <h2 class="text-center mb-5">Why Choose Us ?</h2>
+    <style>
+        :root {
+            --primary-orange: #FF6B35;
+            --secondary-orange: #FF8C42;
+            --light-orange: #FFF4F0;
+            --dark-orange: #E55A2B;
+            --gradient-orange: linear-gradient(135deg, #FF6B35 0%, #FF8C42 100%);
+            --shadow-color: rgba(255, 107, 53, 0.15);
+        }
 
-  <div class="row g-3">
-    <!-- Card 1 -->
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card text-center p-3 shadow-sm  h-100" style="background:#B71C1C">
-        <i class="bi bi-person-badge fs-2 text-primary animate-icon"></i>
-        <p class="mt-2 text-light">5+ Years of Travel Experience</p>
-      </div>
-    </div>
-    <!-- Card 2 -->
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card text-center p-3 shadow-sm  h-100" style="background:#B71C1C">
-        <i class="bi bi-people fs-2 text-success animate-icon"></i>
-        <p class="mt-2 text-light">1000+ Counting Happy Customers</p>
-      </div>
-    </div>
-    <!-- Card 3 -->
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card text-center p-3 shadow-sm  h-100" style="background:#B71C1C">
-        <i class="bi bi-graph-up fs-2 text-white animate-icon"></i>
-        <p class="mt-2 text-light">35+ Team Staff & Ground Experts</p>
-      </div>
-    </div>
-    <!-- Card 4 -->
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card text-center p-3 shadow-sm h-100" style="background:#B71C1C">
-        <i class="bi bi-headset fs-2 text-danger animate-icon"></i>
-        <p class="mt-2 text-light">24x7 Online Support</p>
-      </div>
-    </div>
-    <!-- Card 5 -->
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card text-center p-3 shadow-sm  h-100" style="background:#B71C1C">
-        <i class="bi bi-patch-check fs-2 text-info animate-icon"></i>
-        <p class="mt-2 text-light">Odisha Tourism</p>
-      </div>
-    </div>
-    <!-- Card 6 -->
-    <div class="col-12 col-md-6 col-lg-4">
-      <div class="card text-center p-3 shadow-sm  h-100" style="background:#B71C1C">
-        <i class="bi bi-signpost fs-2 text-secondary animate-icon"></i>
-        <p class="mt-2 text-light">Special Discounts for Groups</p>
-      </div>
-    </div>
-  </div>
-</div>
+        .why-choose-section {
+            padding: 80px 0;
+            position: relative;
+        }
 
-<style>
-  @keyframes floatUpDown {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-8px); }
-    100% { transform: translateY(0); }
-  }
+        .why-choose-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23FF6B35" opacity="0.02"/><circle cx="75" cy="75" r="1" fill="%23FF8C42" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            pointer-events: none;
+        }
 
-  .animate-icon {
-    animation: floatUpDown 2.5s ease-in-out infinite;
-    transition: transform 0.3s;
-  }
-  .card {
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-  border: none;
-  border-radius: 12px;
-}
+       
+        .section-subtitle {
+            color: #6c757d;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            font-weight: 300;
+        }
 
-.card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-}
+        .feature-card {
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            backdrop-filter: blur(10px);
+            border: 2px solid transparent;
+            box-shadow: 
+                0 8px 32px rgba(255, 107, 53, 0.08),
+                0 4px 16px rgba(0, 0, 0, 0.04),
+                0 2px 8px rgba(0, 0, 0, 0.02);
+        }
 
-</style>
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background:#B71C1C;
+        
+            transition: left 0.5s ease;
+            z-index: -1;
+            opacity: 0;
+        }
 
+        .feature-card:hover::before {
+            left: 0;
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 
+                0 25px 80px rgba(255, 107, 53, 0.25),
+                0 15px 40px rgba(255, 140, 66, 0.15),
+                0 8px 20px rgba(0, 0, 0, 0.08),
+                0 0 0 1px rgba(255, 107, 53, 0.1);
+            border-color: var(--primary-orange);
+        }
+
+        .feature-card:hover .card-text {
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        .feature-card:hover .feature-number {
+            color: white;
+            transform: scale(1.1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-orange);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            position: relative;
+            transition: all 0.4s ease;
+            box-shadow: 
+                0 12px 28px rgba(255, 107, 53, 0.3),
+                0 6px 16px rgba(255, 140, 66, 0.2),
+                0 3px 8px rgba(0, 0, 0, 0.08),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-icon::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+             background:#B71C1C;
+           animation: pulse 2s infinite;
+            z-index: -1;
+        }
+
+        .feature-icon i {
+            font-size: 2.2rem;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: rotateY(180deg);
+            box-shadow: 
+                0 20px 60px rgba(255, 255, 255, 0.4),
+                0 15px 40px rgba(255, 107, 53, 0.4),
+                0 8px 20px rgba(255, 140, 66, 0.3),
+                inset 0 2px 4px rgba(255, 255, 255, 0.3);
+        }
+
+        .feature-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color:#B71C1C;
+        
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .card-text {
+            font-size: 1.1rem;
+            color: #495057;
+            font-weight: 500;
+            line-height: 1.6;
+            transition: all 0.3s ease;
+            margin: 0;
+        }
+
+        .stats-container {
+            position: relative;
+        }
+
+        .stats-container .col-lg-4:nth-child(1) .feature-card {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .stats-container .col-lg-4:nth-child(2) .feature-card {
+            animation: slideInUp 0.8s ease-out 0.2s both;
+        }
+
+        .stats-container .col-lg-4:nth-child(3) .feature-card {
+            animation: slideInRight 0.8s ease-out 0.4s both;
+        }
+
+        .stats-container .col-lg-4:nth-child(4) .feature-card {
+            animation: slideInLeft 0.8s ease-out 0.6s both;
+        }
+
+        .stats-container .col-lg-4:nth-child(5) .feature-card {
+            animation: slideInUp 0.8s ease-out 0.8s both;
+        }
+
+        .stats-container .col-lg-4:nth-child(6) .feature-card {
+            animation: slideInRight 0.8s ease-out 1s both;
+        }
+
+        /* Floating particles */
+        .floating-particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: var(--gradient-orange);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+            opacity: 0.3;
+        }
+
+        .particle-1 { top: 20%; left: 10%; animation-delay: 0s; }
+        .particle-2 { top: 60%; right: 15%; animation-delay: 2s; }
+        .particle-3 { bottom: 30%; left: 20%; animation-delay: 4s; }
+        .particle-4 { top: 40%; right: 25%; animation-delay: 1s; }
+
+        @keyframes expandLine {
+            0% { width: 0; }
+            100% { width: 80px; }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes slideInLeft {
+            0% { transform: translateX(-50px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInRight {
+            0% { transform: translateX(50px); opacity: 0; }
+            100% { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-20px) rotate(120deg); }
+            66% { transform: translateY(10px) rotate(240deg); }
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 2.5rem;
+            }
+            
+            .feature-card {
+                padding: 2rem 1.5rem;
+                margin-bottom: 2rem;
+            }
+            
+            .why-choose-section {
+                padding: 60px 0;
+            }
+        }
+    </style>
+    <section class="why-choose-section">
+        <!-- Floating particles -->
+        <div class="floating-particle particle-1"></div>
+        <div class="floating-particle particle-2"></div>
+        <div class="floating-particle particle-3"></div>
+        <div class="floating-particle particle-4"></div>
+        
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 >Why Choose Us?</h2>
+                <p class="section-subtitle">Discover what makes us the preferred choice for thousands of travelers</p>
+            </div>
+            
+            <div class="row g-4 stats-container">
+                <!-- Card 1 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-person-badge"></i>
+                        </div>
+                        <div class="feature-number">5+</div>
+                        <p class="card-text">Years of Travel Experience</p>
+                    </div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <div class="feature-number">1000+</div>
+                        <p class="card-text">Satisfied Happy Customers</p>
+                    </div>
+                </div>
+                
+                <!-- Card 3 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-graph-up"></i>
+                        </div>
+                        <div class="feature-number">35+</div>
+                        <p class="card-text">Expert Team Members</p>
+                    </div>
+                </div>
+                
+                <!-- Card 4 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <div class="feature-number">24/7</div>
+                        <p class="card-text">Online Support Available</p>
+                    </div>
+                </div>
+                
+                <!-- Card 5 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-patch-check"></i>
+                        </div>
+                        <div class="feature-number">100%</div>
+                        <p class="card-text">Authorized Odisha Tourism</p>
+                    </div>
+                </div>
+                
+                <!-- Card 6 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card feature-card">
+                        <div class="feature-icon">
+                            <i class="bi bi-gift"></i>
+                        </div>
+                        <div class="feature-number">Special</div>
+                        <p class="card-text">Group Discount Offers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Add intersection observer for animation triggers
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all feature cards
+        document.querySelectorAll('.feature-card').forEach(card => {
+            observer.observe(card);
+        });
+
+        // Add counter animation
+        function animateCounters() {
+            const counters = document.querySelectorAll('.feature-number');
+            
+            counters.forEach(counter => {
+                const target = counter.textContent;
+                if (target.includes('+')) {
+                    const num = parseInt(target.replace('+', ''));
+                    let current = 0;
+                    const increment = num / 50;
+                    
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= num) {
+                            counter.textContent = num + '+';
+                            clearInterval(timer);
+                        } else {
+                            counter.textContent = Math.floor(current) + '+';
+                        }
+                    }, 30);
+                }
+            });
+        }
+
+        // Trigger counter animation when section is visible
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCounters();
+                    sectionObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sectionObserver.observe(document.querySelector('.why-choose-section'));
+    </script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
 <!-- Horizontal Scroll Section -->
 
@@ -2019,11 +2328,22 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
             <!-- Updated the href to use the route() helper with the blog's slug -->
             <a href="{{ route('blogDetailpage', ['slug' => $blog->slug]) }}" class="block no-underline text-current">
                 <div id="blogCard-{{ $blog->id }}" class="blog-card">
-                    <!-- The src attribute now uses the asset() helper to get the full public URL -->
-                    <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}" />
+                    <div class="blog-image-container">
+                        <!-- The src attribute now uses the asset() helper to get the full public URL -->
+                        <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}" />
+                        <div class="image-overlay">
+                            <div class="read-more-center">
+                                <i class="bi bi-arrow-right"></i>
+                                <span>Read More</span>
+                            </div>
+                        </div>
+                    </div>
                     <div class="blog-content">
-                        <span>{{ $blog->blog_category ?? 'Travel' }} • {{ \Carbon\Carbon::parse($blog->blog_date)->format('Y-m-d') }}</span>
-                        <h3>{{ $blog->title }}</h3>
+                        <div class="content-header">
+                            <span class="blog-category">{{ $blog->blog_category ?? 'Travel' }}</span>
+                            <span class="blog-date"> • {{ \Carbon\Carbon::parse($blog->blog_date)->format('Y-m-d') }}</span>
+                        </div>
+                        <h3 class="blog-title">{{ $blog->title }}</h3>
                     </div>
                 </div>
             </a>
@@ -2068,63 +2388,202 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
     },
   });
 </script>
+
 <style>
-    #blogSlider{
-        
-        margin:0 auto;
+    :root {
+        --primary-orange: #ff6b35;
+        --gradient-orange: linear-gradient(135deg, #ff6b35, #f7931e);
     }
-  .blog-card {
-    background: #F1C40F;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    font-family: 'Segoe UI', sans-serif;
-  }
-  @media (max-width: 480px) {
-   .blog-card{
-    margin:10px;
 
-   }
-  }
+    #blogSlider {
+        margin: 0 auto;
+        padding: 40px 0;
+    }
 
-  .blog-card img {
-    width: 100%;
-    height: auto;
-    display: block;
-  }
+    .blog-card {
+        background: #F1C40F;
+        border-radius: 12px;
+        overflow: hidden;
+   box-shadow: 
+  rgba(50, 50, 93, 0.15) 0px 20px 40px -10px, 
+  rgba(0, 0, 0, 0.2) 0px 10px 20px -10px, 
+  rgba(10, 37, 64, 0.15) 0px -1px 3px 0px inset;
+     font-family: 'Segoe UI', sans-serif;
+        position: relative;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-  .blog-content {
-    padding: 15px;
-  }
+    /* Image container with overlay */
+    .blog-image-container {
+        position: relative;
+        overflow: hidden;
+    }
 
-  .blog-content span {
-    font-size: 0.9rem;
-    color: white;
-  }
+    .blog-card img {
+        width: 100%;
+        height: auto;
+        display: block;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-  .blog-content h3 {
-    font-size: 1.1rem;
-    margin-top: 8px;
-    color: white;
-  }
+    /* Overlay that appears on hover */
+    .image-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+  background-color: rgba(255, 165, 0, 0.5); /* orange with 50% transparency */
+      display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(2px);
+    }
 
-  #blogSlider {
-    padding: 40px 0;
-  }
+    /* Centered read more button */
+    .read-more-center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.1);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 50px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        transform: translateY(20px) scale(0.9);
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(10px);
+    }
 
-  #blogPagination {
-    margin-top: 20px;
-    text-align: center;
-  }
+    .read-more-center i {
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+    }
 
-  #blogNext, #blogPrev {
-    color: #000;
-  }
-  .swiper-slide:hover{
-    transform: scale(1.05);
-    transition: transform 0.3s ease;
+    /* Content section with animations */
+    .blog-content {
+        padding: 15px;
+        position: relative;
+        overflow: hidden;
+    }
 
-  }
+    .content-header {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 8px;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slideInUp 0.6s ease forwards;
+        animation-delay: 0.1s;
+    }
+
+    .blog-category {
+        background: var(--gradient-orange);
+        color: white;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transform: scale(0.9);
+        animation: scaleIn 0.5s ease forwards;
+        animation-delay: 0.2s;
+    }
+
+    .blog-date {
+        font-size: 1rem;
+        color: black;
+    }
+
+    .blog-title {
+        font-size: 1.5rem;
+        margin-top: 8px;
+        margin-bottom: 0;
+        color: black;
+        opacity: 0;
+        transform: translateY(20px);
+        animation: slideInUp 0.6s ease forwards;
+        animation-delay: 0.3s;
+    }
+
+    /* Hover effects */
+    .swiper-slide:hover {
+        transform: scale(1.05);
+        transition: transform 0.3s ease;
+    }
+
+  
+    .swiper-slide:hover .blog-card img {
+        transform: scale(1.1);
+    }
+
+    .swiper-slide:hover .image-overlay {
+        opacity: 1;
+    }
+
+    .swiper-slide:hover .read-more-center {
+        transform: translateY(0) scale(1);
+        background: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.6);
+    }
+
+    .swiper-slide:hover .read-more-center:hover {
+        background: rgba(255, 255, 255, 0.9);
+        color: var(--primary-orange);
+        transform: translateY(0) scale(1.05);
+    }
+
+    .swiper-slide:hover .read-more-center:hover i {
+        transform: translateX(5px);
+    }
+
+    /* Content animations on card hover */
+    .swiper-slide:hover .blog-category {
+        transform: scale(1) translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 107, 53, 0.3);
+    }
+
+    .swiper-slide:hover .blog-title {
+        transform: translateY(-2px);
+    }
+
+    /* Keyframe animations */
+    @keyframes slideInUp {
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes scaleIn {
+        to {
+            transform: scale(1);
+        }
+    }
+
+    /* Pagination styling */
+    #blogPagination {
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    #blogNext, #blogPrev {
+        color: #000;
+    }
+
+    /* Mobile responsive */
+    @media (max-width: 480px) {
+        .blog-card {
+            margin: 10px;
+        }
+    }
 </style>
-
 @endsection

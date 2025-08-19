@@ -339,6 +339,7 @@
         }
         
     </style>
+    <section class=" py-20">
     <!-- Floating Emoji Background -->
     <div class="emoji-bg">
         <div class="floating-emoji">📸</div>
@@ -365,7 +366,7 @@
             <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=300&q=80" alt="Gallery Banner">
         </div>
 
-        <div class="container">
+        <div class="container ">
             <!-- Section Title -->
             <div class="section-title">
                 <h2>✨ Explore Our Photo Gallery ✨</h2>
@@ -454,7 +455,7 @@
             </div>
         </div>
     </section>
-
+    </section>
     <script>
         // Create animated particles
         function createParticles() {

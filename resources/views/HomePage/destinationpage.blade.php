@@ -40,9 +40,13 @@
             from { box-shadow: 0 0 5px #ff6b6b; }
             to { box-shadow: 0 0 20px #ff6b6b, 0 0 30px #ff6b6b; }
         }
+        .hovering:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
 </style>
     <!-- Destinations Area start -->
-    <section class="tour-grid-page py-100 pt-120 rel z-2">
+    <section class="tour-grid-page py-100 pt-140 rel z-2">
         <div class="blog-banner" style="margin-bottom:50px; ">
             <img src="./assets/images/Banner_HD.png" alt="" style="max-height:200px;width:100%; object-fit:cover;">
         </div>
@@ -90,7 +94,7 @@
                 <h2 class="text-center pb-20" style="margin-bottom:100px;"> Popular Destinations</h2>
                 @if (!empty($homedestinations) && count($homedestinations))
                             @foreach ($homedestinations as $item)
-                        <div class="col-xl-4 col-md-6">
+                        <div class="col-xl-4 col-md-6 hovering">
                             <div class="destination-item tour-grid style-three bgc-lighter" data-aos="fade-up"
                                 data-aos-duration="1500" data-aos-offset="50">
                                 <div class="image">
