@@ -482,7 +482,7 @@
                                         <i class="fas fa-star"></i>
                                     </div> --}}
                                     </div>
-                                    <h5 class="card-heading">{!! $item->package_name !!}</h5>
+                                    <h5 class="card-heading" style="text-align:left">{!! $item->package_name !!}</h5>
                                     {{-- <p>Bali, Indonesia, is tropical paradise renowned breathtaking beaches and landscapes</p> --}}
                                     <ul class="blog-meta">
                                         <li><i class="far fa-clock"></i> {!! $item->package_duration_days !!} Days /
