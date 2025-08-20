@@ -2081,7 +2081,7 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
 
 <style>
     #testimonialSlider{
-        max-height:1000px;
+        min-height:500px;
         padding-bottom:20px;
         margin-top:50px
     }
