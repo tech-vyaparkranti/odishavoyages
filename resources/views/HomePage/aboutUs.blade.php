@@ -44,28 +44,19 @@
         
         <!-- About Area start -->
         <section class="about-area-two py-50 pt-140 rel z-1">
-       <div class="contact-banner">
-       <img src="./assets/images/bg-contact.jpg" alt=""> 
+       <div class="">
+       <img src="./assets/images/imageabout1.jpg" style="max-height:200px;width:100%" alt=""> 
        </div>   
             <div class="container pt-5" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
                 <h2 class="text-center">About Us</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  
-Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  
-Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  
-Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+           <p style="text-align:justify">Welcome to odishavoyages.com, your ultimate guide to exploring the vibrant state of Odisha. We are passionate about showcasing the cultural richness, spiritual heritage, and natural beauty of this incredible region. From the majestic Sun Temple of Konark and the sacred Jagannath Temple in Puri to the serene waters
+             of Chilika Lake and the lush greenery of Daringbadi, we bring you curated travel
+              experiences that combine history, adventure, and relaxation.</p>
 
-</p>
+<p style="text-align:justify">Our mission is to make your journey through Odisha seamless, memorable, and enriching. We offer carefully crafted travel packages, expert local guidance, and insider tips to help you discover hidden gems, participate in traditional 
+  festivals, and experience authentic Odia culture.
+   Whether you are a history enthusiast, nature lover, spiritual seeker, or simply looking for a peaceful getaway,
+   odishavoyages.com is here to turn your Odisha dreams into reality.</p>
                 </div>
         </section>
 
@@ -81,23 +72,9 @@ Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deseru
 
       <!-- Right Side Text -->
       <div class="col-right" data-aos="fade-left" data-aos-duration="1500" data-aos-offset="50">
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.  
-          Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.  
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.  
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.  
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <p style="text-align:justify">
+        Odisha, located on the eastern coast of India along the Bay of Bengal, is a land of rich history, vibrant culture, and natural beauty. The state has a heritage that dates back over 5,000 years, with evidence of ancient dynasties, religions, and civilizations visible in its temples, monuments, and traditional art forms. Odisha is famous for its exquisite temple architecture, including the Sun Temple at Konark and the Jagannath Temple at Puri, both of which attract pilgrims and tourists from all over the world. Its diverse landscape ranges from serene beaches like Puri and Chandipur to lush forests, wildlife sanctuaries, and picturesque hill stations such as Daringbadi. Chilika Lake, Asia’s largest brackish water lagoon, is a haven for migratory birds and dolphins, drawing nature enthusiasts year-round. Odisha is also known for its classical dance form Odissi, intricate 
+        handicrafts like Pattachitra paintings and silver filigree work, and colorful festivals such as Rath Yatra and Durga Puja. The state blends spirituality, culture, history, and natural wonders, making it a unique and unforgettable travel destination in India.</p>
       </div>
 
     </div>

@@ -144,6 +144,7 @@
         .section-title {
             text-align: center;
             margin-bottom: 50px;
+            margin-top: 20px;
             color: white;
             animation: fadeInUp 1s ease-out;
         }
@@ -362,8 +363,8 @@
 
     <section class="gallery-section">
         <!-- Banner -->
-        <div class="blog-banner">
-            <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=300&q=80" alt="Gallery Banner">
+        <div class="">
+            <img src="./assets/images/imageabout1.jpg" style="width:100%;max-height:250px" alt="Gallery Banner">
         </div>
 
         <div class="container ">
@@ -378,78 +379,79 @@
                 <!-- Gallery Item 1 -->
                 <div class="gallery-item">
                     <div class="image-container">
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIrcayxm7EZrNIkPciDCwVan0AnBMiWtxVwQ&s">
-                        <a href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIrcayxm7EZrNIkPciDCwVan0AnBMiWtxVwQ&s" class="overlay-link">
+                        <img src="https://media.istockphoto.com/id/1182880420/photo/mukteshvara-temple-in-bhubaneswar.jpg?s=612x612&w=0&k=20&c=qz2GRluhOzZTsHvkY3yt7YWZoltDGSTbaK0gSOCzyuM=">
+                        <a href="https://media.istockphoto.com/id/1182880420/photo/mukteshvara-temple-in-bhubaneswar.jpg?s=612x612&w=0&k=20&c=qz2GRluhOzZTsHvkY3yt7YWZoltDGSTbaK0gSOCzyuM=" class="overlay-link">
                             ➡️
                         </a>
                     </div>
                     <div class="content">
-                        <h5> Brown Concrete Building</h5>
+                        <h5>Bhubaneswar</h5>
                     </div>
                 </div>
 
                 <!-- Gallery Item 2 -->
                 <div class="gallery-item">
                     <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250&q=80" alt="Swimming near boat">
-                        <a href="#" class="overlay-link">
+                        <img src="https://www.shutterstock.com/image-photo/small-island-chilika-lake-600nw-2395274611.jpg" alt="Swimming near boat">
+                        <a href="https://www.shutterstock.com/image-photo/small-island-chilika-lake-600nw-2395274611.jpg" class="overlay-link">
                             ➡️
                         </a>
                     </div>
                     <div class="content">
-                        <h5> Swimming near boat</h5>
+                        <h5> Chilika lake</h5>
                     </div>
                 </div>
 
                 <!-- Gallery Item 3 -->
                 <div class="gallery-item">
                     <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250&q=80" alt="Building in the desert">
-                        <a href="#" class="overlay-link">
+                        <img src="https://t4.ftcdn.net/jpg/04/82/09/83/360_F_482098383_n6JMrdv1bBwHYXX27qQGalGJ97xa1eK2.jpg" alt="Building in the desert">
+                        <a href="https://t4.ftcdn.net/jpg/04/82/09/83/360_F_482098383_n6JMrdv1bBwHYXX27qQGalGJ97xa1eK2.jpg" class="overlay-link">
                             ➡️
                         </a>
                     </div>
                     <div class="content">
-                        <h5> Building in the desert</h5>
+                        <h5>Jagannath Temple</h5>
                     </div>
                 </div>
 
                 <!-- Gallery Item 4 -->
                 <div class="gallery-item">
                     <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250&q=80" alt="Cliff near shore beach">
-                        <a href="#" class="overlay-link">
+                        <img src="https://media.istockphoto.com/id/1444924249/photo/konark-sun-temple-at-sunrise-konark-temple-is-a-unesco-world-heritage-site-at-puri-odisha.jpg?s=612x612&w=0&k=20&c=5Gd3UDpZeYh8DejD4a4TTrpAZLoPw5SARAUFT7hfwRk=" alt="Cliff near shore beach">
+                        <a href="https://media.istockphoto.com/id/1444924249/photo/konark-sun-temple-at-sunrise-konark-temple-is-a-unesco-world-heritage-site-at-puri-odisha.jpg?s=612x612&w=0&k=20&c=5Gd3UDpZeYh8DejD4a4TTrpAZLoPw5SARAUFT7hfwRk=" class="overlay-link">
                             ➡️
                         </a>
                     </div>
                     <div class="content">
-                        <h5> Cliff near shore beach</h5>
+                        <h5> Korank Temple</h5>
                     </div>
                 </div>
 
                 <!-- Gallery Item 5 -->
                 <div class="gallery-item">
                     <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1504280390367-361c6d9f38f4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250&q=80" alt="Tent camping in the desert">
-                        <a href="#" class="overlay-link">
+                        <img src="https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/cuttack-odisha.jpg" alt="Tent camping in the desert">
+                        <a href="https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/cuttack-odisha.jpg" class="overlay-link">
                               ➡️
                         </a>
                     </div>
                     <div class="content">
-                        <h5> Tent camping in the desert</h5>
+                        <h5>Cuttack
+</h5>
                     </div>
                 </div>
 
                 <!-- Gallery Item 6 -->
                 <div class="gallery-item">
                     <div class="image-container">
-                        <img src="https://images.unsplash.com/photo-1587595431973-160d0d94add1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250&q=80" alt="Machu Picchu, Peru">
-                        <a href="#" class="overlay-link">
+                        <img src="https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/rourkela.jpg" alt="Machu Picchu, Peru">
+                        <a href="https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/rourkela.jpg" class="overlay-link">
                             ➡️
                         </a>
                     </div>
                     <div class="content">
-                        <h5> Machu Picchu, Peru</h5>
+                        <h5>Rourkela</h5>
                     </div>
                 </div>
             </div>

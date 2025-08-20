@@ -1,72 +1,151 @@
 @extends('layouts.webSite')
 @section('title', 'Terms & Conditions')
 @section('content')
-{{-- <div class="information-page-slider">
-    <img src="./assets/img/travel-bg.jpg" alt="Home Stylers" class="img-fluid">
+<div class="information-page-slider   pt-100">
+    <!-- <img src="./assets/img/travel-bg.jpg" alt="Home Stylers" class="img-fluid"> -->
     <div class="information-content">
         <ul class="m-auto list-unstyled custom-container">
-            <li><a href="{{ url('/') }}">Home</a></li>
-            <li><a href="javascript:void(0);">Terms and Conditions</a></li>
+            <!-- <li><a href="{{ url('/') }}">Home</a></li>
+            <li><a href="javascript:void(0);">Terms and Conditions</a></li> -->
         </ul>
     </div>
-</div> --}}
-    {{-- <div id="about"> --}}
-        {{-- <div class="container-fluid  pb-3"> --}}
-            <div class="container">
-                {{-- <div class="heading pb-3"> --}}
-                    <h2 class="text-center heading_terms_condition">Terms & Conditions</h2>
-                {{-- </div> --}}
-                <div class="midd-content">
-                    {{-- <p class="text-justify">These Terms and Conditions, along with privacy policy or other terms (“Terms”) constitute a binding agreement by and between Aisholidays, ( “Website Owner” or “we” or “us” or “our”) and you (“you” or “your”) and relate to your use of our website, goods (as applicable) or services (as applicable) (collectively, “Services”).</p>
-                    <p class="text-justify">By using our website and availing the services, you agree that you have read and accepted these terms (including the privacy policy). We reserve the right to modify these terms at any time and without Assigning any reason. It is your responsibility to periodically review these terms to stay informed of updates.</p> 
-                    <p class="text-justify">The use of this website or availing of our Services is subject to the following terms of use:</p>  --}}
-                    <ul class="points">
-                        <li><p class="text-justify">Hotel and flight cancellations are subject to the respective hotel and airline policies.</p></li>
-                        <li><p class="text-justify">AIS Holidays is not responsible for flight rescheduling or cancellations by airlines and their impact on related bookings.</p></li>
-                        <li><p class="text-justify">Web check-in is mandatory, and all travel-related documents must be verified before check-in.</p></li>
-                        <li><p class="text-justify">Final travel vouchers will be provided 7 days prior to the departure date.</p></li>
-                        <li><p class="text-justify">Vehicles are provided strictly for point-to-point transfers, not for personal use.</p></li>
-                        <li><p class="text-justify">Hotel rooms are subject to availability at the time of booking.</p></li>
-                        <li><p class="text-justify">Rates are subject to change due to variations in airport taxes, hotel rates, transport costs, government taxes, or entrance fees.</p></li>
-                        <li><p class="text-justify">Airfares may change without prior notice, and AIS Holidays will not be liable for such changes.</p></li>
-                        <li><p class="text-justify">Hotel check-in is at 3:00 PM, and check-out is at 12:00 noon; early check-in or late check-out depends on availability.</p></li>
-                        <li><p class="text-justify">Hotel images provided are for reference and may differ from the actual property.</p></li>
-                        <li><p class="text-justify">A 25% payment is required to process land bookings.</p></li>
-                        <li><p class="text-justify">Full payment is mandatory for booking flights, ferries, and Eurail tickets.</p></li>
-                        <li><p class="text-justify">Non-refundable hotel and tour bookings require full payment in advance.</p></li>
-                        <li><p class="text-justify">Additional charges apply for payments made via credit cards, debit cards, or Amex.</p></li>
-                        <li><p class="text-justify">Once bookings are processed, amendments are subject to charges borne by the guest.</p></li>
-                        <li><p class="text-justify">Cruise gratuity fees are excluded from the package and must be paid directly by the guest.</p></li>
-                        <li><p class="text-justify">Visa expenses for visa-on-arrival countries are to be borne by the guest.</p></li>
-                        <li><p class="text-justify">Passports must be valid for at least 6 months (180 days) from the travel date.</p></li>
-                        <li><p class="text-justify">Travel insurance claims must be settled between the guest and the insurance company; AIS Holidays holds no liability.</p></li>
-                        <li><p class="text-justify">PAN cards are mandatory for all travelers and must be submitted at the time of booking.</p></li>
-                        <li><p class="text-justify">Visa approval or rejection is at the sole discretion of the embassy, and AIS Holidays is not liable for any decisions.</p></li>
-                        <li><p class="text-justify">International hotels may require a security deposit or city taxes, which are to be paid by the guest during check-in.</p></li>
-                        <li><p class="text-justify">Hotel amenities and special requests (like room preferences, early check-in, or specific views) are subject to availability.</p></li>
-                        <li><p class="text-justify">Tours and tickets, once booked, are non-refundable.</p></li>
-                        <li><p class="text-justify">Drinks, including water, during meals or sightseeing tours are not included in the package.</p></li>
-                        <li><p class="text-justify">Tours, transfers, or activities may be canceled due to unforeseen weather conditions or political issues, and guests must handle such expenses; refunds will be issued for canceled activities.</p></li>
-                        <li><p class="text-justify">AIS Holidays charges a non-refundable cancellation fee of ₹5,000 per person.</p></li>
-                        <li><p class="text-justify">Duplicate airline, hotel, resort, or cruise bookings will result in forfeiture of payment, and any additional charges will be borne by the guest.</p></li>
-                        <li><p class="text-justify">Guests testing positive for COVID-19 during the tour will bear all quarantine and testing expenses, as AIS Holidays is not responsible for such costs.</p></li>
-                        <li><p class="text-justify">Guests showing COVID-19 symptoms at arrival may be tested, and if positive, placed in government-managed isolation facilities; such reservations will be considered no-shows.</p></li>
-                        <li><p class="text-justify">COVID-19 tests may be mandatory for arrival or departure in some cities or countries; guests must verify and comply with these rules before travel.</p></li>
-                        <li><p class="text-justify">Travel insurance is highly recommended and should be arranged by the guest or through AIS Holidays before traveling.</p></li>
-                    </ul>
-                             
-                </div>
-            </div>
-        {{-- </div> --}}
-    {{-- </div> --}}
-    <style>
-        .heading_terms_condition{
-            margin-top: 120px;
+</div> 
+<style>
+    /* Global Styles */
+  h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+         background: linear-gradient(45deg, #ff9933, #b22222, #1e3c72, #228b22);
+   background-size: 300% 300%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease-in-out infinite;
+            margin-bottom: 20px;
+            position: relative;
         }
-       .midd-content .points li {
-    list-style: disc ;
-    padding: 0;
-    margin: 0;
-}
-    </style>
+
+         h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ff6b8a, transparent);
+            border-radius: 2px;
+            animation: underlineGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes underlineGlow {
+            from { box-shadow: 0 0 5px #ff6b6b; }
+            to { box-shadow: 0 0 20px #ff6b6b, 0 0 30px #ff6b6b; }
+        }
+    a {
+        color: #2980b9;
+        text-decoration: none;
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+
+    /* Container */
+    .container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 25px 20px;
+      
+    }
+
+    /* Headings */
+    h1 {
+        text-align: center;
+        color: #2c3e50;
+        margin-bottom: 30px;
+        font-size: 2em;
+    }
+    h2 {
+        color: #34495e;
+        margin-top: 25px;
+        font-size: 1.4em;
+    }
+
+    /* Paragraphs and Lists */
+    p {
+        margin: 12px 0;
+        font-size: 1em;
+    }
+    ul {
+        margin: 10px 0 20px 25px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+        .container {
+            margin: 20px;
+            padding: 20px 15px;
+        }
+        h1 {
+            font-size: 1.8em;
+        }
+        h2 {
+            font-size: 1.2em;
+        }
+        p, ul {
+            font-size: 0.95em;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .container {
+            margin: 15px;
+            padding: 15px 10px;
+        }
+        h1 {
+            font-size: 1.6em;
+        }
+        h2 {
+            font-size: 1.1em;
+        }
+        p, ul {
+            font-size: 0.9em;
+        }
+    }
+</style>
+
+<div class="container" >
+    <h1>Terms & Conditions</h1>
+
+    <h2>1. Acceptance of Terms</h2>
+    <p>By accessing or using <strong>odishavoyages.com/</strong>, you agree to follow these terms.</p>
+
+    <h2>2. Use of Content</h2>
+    <p>All content, images, and text on this website are for informational purposes only. Unauthorized copying or redistribution is prohibited.</p>
+
+    <h2>3. Booking & Payment</h2>
+    <p>Bookings via our website are subject to package terms and availability. Prices and offers may change without notice.</p>
+
+    <h2>4. Liability</h2>
+    <p>While we provide travel guidance and assistance, <strong>[Your Travel Website Name]</strong> is not responsible for personal accidents, delays, or unforeseen events during travel. Travelers are responsible for their own safety and compliance with local laws.</p>
+
+    <h2>5. External Links</h2>
+    <p>Our website may include links to third-party sites. We are not liable for the content or privacy practices of these external websites.</p>
+
+    <h2>6. Modifications</h2>
+    <p>We reserve the right to update these terms and policies at any time. Continued use of the website signifies acceptance of updated terms.</p>
+
+    <h2>7. Governing Law</h2>
+    <p>These policies are governed by the laws of India.</p>
+
+    <h2>Contact Us</h2>
+    <p>For questions regarding privacy or website policies, contact us at <a href="mailto:info@yourwebsite.com">info@yourwebsite.com</a> or call <strong>[Your Phone Number]</strong>.</p>
+</div>
+
+
 @endsection

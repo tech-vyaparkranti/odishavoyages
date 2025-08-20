@@ -117,13 +117,13 @@
                 <div class="contact-images-part" data-aos="fade-right" data-aos-duration="1500" data-aos-offset="50">
                     <div class="row">
                         <div class="col-12">
-                            <img src="{{ asset($contactus_image1 ?? './assets/images/contact1.jpg') }}" alt="Contact" class="contact-us_image1">
+                            <img src="{{ asset($contactus_image1 ?? './assets/images/bhu3.jpg') }}" alt="Contact" class="contact-us_image1">
                         </div>
                         <div class="col-6">
-                            <img src="{{ asset($contactus_image2 ?? './assets/images/contact2.jpg') }}" alt="Contact" class="contact-us_image2">
+                            <img src="{{ asset($contactus_image2 ?? './assets/images/korank1.jpg') }}" alt="Contact" class="contact-us_image2">
                         </div>
                         <div class="col-6">
-                            <img src="{{ asset($contactus_image3 ?? './assets/images/contact3.jpg') }}" alt="Contact" class="contact-us_image3">
+                            <img src="{{ asset($contactus_image3 ?? './assets/images/chilikalake.jpg') }}" alt="Contact" class="contact-us_image3">
                         </div>
                     </div>
                     <div class="circle-logo">

@@ -1,13 +1,56 @@
 @extends('layouts.webSite')
 @section('title', 'Blog')
 @section('content')
+<style>
+     
+       h2 {
+            font-size: 3.5rem;
+            font-weight: 700;
+         background: linear-gradient(45deg, #ff9933, #b22222, #1e3c72, #228b22);
+   background-size: 300% 300%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease-in-out infinite;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+         h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ff6b8a, transparent);
+            border-radius: 2px;
+            animation: underlineGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes underlineGlow {
+            from { box-shadow: 0 0 5px #ff6b6b; }
+            to { box-shadow: 0 0 20px #ff6b6b, 0 0 30px #ff6b6b; }
+        }
+        .read:hover{
+            color:black !important;
+
+        }
+</style>
 
     <!-- Blog List Area start -->
-    <section class="blog-list-page py-100 rel z-1">
+    <section class="blog-list-page py-100 pt-140 rel z-1">
         <div class="blog-banner" style="margin-bottom:50px; ">
             <img src="./assets/images/bannerblog.jpg" alt="" style="max-height:200px;width:100%; object-fit:cover;">
         </div>
         <div class="container">
+            <h2 class="text-center mb-50">Our Blog</h2>
             <div class="row">
                 <div class="col-lg-8">
                     @if (isset($blogs) && count($blogs) > 0)
@@ -27,7 +70,7 @@
                                     </ul> --}}
                                     {{-- <p>We specialize in crafting unforgettable city experiences for travelers seeking</p> --}}
                                     <a href="{{ route('blogDetailpage', ['slug' => $item->slug]) }}" class="theme-btn style-two style-three">
-                                        <span data-hover="Book Now">Read More</span>
+                                        <span data-hover="Book Now" class="read">Read More</span>
                                         <i class="fal fa-arrow-right"></i>
                                     </a>
                                 </div>
@@ -151,7 +194,7 @@
 
                         <div class="widget widget-news" data-aos="fade-up" data-aos-duration="1500"
                             data-aos-offset="50">
-                            <h5 class="widget-title">Recent News</h5>
+                            <h5 class="widget-title">Recent Blog</h5>
                             <ul>
                                 @foreach ($otherBlogs as $otherBlog)
                                     <li>
@@ -268,7 +311,7 @@
                             </div>
                         </div>
 
-                        <div class="widget widget-cta" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
+                        <!-- <div class="widget widget-cta" data-aos="fade-up" data-aos-duration="1500" data-aos-offset="50">
                             <div class="content text-white">
                                 <span class="h6">Explore The World</span>
                                 <h3>Best Tourist Place</h3>
@@ -280,8 +323,8 @@
                             <div class="image">
                                 <img src="./assets/images/cta-widget.png" alt="CTA">
                             </div>
-                            <!-- <div class="cta-shape"><img src="./assets/images/cta-shape.png" alt="Shape"></div> -->
-                        </div>
+                             <div class="cta-shape"><img src="./assets/images/cta-shape.png" alt="Shape"></div> 
+                        </div> -->
 
                     </div>
 

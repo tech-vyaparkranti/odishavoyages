@@ -6,22 +6,21 @@
             <img src="/assets/images/logo1.png" style="height:150px;width:150px;" alt="Logo">
             <p>Where devotion meets ocean waves and hearts. </p>
          
-            <a href="#" class="btn-enquire">ENQUIRE NOW</a>
-        </div>
+    <label for="enquiry" class="btn-enquire">ENQUIRE NOW</label>
+    </div>
 
         <div class="footer-section">
             <h4>Quick Link</h4>
             <ul>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Articles</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Sitemap</a></li>
-            </ul>
-        </div>
+    <li><a href="{{ route('aboutUs') }}">About Us</a></li>
+     <li><a href="{{ route('galleryPages') }}">Gallery</a></li>
+      <li><a href="{{ route('contactUs') }}">Contact Us</a></li>
+        <li><a href="{{ route('blogpage') }}">Blogs</a></li>
+         <li><a href="{{ route('termsConditions') }}">Terms & Conditions</a></li>
+    <li><a href="{{ route('privacyPolicy') }}">Privacy Policy</a></li>
+</ul>
+
+         </div>
 
         <div class="footer-section">
             <h4>Contact Information</h4>
