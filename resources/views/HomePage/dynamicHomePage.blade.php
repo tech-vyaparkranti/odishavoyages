@@ -93,15 +93,13 @@
 <section class="hero-section">
     <div class="video-background">
         <!-- AUTO-PLAY, LOOP, MUTED, ALL CONTROLS HIDDEN -->
-        <iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/_gu9BwQ1Ags?autoplay=1&mute=1&loop=1&playlist=_gu9BwQ1Ags"
-    title="Background Video"
-    frameborder="0"
-    allow="autoplay; encrypted-media; fullscreen"
-    allowfullscreen
-    style="pointer-events: none;">
+        
+<iframe 
+    src="https://www.youtube.com/embed/_gu9BwQ1Ags?autoplay=1&mute=1&loop=1&playlist=_gu9BwQ1Ags&controls=0&modestbranding=1&fs=0&rel=0" 
+    title="Background Video" 
+    allow="autoplay; encrypted-media" 
+    allowfullscreen 
+    style="pointer-events: none; ">
 </iframe>
 
     </div>

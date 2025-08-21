@@ -1,10 +1,23 @@
+<?php
+// This is the model you would use to fetch data.
+// Make sure this path is correct based on your application structure.
+use App\Models\WebSiteElements;
 
+// Fetch the necessary web elements directly within the Blade file.
+// This is a simplified way to get key-value pairs from the database.
+$webElements = WebSiteElements::whereIn('element', ['Email', 'Phone_number', 'Address', 'Logo', 'footer_content', 'whatsapp_footer_link', 'phone_footer_link'])
+                             ->pluck('element_details', 'element')
+                             ->toArray();
+?>
 <footer class="footer">
     <hr/>
     <div class="footer-top">
         <div class="footer-section logo-section">
-            <img src="/assets/images/logo1.png" style="height:150px;width:150px;" alt="Logo">
-            <p>Where devotion meets ocean waves and hearts. </p>
+@if(isset($webElements['Logo']))
+                <img src="{{ asset('website/uploads/WesiteElements/' . $webElements['Logo']) }}" style="height:150px;width:150px;" alt="Logo">
+            @else
+                <img src="/assets/images/logo1.png" style="height:150px;width:150px;" alt="Logo">
+            @endif            <p>Where devotion meets ocean waves and hearts. </p>
          
     <label for="enquiry" class="btn-enquire">ENQUIRE NOW</label>
     </div>
@@ -23,11 +36,52 @@
          </div>
 
         <div class="footer-section">
-            <h4>Contact Information</h4>
-            <p><strong>Company E-mail:</strong> info@odishavoyages.co.in</p>
-            <p><strong>Contact No:</strong> 9958298515</p>
-            <p><strong>Address:</strong> Block K, Birbal Road, Jangpura Ext., New Delhi - 110014</p>
-        </div>
+    <h4>Contact Information</h4>
+
+    {{-- Dynamic Email with static fallback --}}
+    @if(isset($webElements['Email']))
+        <p>
+            <i class="fas fa-envelope"></i> 
+            <strong>E-mail:</strong> 
+            <a href="mailto:{!! $webElements['Email'] !!}">{!! $webElements['Email'] !!}</a>
+        </p>
+    @else
+        <p>
+            <i class="fas fa-envelope"></i> 
+            <strong>E-mail:</strong> 
+            <a href="mailto:info@odishavoyages.co.in">info@odishavoyages.co.in</a>
+        </p>
+    @endif
+
+    {{-- Dynamic Phone Number with static fallback --}}
+    @if(isset($webElements['Phone_number']))
+        <p>
+            <i class="fas fa-phone"></i> 
+            <strong>Contact No:</strong> 
+            <a href="tel:{!! $webElements['Phone_number'] !!}">{!! $webElements['Phone_number'] !!}</a>
+        </p>
+    @else
+        <p>
+            <i class="fas fa-phone"></i> 
+            <strong>Contact No:</strong> 
+            <a href="tel:9958298515">9958298515</a>
+        </p>
+    @endif
+
+    {{-- Dynamic Address with static fallback --}}
+    @if(isset($webElements['Address']))
+        <p>
+            <i class="fas fa-map-marker-alt"></i> 
+            <strong>Address:</strong> {!! $webElements['Address'] !!}
+        </p>
+    @else
+        <p>
+            <i class="fas fa-map-marker-alt"></i> 
+            <strong>Address:</strong> Block K, Birbal Road, Jangpura Ext., New Delhi - 110014
+        </p>
+    @endif
+</div>
+
     </div>
 
     <div class="footer-bottom">
@@ -36,6 +90,9 @@
 </footer>
 
 <style>
+    a:hover{
+        color:white;
+    }
 .footer {
     background: #B71C1C;
     color:white ;
@@ -167,6 +224,9 @@
 </section>
 
 <style>
+    a{
+        color:white;
+    }
 section.enquiry-form {
   position: fixed;
   top: 50%;
@@ -257,6 +317,3 @@ input, select, textarea, .nice-select, .form-control {
 
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
-
