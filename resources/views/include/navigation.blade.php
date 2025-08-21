@@ -47,8 +47,8 @@
 
         <li><a href="{{ url('/') }}">Home</a></li>
         <li><a href="{{ route('aboutUs') }}">About</a></li>
-        <li><a href="{{ route('tourpage') }}">Tours</a></li>
-        <li><a href="{{ route('destinationpage') }}">Destinations</a></li>
+        <li><a href="{{ route('tourpage') }}">Packages</a></li>
+        <li><a href="{{ route('destinationpage') }}">Attractions</a></li>
         <!-- <li><a href="{{ route('servicePages') }}">Services</a></li> -->
         <li><a href="{{ route('galleryPages') }}">Gallery</a></li>
         <li><a href="{{ route('contactUs') }}">Contact Us</a></li>

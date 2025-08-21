@@ -380,9 +380,12 @@
                 <div class="gallery-item">
                     <div class="image-container">
                         <img src="https://media.istockphoto.com/id/1182880420/photo/mukteshvara-temple-in-bhubaneswar.jpg?s=612x612&w=0&k=20&c=qz2GRluhOzZTsHvkY3yt7YWZoltDGSTbaK0gSOCzyuM=">
-                        <a href="https://media.istockphoto.com/id/1182880420/photo/mukteshvara-temple-in-bhubaneswar.jpg?s=612x612&w=0&k=20&c=qz2GRluhOzZTsHvkY3yt7YWZoltDGSTbaK0gSOCzyuM=" class="overlay-link">
-                            ➡️
-                        </a>
+                                <a href="https://media.istockphoto.com/id/1182880420/photo/mukteshvara-temple-in-bhubaneswar.jpg?s=612x612&w=0&k=20&c=qz2GRluhOzZTsHvkY3yt7YWZoltDGSTbaK0gSOCzyuM="
+   data-fancybox="gallery"
+   data-caption="Bhubaneswar"
+   class="overlay-link">
+   ➡️
+</a>
                     </div>
                     <div class="content">
                         <h5>Bhubaneswar</h5>
@@ -393,9 +396,12 @@
                 <div class="gallery-item">
                     <div class="image-container">
                         <img src="https://www.shutterstock.com/image-photo/small-island-chilika-lake-600nw-2395274611.jpg" alt="Swimming near boat">
-                        <a href="https://www.shutterstock.com/image-photo/small-island-chilika-lake-600nw-2395274611.jpg" class="overlay-link">
-                            ➡️
-                        </a>
+                                 <a href="https://www.shutterstock.com/image-photo/small-island-chilika-lake-600nw-2395274611.jpg"
+   data-fancybox="gallery"
+   data-caption="Chilika lake"
+   class="overlay-link">
+   ➡️
+</a>
                     </div>
                     <div class="content">
                         <h5> Chilika lake</h5>
@@ -406,10 +412,13 @@
                 <div class="gallery-item">
                     <div class="image-container">
                         <img src="https://t4.ftcdn.net/jpg/04/82/09/83/360_F_482098383_n6JMrdv1bBwHYXX27qQGalGJ97xa1eK2.jpg" alt="Building in the desert">
-                        <a href="https://t4.ftcdn.net/jpg/04/82/09/83/360_F_482098383_n6JMrdv1bBwHYXX27qQGalGJ97xa1eK2.jpg" class="overlay-link">
-                            ➡️
-                        </a>
-                    </div>
+                     <a href="https://t4.ftcdn.net/jpg/04/82/09/83/360_F_482098383_n6JMrdv1bBwHYXX27qQGalGJ97xa1eK2.jpg"
+   data-fancybox="gallery"
+   data-caption="Jagannath Temple"
+   class="overlay-link">
+   ➡️
+</a>
+ </div>
                     <div class="content">
                         <h5>Jagannath Temple</h5>
                     </div>
@@ -419,9 +428,12 @@
                 <div class="gallery-item">
                     <div class="image-container">
                         <img src="https://media.istockphoto.com/id/1444924249/photo/konark-sun-temple-at-sunrise-konark-temple-is-a-unesco-world-heritage-site-at-puri-odisha.jpg?s=612x612&w=0&k=20&c=5Gd3UDpZeYh8DejD4a4TTrpAZLoPw5SARAUFT7hfwRk=" alt="Cliff near shore beach">
-                        <a href="https://media.istockphoto.com/id/1444924249/photo/konark-sun-temple-at-sunrise-konark-temple-is-a-unesco-world-heritage-site-at-puri-odisha.jpg?s=612x612&w=0&k=20&c=5Gd3UDpZeYh8DejD4a4TTrpAZLoPw5SARAUFT7hfwRk=" class="overlay-link">
-                            ➡️
-                        </a>
+                               <a href="https://media.istockphoto.com/id/1444924249/photo/konark-sun-temple-at-sunrise-konark-temple-is-a-unesco-world-heritage-site-at-puri-odisha.jpg?s=612x612&w=0&k=20&c=5Gd3UDpZeYh8DejD4a4TTrpAZLoPw5SARAUFT7hfwRk="
+   data-fancybox="gallery"
+   data-caption="Korank Temple"
+   class="overlay-link">
+   ➡️
+</a>
                     </div>
                     <div class="content">
                         <h5> Korank Temple</h5>
@@ -432,9 +444,12 @@
                 <div class="gallery-item">
                     <div class="image-container">
                         <img src="https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/cuttack-odisha.jpg" alt="Tent camping in the desert">
-                        <a href="https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/cuttack-odisha.jpg" class="overlay-link">
-                              ➡️
-                        </a>
+                             <a href="https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/cuttack-odisha.jpg"
+   data-fancybox="gallery"
+   data-caption="Cuttack"
+   class="overlay-link">
+   ➡️
+</a>
                     </div>
                     <div class="content">
                         <h5>Cuttack
@@ -446,9 +461,12 @@
                 <div class="gallery-item">
                     <div class="image-container">
                         <img src="https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/rourkela.jpg" alt="Machu Picchu, Peru">
-                        <a href="https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/rourkela.jpg" class="overlay-link">
-                            ➡️
-                        </a>
+                                <a href="https://www.godigit.com/content/dam/godigit/directportal/en/contenthm/rourkela.jpg"
+   data-fancybox="gallery"
+   data-caption="Rourkela"
+   class="overlay-link">
+   ➡️
+</a>
                     </div>
                     <div class="content">
                         <h5>Rourkela</h5>
@@ -459,6 +477,28 @@
     </section>
     </section>
     <script>
+  Fancybox.bind("[data-fancybox='gallery']", {
+    Thumbs: {
+      autoStart: true,
+    },
+    Toolbar: {
+      display: [
+        "zoom",
+        "close", // show close button
+      ],
+    },
+  });
+</script>
+<!-- Fancybox CSS -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css"
+/>
+<!-- Fancybox JS -->
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+
+    <script>
+        
         // Create animated particles
         function createParticles() {
             const particlesContainer = document.getElementById('particles');

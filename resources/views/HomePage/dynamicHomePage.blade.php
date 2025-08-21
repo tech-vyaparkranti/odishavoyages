@@ -1138,7 +1138,7 @@
         <div class="row justify-content-center">
             <div class="col-lg-12">
                 <div class="section-title text-white text-center counter-text-wrap mb-40">
-                    <h2 class="popular-destination">Popular Destinations</h2>
+                    <h2 class="popular-destination">Popular Attractions</h2>
                     <p style="color:black;">One site many popular experience you'll remember</p>
                 </div>
             </div>

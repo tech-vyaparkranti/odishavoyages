@@ -91,7 +91,7 @@
                             </select>
                         </div> -->
             <div class="row">
-                <h2 class="text-center pb-20" style="margin-bottom:100px;"> Popular Destinations</h2>
+                <h2 class="text-center pb-20" style="margin-bottom:100px;"> Popular Attractions</h2>
                 @if (!empty($homedestinations) && count($homedestinations))
                             @foreach ($homedestinations as $item)
                         <div class="col-xl-4 col-md-6 hovering">
