@@ -2437,7 +2437,7 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
     <div class="card guest-card">
       <div class="ratio ratio-16x9 position-relative">
         <img src="http://img.youtube.com/vi/V1gdk4cQIEI/maxresdefault.jpg" class="card-img-top" alt="Amazing Stay!">
-        <iframe class="video-frame" src="https://www.youtube.com/embed/V1gdk4cQIEI" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <iframe class="video-frame" src="https://www.youtube.com/embed/V1gdk4cQIEI?playlist=V1gdk4cQIEI&loop=1&autoplay=1&mute=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <div class="play-button">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
             <path d="M11.596 8.697l-6.363 3.692A.5.5 0 0 1 4 12.92V3.08a.5.5 0 0 1 .733-.442l6.363 3.692a.5.5 0 0 1 0 .868z"/>
