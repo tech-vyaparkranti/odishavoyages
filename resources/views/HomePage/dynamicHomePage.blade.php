@@ -2436,8 +2436,8 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
     <!-- Repeatable Guest Card -->
     <div class="card guest-card">
       <div class="ratio ratio-16x9 position-relative">
-        <img src="https://img.youtube.com/vi/kZ9mfW397f0/hqdefault.jpg" class="card-img-top" alt="Amazing Stay!">
-        <iframe class="video-frame" src="https://www.youtube.com/embed/kZ9mfW397f0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <img src="http://img.youtube.com/vi/V1gdk4cQIEI/maxresdefault.jpg" class="card-img-top" alt="Amazing Stay!">
+        <iframe class="video-frame" src="https://www.youtube.com/embed/V1gdk4cQIEI" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         <div class="play-button">
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
             <path d="M11.596 8.697l-6.363 3.692A.5.5 0 0 1 4 12.92V3.08a.5.5 0 0 1 .733-.442l6.363 3.692a.5.5 0 0 1 0 .868z"/>
@@ -2450,55 +2450,8 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
         <button class="btn btn-outline-secondary btn-sm close-video-btn">Close Video</button>
       </div>
     </div>
-        <div class="card guest-card">
-      <div class="ratio ratio-16x9 position-relative">
-        <img src="https://img.youtube.com/vi/kZ9mfW397f0/hqdefault.jpg" class="card-img-top" alt="Amazing Stay!">
-        <iframe class="video-frame" src="https://www.youtube.com/embed/kZ9mfW397f0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <div class="play-button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-            <path d="M11.596 8.697l-6.363 3.692A.5.5 0 0 1 4 12.92V3.08a.5.5 0 0 1 .733-.442l6.363 3.692a.5.5 0 0 1 0 .868z"/>
-          </svg>
-        </div>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Amazing Stay!</h5>
-        <p class="card-text text-muted small date">2025-08-22</p>
-        <button class="btn btn-outline-secondary btn-sm close-video-btn">Close Video</button>
-      </div>
-    </div>
-        <div class="card guest-card">
-      <div class="ratio ratio-16x9 position-relative">
-        <img src="https://img.youtube.com/vi/kZ9mfW397f0/hqdefault.jpg" class="card-img-top" alt="Amazing Stay!">
-        <iframe class="video-frame" src="https://www.youtube.com/embed/kZ9mfW397f0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <div class="play-button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-            <path d="M11.596 8.697l-6.363 3.692A.5.5 0 0 1 4 12.92V3.08a.5.5 0 0 1 .733-.442l6.363 3.692a.5.5 0 0 1 0 .868z"/>
-          </svg>
-        </div>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Amazing Stay!</h5>
-        <p class="card-text text-muted small">2025-08-22</p>
-        <button class="btn btn-outline-secondary btn-sm close-video-btn">Close Video</button>
-      </div>
-    </div>
-        <div class="card guest-card">
-      <div class="ratio ratio-16x9 position-relative">
-        <img src="https://img.youtube.com/vi/kZ9mfW397f0/hqdefault.jpg" class="card-img-top" alt="Amazing Stay!">
-        <iframe class="video-frame" src="https://www.youtube.com/embed/kZ9mfW397f0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        <div class="play-button">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
-            <path d="M11.596 8.697l-6.363 3.692A.5.5 0 0 1 4 12.92V3.08a.5.5 0 0 1 .733-.442l6.363 3.692a.5.5 0 0 1 0 .868z"/>
-          </svg>
-        </div>
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">Amazing Stay!</h5>
-        <p class="card-text text-muted small">2025-08-22</p>
-        <button class="btn btn-outline-secondary btn-sm close-video-btn">Close Video</button>
-      </div>
-    </div>
-    <!-- Add more cards as needed -->
+        
+       <!-- Add more cards as needed -->
   </div>
 </div>
 
