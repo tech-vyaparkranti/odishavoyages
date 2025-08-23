@@ -11,81 +11,101 @@ $webElements = WebSiteElements::whereIn('element', ['Email', 'Phone_number', 'Ad
 ?>
 <footer class="footer">
     <hr/>
-    <div class="footer-top">
-        <div class="footer-section logo-section">
-@if(isset($webElements['Logo']))
-                <img src="{{ asset('website/uploads/WesiteElements/' . $webElements['Logo']) }}" style="height:150px;width:150px;" alt="Logo">
-            @else
-                <img src="/assets/images/logo1.png" style="height:150px;width:150px;" alt="Logo">
-            @endif            <p>Where devotion meets ocean waves and hearts. </p>
-         
-    <label for="enquiry" class="btn-enquire">ENQUIRE NOW</label>
-    </div>
+    <div class="container-fluid">
+        <div class="row footer-top">
+            <div class="col-lg-3 col-md-6 col-sm-12 footer-section logo-section">
+                @if(isset($webElements['Logo']))
+                    <img src="{{ asset('website/uploads/WesiteElements/' . $webElements['Logo']) }}" style="height:150px;width:150px;" alt="Logo">
+                @else
+                    <img src="/assets/images/logo1.png" style="height:150px;width:150px;" alt="Logo">
+                @endif            
+                <p>Where devotion meets ocean waves and hearts.</p>
+                <label for="enquiry" class="btn-enquire">ENQUIRE NOW</label>
+            </div>
 
-        <div class="footer-section">
-            <h4>Quick Link</h4>
-            <ul>
-    <li><a href="{{ route('aboutUs') }}">About Us</a></li>
-     <li><a href="{{ route('galleryPages') }}">Gallery</a></li>
-      <li><a href="{{ route('contactUs') }}">Contact Us</a></li>
-        <li><a href="{{ route('blogpage') }}">Blogs</a></li>
-         <li><a href="{{ route('termsConditions') }}">Terms & Conditions</a></li>
-    <li><a href="{{ route('privacyPolicy') }}">Privacy Policy</a></li>
-</ul>
+            <div class="col-lg-2 col-md-6 col-sm-12 footer-section">
+                <h4>Quick Link</h4>
+                <ul>
+                    <li><a href="{{ route('aboutUs') }}">About Us</a></li>
+                    <li><a href="{{ route('galleryPages') }}">Gallery</a></li>
+                    <li><a href="{{ route('contactUs') }}">Contact Us</a></li>
+                    <li><a href="{{ route('blogpage') }}">Blogs</a></li>
+                </ul>
+            </div>
 
-         </div>
+            <div class="col-lg-3 col-md-6 col-sm-12 footer-section">
+                <h4>Major Attractions</h4>
+                <ul>
+                    <li><a href="{{ route('tourpage') }}">Packages</a></li>
+                    <li><a href="{{ route('destinationpage') }}">Attractions</a></li>
+                    
+                </ul>
+            </div>
 
-        <div class="footer-section">
-    <h4>Contact Information</h4>
+            <div class="col-lg-4 col-md-6 col-sm-12 footer-section">
+                <h4>Contact Information</h4>
 
-    {{-- Dynamic Email with static fallback --}}
-    @if(isset($webElements['Email']))
-        <p>
-            <i class="fas fa-envelope"></i> 
-            <strong>E-mail:</strong> 
-            <a href="mailto:{!! $webElements['Email'] !!}">{!! $webElements['Email'] !!}</a>
-        </p>
-    @else
-        <p>
-            <i class="fas fa-envelope"></i> 
-            <strong>E-mail:</strong> 
-            <a href="mailto:info@odishavoyages.co.in">info@odishavoyages.co.in</a>
-        </p>
-    @endif
+                {{-- Dynamic Email with static fallback --}}
+                @if(isset($webElements['Email']))
+                    <p>
+                        <i class="fas fa-envelope"></i> 
+                        <strong>E-mail:</strong> 
+                        <a href="mailto:{!! $webElements['Email'] !!}">{!! $webElements['Email'] !!}</a>
+                    </p>
+                @else
+                    <p>
+                        <i class="fas fa-envelope"></i> 
+                        <strong>E-mail:</strong> 
+                        <a href="mailto:info@odishavoyages.co.in">info@odishavoyages.co.in</a>
+                    </p>
+                @endif
 
-    {{-- Dynamic Phone Number with static fallback --}}
-    @if(isset($webElements['Phone_number']))
-        <p>
-            <i class="fas fa-phone"></i> 
-            <strong>Contact No:</strong> 
-            <a href="tel:{!! $webElements['Phone_number'] !!}">{!! $webElements['Phone_number'] !!}</a>
-        </p>
-    @else
-        <p>
-            <i class="fas fa-phone"></i> 
-            <strong>Contact No:</strong> 
-            <a href="tel:9958298515">9958298515</a>
-        </p>
-    @endif
+                {{-- Dynamic Phone Number with static fallback --}}
+                @if(isset($webElements['Phone_number']))
+                    <p>
+                        <i class="fas fa-phone"></i> 
+                        <strong>Contact No:</strong> 
+                        <a href="tel:{!! $webElements['Phone_number'] !!}">{!! $webElements['Phone_number'] !!}</a>
+                    </p>
+                @else
+                    <p>
+                        <i class="fas fa-phone"></i> 
+                        <strong>Contact No:</strong> 
+                        <a href="tel:9958298515">9958298515</a>
+                    </p>
+                @endif
 
-    {{-- Dynamic Address with static fallback --}}
-    @if(isset($webElements['Address']))
-        <p>
-            <i class="fas fa-map-marker-alt"></i> 
-            <strong>Address:</strong> {!! $webElements['Address'] !!}
-        </p>
-    @else
-        <p>
-            <i class="fas fa-map-marker-alt"></i> 
-            <strong>Address:</strong> Block K, Birbal Road, Jangpura Ext., New Delhi - 110014
-        </p>
-    @endif
-</div>
-
+                {{-- Dynamic Address with static fallback --}}
+                @if(isset($webElements['Address']))
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i> 
+                        <strong>Address:</strong> {!! $webElements['Address'] !!}
+                    </p>
+                @else
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i> 
+                        <strong>Address:</strong> Block K, Birbal Road, Jangpura Ext., New Delhi - 110014
+                    </p>
+                @endif
+            </div>
+        </div>
     </div>
 
     <div class="footer-bottom">
-        <p>© 2025 All Rights Reserved by odisha voyages  & Developed by <a href="#">Vyapar kranti</a></p>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="footer-bottom-content d-flex justify-content-between align-items-center flex-wrap">
+                        <p class="mb-0">© 2025 All Rights Reserved by odisha voyages & Developed by <a href="#">Vyapar kranti</a></p>
+                        <div class="footer-links">
+                            <a href="{{ route('termsConditions') }}">Terms & Conditions</a>
+                            <span class="mx-2">|</span>
+                            <a href="{{ route('privacyPolicy') }}">Privacy Policy</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </footer>
 
@@ -98,24 +118,18 @@ $webElements = WebSiteElements::whereIn('element', ['Email', 'Phone_number', 'Ad
     color:white ;
     font-family: Arial, sans-serif;
 }
+
 .footer-top {
-   display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-   
+    padding: 30px 15px;
 }
 
 @media only screen and (min-width: 768px) {
-  .footer-top {
-   
-    padding: 30px 100px;
-}
-
+    .footer-top {
+        padding: 30px 100px;
+    }
 }
 
 .footer-section {
-    flex: 1;
-    min-width: 250px;
     margin-bottom: 20px;
 }
 
@@ -154,6 +168,30 @@ $webElements = WebSiteElements::whereIn('element', ['Email', 'Phone_number', 'Ad
     padding: 10px 20px;
     text-align: center;
     font-size: 14px;
+    
+}
+
+.footer-bottom-content p {
+    margin: 0;
+}
+
+.footer-links {
+    display: flex;
+    align-items: center;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+}
+
+.footer-links span {
+    color: white;
 }
 
 .footer-bottom a {
@@ -161,17 +199,21 @@ $webElements = WebSiteElements::whereIn('element', ['Email', 'Phone_number', 'Ad
     font-weight: bold;
 }
 
-/* Responsive - Center li items on small screens */
+/* Mobile responsive adjustments */
 @media (max-width: 768px) {
-    .footer-top {
-        flex-direction: column;
+    .footer-section {
         text-align: center;
+        margin-bottom: 30px;
     }
 
-    .footer-section ul {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+    .footer-bottom-content {
+        flex-direction: column !important;
+        gap: 10px;
+        text-align: center !important;
+    }
+    
+    .footer-links {
+        justify-content: center;
     }
 }
 </style>

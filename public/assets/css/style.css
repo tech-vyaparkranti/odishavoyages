@@ -1036,9 +1036,6 @@ a.theme-btn.style-four:hover {
 }
 
 .slick-dots li {
-  width: 7px;
-  height: 7px;
-  margin: 0 7px;
   cursor: pointer;
   -webkit-transition: 0.5s;
   -o-transition: 0.5s;
@@ -1074,10 +1071,7 @@ a.theme-btn.style-four:hover {
   margin-right: 15px;
 }
 
-.slick-dots li.slick-active:before {
-  width: 22px;
-  height: 22px;
-}
+.slick-dots li.slick-active:before {}
 
 /*** Scroll Top style ***/
 .scroll-top {

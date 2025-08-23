@@ -2311,12 +2311,255 @@ const travelSwiper = new Swiper('#travel-gallery .destination-slider', {
             });
         });
     </script>
-    <style>
-  
 
-    </style>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
 
-    
+  <!-- Slick Carousel CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+
+  <style>
+    .card-title{
+        color:white;
+    }
+      h2 {
+            font-size: 3.5rem;
+            font-weight: 700;
+         background: linear-gradient(45deg, #ff9933, #b22222, #1e3c72, #228b22);
+   background-size: 300% 300%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease-in-out infinite;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+         h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ff6b8a, transparent);
+            border-radius: 2px;
+            animation: underlineGlow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        @keyframes underlineGlow {
+            from { box-shadow: 0 0 5px #ff6b6b; }
+            to { box-shadow: 0 0 20px #ff6b6b, 0 0 30px #ff6b6b; }
+        }
+    .guest-card {
+      height: 500px;
+      transition: all 0.3s ease;
+      position: relative;
+      margin: 0 15px; /* Horizontal spacing between cards */
+    }
+
+    .guest-slider {
+      padding: 0 15px; /* Prevent clipping of margins */
+    }
+
+    .guest-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .ratio.ratio-16x9 {
+      height: 350px;
+      border-radius: 30px;
+    }
+
+    .card-img-top {
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .video-frame {
+      display: none;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .play-button {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: red;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .play-button svg {
+      color: white;
+    }
+
+    .close-video-btn {
+      display: none;
+      margin-top: 10px;
+      background:#B71C1C;
+      color:white;
+    }
+    a {
+  text-decoration: none !important;
+}
+.card-text{
+    color: !important;
+}
+
+  </style>
+
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <span class="text-uppercase  fw-bold" style="color:#F1C40F">Traveler Insights</span>
+    <h2 class="fw-bold">Hear From Our Happy Travelers</h2>
+  </div>
+
+  <div class="guest-slider">
+    <!-- Repeatable Guest Card -->
+    <div class="card guest-card">
+      <div class="ratio ratio-16x9 position-relative">
+        <img src="https://img.youtube.com/vi/kZ9mfW397f0/hqdefault.jpg" class="card-img-top" alt="Amazing Stay!">
+        <iframe class="video-frame" src="https://www.youtube.com/embed/kZ9mfW397f0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="play-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+            <path d="M11.596 8.697l-6.363 3.692A.5.5 0 0 1 4 12.92V3.08a.5.5 0 0 1 .733-.442l6.363 3.692a.5.5 0 0 1 0 .868z"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Amazing Stay!</h5>
+        <p class="card-text text-muted small">2025-08-22</p>
+        <button class="btn btn-outline-secondary btn-sm close-video-btn">Close Video</button>
+      </div>
+    </div>
+        <div class="card guest-card">
+      <div class="ratio ratio-16x9 position-relative">
+        <img src="https://img.youtube.com/vi/kZ9mfW397f0/hqdefault.jpg" class="card-img-top" alt="Amazing Stay!">
+        <iframe class="video-frame" src="https://www.youtube.com/embed/kZ9mfW397f0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="play-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+            <path d="M11.596 8.697l-6.363 3.692A.5.5 0 0 1 4 12.92V3.08a.5.5 0 0 1 .733-.442l6.363 3.692a.5.5 0 0 1 0 .868z"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Amazing Stay!</h5>
+        <p class="card-text text-muted small date">2025-08-22</p>
+        <button class="btn btn-outline-secondary btn-sm close-video-btn">Close Video</button>
+      </div>
+    </div>
+        <div class="card guest-card">
+      <div class="ratio ratio-16x9 position-relative">
+        <img src="https://img.youtube.com/vi/kZ9mfW397f0/hqdefault.jpg" class="card-img-top" alt="Amazing Stay!">
+        <iframe class="video-frame" src="https://www.youtube.com/embed/kZ9mfW397f0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="play-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+            <path d="M11.596 8.697l-6.363 3.692A.5.5 0 0 1 4 12.92V3.08a.5.5 0 0 1 .733-.442l6.363 3.692a.5.5 0 0 1 0 .868z"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Amazing Stay!</h5>
+        <p class="card-text text-muted small">2025-08-22</p>
+        <button class="btn btn-outline-secondary btn-sm close-video-btn">Close Video</button>
+      </div>
+    </div>
+        <div class="card guest-card">
+      <div class="ratio ratio-16x9 position-relative">
+        <img src="https://img.youtube.com/vi/kZ9mfW397f0/hqdefault.jpg" class="card-img-top" alt="Amazing Stay!">
+        <iframe class="video-frame" src="https://www.youtube.com/embed/kZ9mfW397f0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        <div class="play-button">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+            <path d="M11.596 8.697l-6.363 3.692A.5.5 0 0 1 4 12.92V3.08a.5.5 0 0 1 .733-.442l6.363 3.692a.5.5 0 0 1 0 .868z"/>
+          </svg>
+        </div>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Amazing Stay!</h5>
+        <p class="card-text text-muted small">2025-08-22</p>
+        <button class="btn btn-outline-secondary btn-sm close-video-btn">Close Video</button>
+      </div>
+    </div>
+    <!-- Add more cards as needed -->
+  </div>
+</div>
+
+<!-- jQuery & Slick JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
+<script>
+  const slider = $('.guest-slider');
+
+  slider.slick({
+    dots: true,
+    infinite: true,
+    speed: 600,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3500,
+    pauseOnHover: true,
+    responsive: [
+      { breakpoint: 992, settings: { slidesToShow: 2 } },
+      { breakpoint: 576, settings: { slidesToShow: 1 } }
+    ]
+  });
+
+  $(document).on('click', '.play-button', function(e) {
+    e.stopPropagation();
+    $('.video-frame').each(function() {
+      const baseSrc = $(this).attr('src').split('?')[0];
+      $(this).hide().attr('src', baseSrc);
+      $(this).closest('.guest-card').find('img').show();
+      $(this).closest('.guest-card').find('.play-button').show();
+      $(this).closest('.guest-card').find('.close-video-btn').hide();
+    });
+
+    const card = $(this).closest('.guest-card');
+    const iframe = card.find('.video-frame');
+    const baseSrc = iframe.attr('src').split('?')[0];
+
+    card.find('img').hide();
+    iframe.show().attr('src', baseSrc + "?autoplay=1&mute=1");
+    $(this).hide();
+    card.find('.close-video-btn').show();
+    slider.slick('slickPause');
+  });
+
+  $(document).on('click', '.close-video-btn', function() {
+    const card = $(this).closest('.guest-card');
+    const iframe = card.find('.video-frame');
+    const baseSrc = iframe.attr('src').split('?')[0];
+
+    iframe.hide().attr('src', baseSrc);
+    card.find('img').show();
+    card.find('.play-button').show();
+    $(this).hide();
+    slider.slick('slickPlay');
+  });
+</script>
+
+
+
 <!-- Swiper CSS -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
 
